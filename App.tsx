@@ -13,6 +13,9 @@ import {ForgetPassword} from './src/components/ForgetPassword';
 import {OtpVerification} from './src/components/OtpVerification';
 import {HomeScreen} from './src/components/HomeScreen';
 import {DrawerView} from './src/components/dashboard/DrawerView';
+import {DashBoard} from './src/components/DashBoard';
+import {ProductDetails} from './src/components/ProductDetails';
+import {Account} from './src/components/NavBarComponents/Account';
 
 const RootStack = createNativeStackNavigator();
 const screens = [
@@ -61,6 +64,21 @@ const screens = [
     component: DrawerView,
     headerBackTitle: 'Home',
     headerShown: false,
+  },
+  {
+    name: 'DashBoard',
+    component: DashBoard,
+    headerBackTitle: 'DashBoard',
+  },
+  {
+    name: 'ProductDetails',
+    component: ProductDetails,
+    headerBackTitle: 'ProductDetails',
+  },
+  {
+    name: 'Account',
+    component: Account,
+    headerBackTitle: 'Account',
   },
 ];
 const App = () => {
