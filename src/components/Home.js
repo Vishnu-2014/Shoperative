@@ -36,6 +36,18 @@ const HomeScreen = ({navigation}) => {
       title: 'OtpVerification',
       target: 'OtpVerification',
     },
+    {
+      title: 'DashBoard',
+      target: 'DashBoard',
+    },
+    {
+      title: 'ProductDetails',
+      target: 'ProductDetails',
+    },
+    {
+      title: 'Account',
+      target: 'Account',
+    },
   ];
 
   return (
