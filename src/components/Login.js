@@ -6,7 +6,7 @@ import {Pressable} from 'react-native';
 
 const Login = () => {
   return (
-    <View>
+    <View style={styles.container}>
       <Text style={styles.headingStyles}>Login</Text>
       <View style={styles.FeildViewStyles}>
         <Foundation style={styles.iconStylesmobile} name="mobile" size={30} />

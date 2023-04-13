@@ -4,9 +4,7 @@ import {View, Text, StyleSheet} from 'react-native';
 const Account = () => {
   return (
     <View style={styles.container}>
-      <View style={styles.topColorBoxStyles}>
-        <Text>Profile</Text>
-      </View>
+      <View style={styles.topColorBoxStyles} />
     </View>
   );
 };
@@ -19,7 +17,7 @@ const styles = StyleSheet.create({
   topColorBoxStyles: {
     backgroundColor: '#ED7421',
     width: '100%',
-    height: 136,
+    height: 85,
   },
 });
 

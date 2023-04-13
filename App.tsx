@@ -32,7 +32,7 @@ const screens = [
   {
     name: 'PowerUserRegister',
     component: PowerUserRegister,
-    headerBackTitle: 'Home',
+    headerBackTitle: 'PowerUserRegister',
   },
   {
     name: 'AddFollowers',
@@ -78,7 +78,7 @@ const screens = [
   {
     name: 'Account',
     component: Account,
-    headerBackTitle: 'Account',
+    headerBackTitle: 'Profile',
   },
 ];
 const App = () => {
@@ -99,6 +99,10 @@ const App = () => {
               options={{
                 headerBackTitle: item.headerBackTitle ?? item.name,
                 headerShown: item.headerShown ?? true,
+                title: item.headerBackTitle,
+                headerTintColor: '#FFFFFF',
+                headerStyle: {backgroundColor: '#ED7421'},
+                headerShadowVisible: false,
               }}
             />
           ))}

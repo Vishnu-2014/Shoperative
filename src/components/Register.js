@@ -4,27 +4,16 @@ import {
   Text,
   StyleSheet,
   TextInput,
-  Button,
   Pressable,
   ScrollView,
 } from 'react-native';
 
 import DropdownExample from './CustomComponents/CustomDropDown';
+import {PowerUserRegister} from './PowerUserRegister';
 
-const Register = () => {
-  const CustomInputFeild = input => {
-    return (
-      <View style={styles.card}>
-        <TextInput
-          style={styles.feildStles}
-          placeholder={input}
-          placeholderTextColor={'#000000CC'}
-        />
-      </View>
-    );
-  };
+const Register = navigation => {
   return (
-    <View style={styles.container}>
+    <ScrollView style={styles.container}>
       <Text style={styles.logoStyles}>Hi!</Text>
       <Text style={styles.headingStyles}>Register a New Account</Text>
       <View style={styles.card}>
@@ -69,6 +58,7 @@ const Register = () => {
               flexDirection: 'row',
               backgroundColor: '#F3F3F3',
               justifyContent: 'space-between',
+              alignItems: 'center',
             },
           ]}>
           {/* city */}
@@ -87,19 +77,20 @@ const Register = () => {
         </View>
 
         <DropdownExample />
-        <Text>{''}</Text>
         <DropdownExample />
 
         <Pressable style={styles.signUpButton}>
           <Text style={styles.signUpButtonText}>SIGN UP</Text>
         </Pressable>
-        <Pressable style={styles.powerUserButton}>
+        <Pressable
+          style={styles.powerUserButton}
+          onPress={() => navigation.navigate('PowerUserRegister')}>
           <Text style={styles.powerUserButtonText}>
             REGISTER AS A POWER USER
           </Text>
         </Pressable>
       </View>
-    </View>
+    </ScrollView>
   );
 };
 
@@ -112,24 +103,22 @@ const styles = StyleSheet.create({
     fontSize: 48,
     color: '#ED7421',
     fontFamily: 'Nunito-Bold',
-    marginTop: 31.28,
-    marginLeft: 22,
+    marginTop: 5,
+    marginLeft: 12,
   },
   headingStyles: {
     fontSize: 20,
     color: '#000000',
     fontFamily: 'Poppins-Regular',
-    marginLeft: 22,
+    marginLeft: 12,
   },
   card: {
-    marginLeft: 22,
-    marginTop: 12,
-    marginRight: 22,
+    margin: 12,
   },
   feildStles: {
     backgroundColor: '#ffffff',
     height: 55,
-    marginTop: 16.96,
+    marginTop: 12,
   },
   signUpButton: {
     height: 55,
