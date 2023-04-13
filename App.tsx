@@ -30,7 +30,7 @@ const screens = [
   {
     name: 'PowerUserRegister',
     component: PowerUserRegister,
-    headerBackTitle: 'Home',
+    headerBackTitle: 'PowerUserRegister',
   },
   {
     name: 'AddFollowers',
@@ -70,7 +70,7 @@ const screens = [
   {
     name: 'Account',
     component: Account,
-    headerBackTitle: 'Account',
+    headerBackTitle: 'Profile',
   },
 ];
 const App = () => {
@@ -88,7 +88,12 @@ const App = () => {
               key={index}
               name={item.name}
               component={item.component}
-              options={{headerBackTitle: item.headerBackTitle ?? item.name}}
+              options={{
+                title: item.headerBackTitle,
+                headerTintColor: '#FFFFFF',
+                headerStyle: {backgroundColor: '#ED7421'},
+                headerShadowVisible: false,
+              }}
             />
           ))}
         </RootStack.Navigator>

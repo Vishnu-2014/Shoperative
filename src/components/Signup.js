@@ -6,7 +6,7 @@ import {Pressable} from 'react-native';
 
 const Signup = () => {
   return (
-    <View>
+    <View style={styles.container}>
       <Text style={styles.headingStyles}>SIGN UP</Text>
 
       <View style={styles.FeildViewStyles}>

@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {StyleSheet} from 'react-native';
+import {ScrollView, StyleSheet} from 'react-native';
 import {View, Text, TouchableOpacity, FlatList} from 'react-native';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 
@@ -25,14 +25,26 @@ const DropdownExample = input => {
   };
 
   return (
-    <View style={styles.container}>
+    <ScrollView style={styles.container}>
       <TouchableOpacity style={styles.ButtonStyles} onPress={toggleDropdown}>
-        <Text style={styles.TextStyles}>{selectedValue || 'react'}</Text>
-        <MaterialIcons name="arrow-drop-down" color={'#000'} size={20} />
+        <Text style={styles.TextStyles}>
+          {selectedValue || '--Select Your Profession--'}
+        </Text>
+        <MaterialIcons
+          name="arrow-drop-down"
+          color={'#333'}
+          size={30}
+          style={{
+            transform: isDropdownOpen
+              ? [{rotate: '180deg'}]
+              : [{rotate: '0deg'}],
+          }}
+        />
       </TouchableOpacity>
       {isDropdownOpen && (
         <FlatList
           data={options}
+          nestedScrollEnabled={true}
           renderItem={({item}) => (
             <TouchableOpacity onPress={() => selectOption(item.value)}>
               <Text style={styles.contentTextStyles}>{item.label}</Text>
@@ -41,15 +53,14 @@ const DropdownExample = input => {
           keyExtractor={item => item.id.toString()}
         />
       )}
-    </View>
+    </ScrollView>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    marginTop: 18,
-    marginBottom: 29,
+    marginTop: 10,
   },
   ButtonStyles: {
     backgroundColor: '#FFFFFF',
