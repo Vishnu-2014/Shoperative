@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import React from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 
@@ -14,6 +15,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#FFFFFF',
   },
+
   topColorBoxStyles: {
     backgroundColor: '#ED7421',
     width: '100%',

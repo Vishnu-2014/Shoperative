@@ -9,9 +9,8 @@ import {
 } from 'react-native';
 
 import DropdownExample from './CustomComponents/CustomDropDown';
-import {PowerUserRegister} from './PowerUserRegister';
 
-const Register = navigation => {
+const Register = () => {
   return (
     <ScrollView style={styles.container}>
       <Text style={styles.logoStyles}>Hi!</Text>
@@ -82,9 +81,7 @@ const Register = navigation => {
         <Pressable style={styles.signUpButton}>
           <Text style={styles.signUpButtonText}>SIGN UP</Text>
         </Pressable>
-        <Pressable
-          style={styles.powerUserButton}
-          onPress={() => navigation.navigate('PowerUserRegister')}>
+        <Pressable style={styles.powerUserButton}>
           <Text style={styles.powerUserButtonText}>
             REGISTER AS A POWER USER
           </Text>

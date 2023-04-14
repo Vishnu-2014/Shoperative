@@ -1,17 +1,23 @@
 import {Image} from '@rneui/themed';
 import React from 'react';
-import {View, Text} from 'react-native';
+import {View, Text, Dimensions} from 'react-native';
 import IndianGrocerySupplier from '../images/Indian-Groceries-supplier.png';
 import ProductDetailsImage from '../images/productDetails.png';
 import {StyleSheet} from 'react-native';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import {Pressable} from 'react-native';
 
+const dimensions = Dimensions.get('window');
+const imageWidth = dimensions.width;
+const imageHeight = dimensions.height;
+
 const ProductDetails = () => {
   return (
     <View style={styles.container}>
       <FontAwesome name="heart" style={styles.iconStyles} size={20} />
-      <Image source={IndianGrocerySupplier} style={styles.imageStyles} />
+      <View style={styles.imageContainerStyles}>
+        <Image source={IndianGrocerySupplier} style={styles.imageStyles} />
+      </View>
       <Text style={styles.productNameStyle}>Groceries</Text>
       <Text style={styles.priceTextStyles}> ₹ 785</Text>
       <Text style={styles.productSummaryStyles}>
@@ -65,16 +71,21 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#FFFFFF',
+    alignItems: 'center',
+  },
+  imageContainerStyles: {
+    width: '90%',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   imageStyles: {
-    width: 332,
-    height: 238,
-    marginTop: 22,
-    marginLeft: 39,
+    width: imageWidth,
+    height: imageHeight / 2,
   },
   iconStyles: {
     position: 'absolute',
-    marginLeft: 350,
+    marginRight: 350,
+    alignSelf: 'flex-end',
     marginTop: 45,
     color: '#ED7421',
   },
@@ -83,16 +94,17 @@ const styles = StyleSheet.create({
     fontFamily: 'Poppins-Bold',
     color: '#ED7421',
     marginTop: 39,
-    marginLeft: 23,
+    marginLeft: '5%',
+    alignSelf: 'flex-start',
   },
   priceTextStyles: {
-    marginLeft: 23,
+    marginLeft: '5%',
     color: '#000',
     fontFamily: 'Poppins-SemiBold',
     marginTop: 5,
+    alignSelf: 'flex-start',
   },
   productSummaryStyles: {
-    marginLeft: 23,
     marginTop: 12,
     width: '90%',
   },
@@ -101,7 +113,8 @@ const styles = StyleSheet.create({
     fontFamily: 'Poppins-Bold',
     color: '#ED7421',
     marginTop: 35,
-    marginLeft: 23,
+    alignSelf: 'flex-start',
+    marginLeft: '5%',
   },
   relatedImageStyles: {
     width: 78,
