@@ -6,7 +6,7 @@ import {Pressable} from 'react-native';
 
 const ForgetPassword = () => {
   return (
-    <View>
+    <View style={styles.container}>
       <Text style={styles.headingStyles}>Forget Password</Text>
       <View style={styles.FeildViewStyles}>
         <Foundation style={styles.iconStylesmobile} name="mobile" size={30} />
@@ -30,7 +30,8 @@ const ForgetPassword = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#FFF',
+    backgroundColor: '#FFFFFF',
+    alignItems: 'center',
   },
   headingStyles: {
     marginTop: 260,
@@ -40,9 +41,8 @@ const styles = StyleSheet.create({
     fontFamily: 'Poppins-Bold',
   },
   FeildViewStyles: {
-    height: 55,
-    marginLeft: 22,
-    marginRight: 22,
+    height: 50,
+    width: '90%',
     marginTop: 30,
     backgroundColor: '#F3F3F3',
     flexDirection: 'row',
@@ -56,8 +56,7 @@ const styles = StyleSheet.create({
     padding: 10,
   },
   buttonStyles: {
-    marginLeft: 22,
-    marginRight: 22,
+    width: '90%',
     marginTop: 33,
     backgroundColor: '#ED7421',
     height: 55,

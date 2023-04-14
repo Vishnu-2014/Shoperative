@@ -58,7 +58,7 @@ const styles = StyleSheet.create({
   },
   numberTextStyle: {
     fontSize: 16,
-    fontFamily: 'Poppins-Regular',
+    fontFamily: 'Poppins-Medium',
   },
   inputFeildsViewStyle: {
     width: '70%',
@@ -80,15 +80,15 @@ const styles = StyleSheet.create({
     fontSize: 14,
     fontFamily: 'Poppins-Regular',
     color: '#242424CC',
-    marginTop: 44.5,
+    marginTop: 45,
   },
   buttonStyle: {
     width: '80%',
-    height: 55,
+    height: 50,
     backgroundColor: '#ED7421',
     justifyContent: 'center',
     alignItems: 'center',
-    marginTop: 37.5,
+    marginTop: 30,
   },
   buttonTextStyle: {
     color: '#FFFFFF',

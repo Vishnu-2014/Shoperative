@@ -22,12 +22,19 @@ const Login = () => {
 
       <Text style={styles.forgetPasswordStyles}>Forget Password?</Text>
 
-      <Pressable style={styles.buttonStyles}>
+      <Pressable
+        style={styles.buttonStyles}
+        onPress={() => console.log('Login Button Clicked')}>
         <Text style={styles.buttonTextStyles}>LOG IN</Text>
       </Pressable>
 
       <Text style={styles.bottomTextStyles}>
-        Don't Have An Account? <Text style={{color: '#ED7421'}}>Sign Up</Text>
+        Don't Have An Account?{' '}
+        <Text
+          style={{color: '#ED7421'}}
+          onPress={() => console.log('SignUp Clicked')}>
+          Sign Up
+        </Text>
       </Text>
     </View>
   );
@@ -37,6 +44,8 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#FFF',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   headingStyles: {
     marginTop: 260,
@@ -46,9 +55,8 @@ const styles = StyleSheet.create({
     fontFamily: 'Poppins-Bold',
   },
   FeildViewStyles: {
-    height: 55,
-    marginLeft: 22,
-    marginRight: 22,
+    width: '90%',
+    height: 50,
     marginTop: 30,
     backgroundColor: '#F3F3F3',
     flexDirection: 'row',
@@ -67,16 +75,16 @@ const styles = StyleSheet.create({
   forgetPasswordStyles: {
     color: '#ED7421',
     marginTop: 31,
-    marginLeft: 271,
+    alignSelf: 'flex-end',
+    marginRight: '5%',
     fontSize: 14,
     fontFamily: 'Poppins-Medium',
   },
   buttonStyles: {
-    marginLeft: 22,
-    marginRight: 22,
+    width: '90%',
     marginTop: 33,
     backgroundColor: '#ED7421',
-    height: 55,
+    height: 50,
     justifyContent: 'center',
     alignItems: 'center',
   },
@@ -89,9 +97,7 @@ const styles = StyleSheet.create({
     fontSize: 14,
     fontFamily: 'Poppins-Medium',
     color: '#000000CC',
-    marginLeft: 101.5,
-    marginRight: 101.5,
-    marginTop: 37.5,
+    marginTop: 27.5,
   },
 });
 

@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import React from 'react';
 import {
   View,
@@ -12,17 +13,6 @@ import {
 import DropdownExample from './CustomComponents/CustomDropDown';
 
 const PowerUserRegister = () => {
-  const CustomInputFeild = input => {
-    return (
-      <View style={styles.card}>
-        <TextInput
-          style={styles.feildStles}
-          placeholder={input}
-          placeholderTextColor={'#000000CC'}
-        />
-      </View>
-    );
-  };
   return (
     <View style={styles.container}>
       <Text style={styles.logoStyles}>Power User</Text>
@@ -56,6 +46,7 @@ const PowerUserRegister = () => {
             style={[styles.feildStles, {width: '48%', marginTop: 0}]}
             placeholder={'Mobile'}
             placeholderTextColor={'#000000CC'}
+            keyboardType="number-pad"
           />
 
           {/* state */}
@@ -63,6 +54,7 @@ const PowerUserRegister = () => {
             style={[styles.feildStles, {width: '48%', marginTop: 0}]}
             placeholder={'Email'}
             placeholderTextColor={'#000000CC'}
+            keyboardType="email-address"
           />
         </View>
 
@@ -111,6 +103,7 @@ const PowerUserRegister = () => {
             style={[styles.feildStles, {width: '48%', marginTop: 0}]}
             placeholder={'Password'}
             placeholderTextColor={'#000000CC'}
+            secureTextEntry={true}
           />
 
           {/* state */}
@@ -118,19 +111,13 @@ const PowerUserRegister = () => {
             style={[styles.feildStles, {width: '48%', marginTop: 0}]}
             placeholder={'Confirm Password'}
             placeholderTextColor={'#000000CC'}
+            secureTextEntry={true}
           />
         </View>
 
-        <TextInput
-          style={styles.feildStles}
-          placeholder={'DropDown'}
-          placeholderTextColor={'#000000CC'}
-        />
-        <TextInput
-          style={styles.feildStles}
-          placeholder={'DropDown'}
-          placeholderTextColor={'#000000CC'}
-        />
+        <DropdownExample />
+        <DropdownExample />
+
         <TextInput
           style={styles.feildStles}
           placeholder={'Add Elements'}
@@ -149,7 +136,7 @@ const PowerUserRegister = () => {
         />
 
         <TextInput
-          style={styles.feildStles}
+          style={[styles.feildStles, {height: 90, textAlignVertical: 'top'}]}
           placeholder={'Address'}
           placeholderTextColor={'#000000CC'}
           multiline={true}
@@ -177,35 +164,35 @@ const styles = StyleSheet.create({
     backgroundColor: '#F3F3F3',
   },
   logoStyles: {
-    fontSize: 48,
+    fontSize: 38,
     color: '#ED7421',
     fontFamily: 'Nunito-Bold',
-    marginTop: 30.28,
+    marginTop: 5,
     marginLeft: 22,
   },
   headingStyles: {
-    fontSize: 20,
+    fontSize: 18,
     color: '#000000',
     fontFamily: 'Poppins-Regular',
     marginLeft: 22,
   },
   card: {
     marginLeft: 22,
-    marginTop: 12,
+    marginTop: 10,
     marginRight: 22,
   },
   feildStles: {
     backgroundColor: '#ffffff',
-    height: 55,
-    marginTop: 16.96,
+    height: 45,
+    marginTop: 12,
   },
   signUpButton: {
-    height: 55,
+    height: 45,
     backgroundColor: '#ED7421',
     marginTop: 20,
     justifyContent: 'center',
     alignItems: 'center',
-    marginBottom: 20,
+    marginBottom: 10,
   },
   signUpButtonText: {
     color: '#FFFFFF',
@@ -213,9 +200,9 @@ const styles = StyleSheet.create({
     fontFamily: 'Poppins-Bold',
   },
   powerUserButton: {
-    height: 55,
+    height: 45,
     backgroundColor: '#FFFFFF',
-    marginTop: 20,
+    marginTop: 10,
     justifyContent: 'center',
     alignItems: 'center',
     borderWidth: 1,
@@ -223,7 +210,7 @@ const styles = StyleSheet.create({
   },
   powerUserButtonText: {
     color: '#ED7421',
-    fontSize: 18,
+    fontSize: 16,
     fontFamily: 'Poppins-Bold',
   },
 });
