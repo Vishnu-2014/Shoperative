@@ -20,35 +20,35 @@ const Register = () => {
         <TextInput
           style={styles.feildStles}
           placeholder={'Name'}
-          placeholderTextColor={'#000000CC'}
+          placeholderTextColor={'#666666'}
         />
 
         {/* mobile number */}
         <TextInput
           style={styles.feildStles}
           placeholder={'Mobile Number'}
-          placeholderTextColor={'#000000CC'}
+          placeholderTextColor={'#666666'}
         />
 
         {/* email */}
         <TextInput
           style={styles.feildStles}
           placeholder={'Email'}
-          placeholderTextColor={'#000000CC'}
+          placeholderTextColor={'#666666'}
         />
 
         {/* password */}
         <TextInput
           style={styles.feildStles}
           placeholder={'Password'}
-          placeholderTextColor={'#000000CC'}
+          placeholderTextColor={'#666666'}
         />
 
         {/* confirm password */}
         <TextInput
           style={styles.feildStles}
           placeholder={'Confirm Passwod'}
-          placeholderTextColor={'#000000CC'}
+          placeholderTextColor={'#666666'}
         />
         <View
           style={[
@@ -58,20 +58,21 @@ const Register = () => {
               backgroundColor: '#F3F3F3',
               justifyContent: 'space-between',
               alignItems: 'center',
+              paddingHorizontal: 0,
             },
           ]}>
           {/* city */}
           <TextInput
             style={[styles.feildStles, {width: '48%', marginTop: 0}]}
             placeholder={'City'}
-            placeholderTextColor={'#000000CC'}
+            placeholderTextColor={'#666666'}
           />
 
           {/* state */}
           <TextInput
             style={[styles.feildStles, {width: '48%', marginTop: 0}]}
-            placeholder={'state'}
-            placeholderTextColor={'#000000CC'}
+            placeholder={'State'}
+            placeholderTextColor={'#666666'}
           />
         </View>
 
@@ -97,16 +98,16 @@ const styles = StyleSheet.create({
     backgroundColor: '#F3F3F3',
   },
   logoStyles: {
-    fontSize: 48,
+    fontSize: 38,
     color: '#ED7421',
     fontFamily: 'Nunito-Bold',
     marginTop: 5,
     marginLeft: 12,
   },
   headingStyles: {
-    fontSize: 20,
+    fontSize: 17,
     color: '#000000',
-    fontFamily: 'Poppins-Regular',
+    fontWeight: '500',
     marginLeft: 12,
   },
   card: {
@@ -114,11 +115,12 @@ const styles = StyleSheet.create({
   },
   feildStles: {
     backgroundColor: '#ffffff',
-    height: 55,
+    height: 50,
     marginTop: 12,
+    paddingHorizontal: 15,
   },
   signUpButton: {
-    height: 55,
+    height: 50,
     backgroundColor: '#ED7421',
     marginTop: 34,
     justifyContent: 'center',
@@ -126,12 +128,11 @@ const styles = StyleSheet.create({
   },
   signUpButtonText: {
     color: '#FFFFFF',
-    fontSize: 18,
+    fontSize: 16,
     fontFamily: 'Poppins-Bold',
   },
   powerUserButton: {
-    height: 55,
-    backgroundColor: '#FFFFFF',
+    height: 50,
     marginTop: 20,
     justifyContent: 'center',
     alignItems: 'center',
@@ -141,7 +142,7 @@ const styles = StyleSheet.create({
   },
   powerUserButtonText: {
     color: '#ED7421',
-    fontSize: 18,
+    fontSize: 16,
     fontFamily: 'Poppins-Bold',
   },
 });

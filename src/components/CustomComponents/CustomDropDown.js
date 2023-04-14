@@ -28,12 +28,12 @@ const DropdownExample = input => {
     <ScrollView style={styles.container}>
       <TouchableOpacity style={styles.ButtonStyles} onPress={toggleDropdown}>
         <Text style={styles.TextStyles}>
-          {selectedValue || '--Select Your Profession--'}
+          {selectedValue || '-- Select Your Profession --'}
         </Text>
         <MaterialIcons
-          name="arrow-drop-down"
+          name="keyboard-arrow-down"
           color={'#333'}
-          size={30}
+          size={20}
           style={{
             transform: isDropdownOpen
               ? [{rotate: '180deg'}]
@@ -65,9 +65,10 @@ const styles = StyleSheet.create({
   ButtonStyles: {
     backgroundColor: '#FFFFFF',
     flexDirection: 'row',
-    justifyContent: 'space-around',
-    height: 55,
+    justifyContent: 'space-between',
+    height: 50,
     alignItems: 'center',
+    paddingHorizontal: 15,
   },
   contentTextStyles: {
     height: 50,
@@ -79,8 +80,10 @@ const styles = StyleSheet.create({
     fontSize: 18,
   },
   TextStyles: {
-    fontSize: 16,
+    fontSize: 13,
     fontFamily: 'Poppins-Bold',
+    color: '#000000',
+    opacity: 0.35,
   },
 });
 

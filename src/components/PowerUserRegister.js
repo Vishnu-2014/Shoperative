@@ -5,7 +5,6 @@ import {
   Text,
   StyleSheet,
   TextInput,
-  Button,
   Pressable,
   ScrollView,
 } from 'react-native';
@@ -22,14 +21,14 @@ const PowerUserRegister = () => {
         <TextInput
           style={styles.feildStles}
           placeholder={'Name'}
-          placeholderTextColor={'#000000CC'}
+          placeholderTextColor={'#666666'}
         />
 
         {/* mobile number */}
         <TextInput
           style={styles.feildStles}
-          placeholder={'Name Of The Food Co-Operative'}
-          placeholderTextColor={'#000000CC'}
+          placeholder={'Name Of The Food Co-operative'}
+          placeholderTextColor={'#666666'}
         />
 
         <View
@@ -39,13 +38,14 @@ const PowerUserRegister = () => {
               flexDirection: 'row',
               backgroundColor: '#F3F3F3',
               justifyContent: 'space-between',
+              paddingHorizontal: 0,
             },
           ]}>
           {/* city */}
           <TextInput
             style={[styles.feildStles, {width: '48%', marginTop: 0}]}
             placeholder={'Mobile'}
-            placeholderTextColor={'#000000CC'}
+            placeholderTextColor={'#666666'}
             keyboardType="number-pad"
           />
 
@@ -53,7 +53,7 @@ const PowerUserRegister = () => {
           <TextInput
             style={[styles.feildStles, {width: '48%', marginTop: 0}]}
             placeholder={'Email'}
-            placeholderTextColor={'#000000CC'}
+            placeholderTextColor={'#666666'}
             keyboardType="email-address"
           />
         </View>
@@ -62,7 +62,7 @@ const PowerUserRegister = () => {
         <TextInput
           style={styles.feildStles}
           placeholder={'Area'}
-          placeholderTextColor={'#000000CC'}
+          placeholderTextColor={'#666666'}
         />
 
         <View
@@ -72,20 +72,21 @@ const PowerUserRegister = () => {
               flexDirection: 'row',
               backgroundColor: '#F3F3F3',
               justifyContent: 'space-between',
+              paddingHorizontal: 0,
             },
           ]}>
           {/* city */}
           <TextInput
             style={[styles.feildStles, {width: '48%', marginTop: 0}]}
             placeholder={'City'}
-            placeholderTextColor={'#000000CC'}
+            placeholderTextColor={'#666666'}
           />
 
           {/* state */}
           <TextInput
             style={[styles.feildStles, {width: '48%', marginTop: 0}]}
             placeholder={'state'}
-            placeholderTextColor={'#000000CC'}
+            placeholderTextColor={'#666666'}
           />
         </View>
 
@@ -96,13 +97,14 @@ const PowerUserRegister = () => {
               flexDirection: 'row',
               backgroundColor: '#F3F3F3',
               justifyContent: 'space-between',
+              paddingHorizontal: 0,
             },
           ]}>
           {/* city */}
           <TextInput
             style={[styles.feildStles, {width: '48%', marginTop: 0}]}
             placeholder={'Password'}
-            placeholderTextColor={'#000000CC'}
+            placeholderTextColor={'#666666'}
             secureTextEntry={true}
           />
 
@@ -110,7 +112,7 @@ const PowerUserRegister = () => {
           <TextInput
             style={[styles.feildStles, {width: '48%', marginTop: 0}]}
             placeholder={'Confirm Password'}
-            placeholderTextColor={'#000000CC'}
+            placeholderTextColor={'#666666'}
             secureTextEntry={true}
           />
         </View>
@@ -121,29 +123,29 @@ const PowerUserRegister = () => {
         <TextInput
           style={styles.feildStles}
           placeholder={'Add Elements'}
-          placeholderTextColor={'#000000CC'}
+          placeholderTextColor={'#666666'}
         />
 
         <TextInput
           style={styles.feildStles}
           placeholder={'GST Number'}
-          placeholderTextColor={'#000000CC'}
+          placeholderTextColor={'#666666'}
         />
         <TextInput
           style={styles.feildStles}
           placeholder={'PAN Number'}
-          placeholderTextColor={'#000000CC'}
+          placeholderTextColor={'#666666'}
         />
 
         <TextInput
           style={[styles.feildStles, {height: 90, textAlignVertical: 'top'}]}
           placeholder={'Address'}
-          placeholderTextColor={'#000000CC'}
+          placeholderTextColor={'#666666'}
           multiline={true}
         />
 
         <Pressable style={styles.powerUserButton}>
-          <Text style={styles.powerUserButtonText}>+ Choose ID Proof</Text>
+          <Text style={styles.powerUserButtonText}>+ Choose Id Proof</Text>
         </Pressable>
 
         <Pressable style={styles.powerUserButton}>
@@ -151,7 +153,7 @@ const PowerUserRegister = () => {
         </Pressable>
 
         <Pressable style={styles.signUpButton}>
-          <Text style={styles.signUpButtonText}>SIGN UP</Text>
+          <Text style={styles.signUpButtonText}>ADD</Text>
         </Pressable>
       </ScrollView>
     </View>
@@ -173,8 +175,9 @@ const styles = StyleSheet.create({
   headingStyles: {
     fontSize: 18,
     color: '#000000',
-    fontFamily: 'Poppins-Regular',
+    fontFamily: 'Poppins-Medium',
     marginLeft: 22,
+    marginTop: 5,
   },
   card: {
     marginLeft: 22,
@@ -185,6 +188,9 @@ const styles = StyleSheet.create({
     backgroundColor: '#ffffff',
     height: 45,
     marginTop: 12,
+    paddingHorizontal: 15,
+    fontSize: 13,
+    fontFamily: 'Poppins-Medium',
   },
   signUpButton: {
     height: 45,
@@ -206,12 +212,12 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     borderWidth: 1,
-    borderColor: '#ED7421',
+    borderColor: '#7F7F7F',
   },
   powerUserButtonText: {
-    color: '#ED7421',
+    color: '#7F7F7F',
     fontSize: 16,
-    fontFamily: 'Poppins-Bold',
+    fontWeight: '500',
   },
 });
 

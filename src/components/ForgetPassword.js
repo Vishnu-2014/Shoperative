@@ -32,12 +32,12 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#FFFFFF',
     alignItems: 'center',
+    justifyContent: 'center',
   },
   headingStyles: {
-    marginTop: 260,
     textAlign: 'center',
     color: '#ED7421',
-    fontSize: 32,
+    fontSize: 26,
     fontFamily: 'Poppins-Bold',
   },
   FeildViewStyles: {
@@ -51,6 +51,7 @@ const styles = StyleSheet.create({
   inputFeildStyles: {
     marginLeft: 2,
     width: '80%',
+    fontFamily: 'Poppins-Medium',
   },
   iconStylesmobile: {
     padding: 10,
@@ -59,12 +60,12 @@ const styles = StyleSheet.create({
     width: '90%',
     marginTop: 33,
     backgroundColor: '#ED7421',
-    height: 55,
+    height: 50,
     justifyContent: 'center',
     alignItems: 'center',
   },
   buttonTextStyles: {
-    fontSize: 20,
+    fontSize: 17,
     fontFamily: 'Poppins-Bold',
     color: '#FFFFFF',
   },
@@ -72,8 +73,6 @@ const styles = StyleSheet.create({
     fontSize: 14,
     fontFamily: 'Poppins-Medium',
     color: '#000000CC',
-    marginLeft: 101.5,
-    marginRight: 101.5,
     marginTop: 37.5,
   },
 });

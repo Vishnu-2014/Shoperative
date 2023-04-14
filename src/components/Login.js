@@ -9,14 +9,14 @@ const Login = () => {
     <View style={styles.container}>
       <Text style={styles.headingStyles}>Login</Text>
       <View style={styles.FeildViewStyles}>
-        <Foundation style={styles.iconStylesmobile} name="mobile" size={30} />
+        <Foundation style={styles.iconStylesmobile} name="mobile" size={25} />
         <TextInput
           style={styles.inputFeildStyles}
           placeholder="Mobile Number"
         />
       </View>
       <View style={styles.FeildViewStyles}>
-        <AntDesign style={styles.iconStyleslock} name="lock" size={30} />
+        <AntDesign style={styles.iconStyleslock} name="lock" size={20} />
         <TextInput style={styles.inputFeildStyles} placeholder="Password" />
       </View>
 
@@ -29,7 +29,7 @@ const Login = () => {
       </Pressable>
 
       <Text style={styles.bottomTextStyles}>
-        Don't Have An Account?{' '}
+        Don't Have An Account ?{' '}
         <Text
           style={{color: '#ED7421'}}
           onPress={() => console.log('SignUp Clicked')}>
@@ -43,15 +43,14 @@ const Login = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#FFF',
+    backgroundColor: '#FFFFFF',
     justifyContent: 'center',
     alignItems: 'center',
   },
   headingStyles: {
-    marginTop: 260,
     textAlign: 'center',
     color: '#ED7421',
-    fontSize: 32,
+    fontSize: 30,
     fontFamily: 'Poppins-Bold',
   },
   FeildViewStyles: {
@@ -61,16 +60,26 @@ const styles = StyleSheet.create({
     backgroundColor: '#F3F3F3',
     flexDirection: 'row',
     alignItems: 'center',
+    paddingHorizontal: 10,
   },
   inputFeildStyles: {
     marginLeft: 2,
     width: '80%',
+    flex: 15,
   },
   iconStylesmobile: {
-    padding: 10,
+    flex: 1,
+    width: '100%',
+    height: '100%',
+    verticalAlign: 'middle',
+    textAlign: 'center',
   },
   iconStyleslock: {
-    padding: 2,
+    flex: 1,
+    width: '100%',
+    height: '100%',
+    verticalAlign: 'middle',
+    textAlign: 'center',
   },
   forgetPasswordStyles: {
     color: '#ED7421',
@@ -89,7 +98,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   buttonTextStyles: {
-    fontSize: 20,
+    fontSize: 18,
     fontFamily: 'Poppins-Bold',
     color: '#FFFFFF',
   },

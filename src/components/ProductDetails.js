@@ -1,15 +1,11 @@
 import {Image} from '@rneui/themed';
 import React from 'react';
-import {View, Text, Dimensions} from 'react-native';
+import {View, Text} from 'react-native';
 import IndianGrocerySupplier from '../images/Indian-Groceries-supplier.png';
 import ProductDetailsImage from '../images/productDetails.png';
 import {StyleSheet} from 'react-native';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import {Pressable} from 'react-native';
-
-const dimensions = Dimensions.get('window');
-const imageWidth = dimensions.width;
-const imageHeight = dimensions.height;
 
 const ProductDetails = () => {
   return (
@@ -79,8 +75,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   imageStyles: {
-    width: imageWidth,
-    height: imageHeight / 2,
+    width: 332,
+    height: 220,
   },
   iconStyles: {
     position: 'absolute',
