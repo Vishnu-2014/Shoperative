@@ -44,20 +44,20 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#FFFFFF',
     alignItems: 'center',
+    justifyContent: 'center',
   },
   OtpLockImageStyles: {
-    marginTop: 252,
     width: 100,
     height: 100,
   },
   headingStyle: {
     marginTop: 15,
-    fontSize: 32,
+    fontSize: 26,
     fontFamily: 'Poppins-Bold',
     color: '#ED7421',
   },
   numberTextStyle: {
-    fontSize: 16,
+    fontSize: 15,
     fontFamily: 'Poppins-Medium',
   },
   inputFeildsViewStyle: {
@@ -92,7 +92,7 @@ const styles = StyleSheet.create({
   },
   buttonTextStyle: {
     color: '#FFFFFF',
-    fontSize: 20,
+    fontSize: 16,
     fontFamily: 'Poppins-Bold',
   },
 });

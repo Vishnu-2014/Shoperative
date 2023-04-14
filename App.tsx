@@ -92,7 +92,7 @@ const App = () => {
                 title: item.headerBackTitle,
                 headerTintColor: '#FFFFFF',
                 headerStyle: {backgroundColor: '#ED7421'},
-                headerShadowVisible: false,
+                headerShown: false,
               }}
             />
           ))}
