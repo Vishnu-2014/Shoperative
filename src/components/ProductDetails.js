@@ -1,6 +1,5 @@
-import {Image} from '@rneui/themed';
 import React from 'react';
-import {View, Text} from 'react-native';
+import {View, Text, Image} from 'react-native';
 import IndianGrocerySupplier from '../images/Indian-Groceries-supplier.png';
 import ProductDetailsImage from '../images/productDetails.png';
 import {StyleSheet} from 'react-native';
