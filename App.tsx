@@ -16,6 +16,7 @@ import {ProductDetails} from './src/components/ProductDetails';
 import {Account} from './src/components/NavBarComponents/Account';
 import {EditProfile} from './src/components/EditProfile';
 import {MyOrders} from './src/components/MyOrders';
+import {MyWishlist} from './src/components/ProfileComponents/MyWishlist';
 
 const RootStack = createNativeStackNavigator();
 const screens = [
@@ -83,6 +84,11 @@ const screens = [
     name: 'MyOrders',
     component: MyOrders,
     headerBackTitle: 'MyOrders',
+  },
+  {
+    name: 'MyWishlist',
+    component: MyWishlist,
+    headerBackTitle: 'MyWishlist',
   },
 ];
 const App = () => {
