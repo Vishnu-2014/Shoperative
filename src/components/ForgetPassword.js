@@ -13,6 +13,7 @@ const ForgetPassword = () => {
         <TextInput
           style={styles.inputFeildStyles}
           placeholder="Mobile Number"
+          keyboardType="number-pad"
         />
       </View>
 

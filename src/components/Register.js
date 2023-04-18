@@ -10,7 +10,8 @@ import {
 
 import DropdownExample from './CustomComponents/CustomDropDown';
 
-const Register = () => {
+const Register = navigation => {
+  // const powerUserButton = () => navigation.navigate(HomeScreen);
   return (
     <ScrollView style={styles.container}>
       <Text style={styles.logoStyles}>Hi!</Text>
@@ -28,6 +29,7 @@ const Register = () => {
           style={styles.feildStles}
           placeholder={'Mobile Number'}
           placeholderTextColor={'#666666'}
+          keyboardType="number-pad"
         />
 
         {/* email */}
@@ -35,6 +37,7 @@ const Register = () => {
           style={styles.feildStles}
           placeholder={'Email'}
           placeholderTextColor={'#666666'}
+          keyboardType="email-address"
         />
 
         {/* password */}
@@ -42,6 +45,7 @@ const Register = () => {
           style={styles.feildStles}
           placeholder={'Password'}
           placeholderTextColor={'#666666'}
+          secureTextEntry={true}
         />
 
         {/* confirm password */}
@@ -49,6 +53,7 @@ const Register = () => {
           style={styles.feildStles}
           placeholder={'Confirm Passwod'}
           placeholderTextColor={'#666666'}
+          secureTextEntry={true}
         />
         <View
           style={[

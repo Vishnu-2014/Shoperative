@@ -22,12 +22,14 @@ const AddFollowers = () => {
           placeholder={'Email'}
           placeholderTextColor={'#666666'}
           multiline={true}
+          keyboardType="email-address"
         />
         <TextInput
           style={styles.feildStles}
           placeholder={'Mobile'}
           placeholderTextColor={'#666666'}
           multiline={true}
+          keyboardType="number-pad"
         />
         <TextInput
           style={styles.feildStles}
@@ -63,12 +65,14 @@ const AddFollowers = () => {
           placeholder={'Email'}
           placeholderTextColor={'#666666'}
           multiline={true}
+          keyboardType="email-address"
         />
         <TextInput
           style={styles.feildStles}
           placeholder={'Mobile'}
           placeholderTextColor={'#666666'}
           multiline={true}
+          keyboardType="number-pad"
         />
         <TextInput
           style={styles.feildStles}
@@ -95,7 +99,7 @@ const styles = StyleSheet.create({
     width: '90%',
   },
   headingStyles: {
-    fontSize: 20,
+    fontSize: 18,
     color: '#ED7421',
     fontFamily: 'Poppins-Medium',
     alignSelf: 'flex-start',
@@ -106,6 +110,9 @@ const styles = StyleSheet.create({
     backgroundColor: '#ffffff',
     height: 50,
     marginTop: 10,
+    paddingHorizontal: 20,
+    fontFamily: 'Poppins-Medium',
+    fontSize: 14,
   },
   buttonStyles: {
     height: 50,

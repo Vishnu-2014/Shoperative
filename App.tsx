@@ -17,6 +17,7 @@ import {DashBoard} from './src/components/DashBoard';
 import {ProductDetails} from './src/components/ProductDetails';
 import {Account} from './src/components/NavBarComponents/Account';
 import {EditProfile} from './src/components/EditProfile';
+import {MyOrders} from './src/components/MyOrders';
 
 const RootStack = createNativeStackNavigator();
 const screens = [
@@ -85,6 +86,11 @@ const screens = [
     name: 'EditProfile',
     component: EditProfile,
     headerBackTitle: 'EditProfile',
+  },
+  {
+    name: 'MyOrders',
+    component: MyOrders,
+    headerBackTitle: 'MyOrders',
   },
 ];
 const App = () => {

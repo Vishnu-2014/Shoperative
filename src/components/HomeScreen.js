@@ -53,6 +53,10 @@ const HomeScreen = ({navigation}) => {
       title: 'EditProfile',
       target: 'EditProfile',
     },
+    {
+      title: 'MyOrders',
+      target: 'MyOrders',
+    },
   ];
 
   return (
