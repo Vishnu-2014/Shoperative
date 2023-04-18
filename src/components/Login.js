@@ -13,11 +13,16 @@ const Login = () => {
         <TextInput
           style={styles.inputFeildStyles}
           placeholder="Mobile Number"
+          keyboardType="number-pad"
         />
       </View>
       <View style={styles.FeildViewStyles}>
         <AntDesign style={styles.iconStyleslock} name="lock" size={20} />
-        <TextInput style={styles.inputFeildStyles} placeholder="Password" />
+        <TextInput
+          style={styles.inputFeildStyles}
+          placeholder="Password"
+          secureTextEntry={true}
+        />
       </View>
 
       <Text style={styles.forgetPasswordStyles}>Forget Password?</Text>

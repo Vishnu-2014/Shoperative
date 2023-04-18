@@ -1,11 +1,13 @@
 import React, {useState} from 'react';
-import {ScrollView, StyleSheet} from 'react-native';
-import {View, Text, TouchableOpacity, FlatList} from 'react-native';
+import {View, StyleSheet} from 'react-native';
+import {Text, TouchableOpacity, FlatList} from 'react-native';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 
-const DropdownExample = input => {
+const DropdownExample = props => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [selectedValue, setSelectedValue] = useState('');
+
+  // const {input = '-- Select Your Profession --'} = props;
 
   const options = [
     {id: 0, label: 'None', value: 'None'},
@@ -25,7 +27,7 @@ const DropdownExample = input => {
   };
 
   return (
-    <ScrollView style={styles.container}>
+    <View style={styles.container}>
       <TouchableOpacity style={styles.ButtonStyles} onPress={toggleDropdown}>
         <Text style={styles.TextStyles}>
           {selectedValue || '-- Select Your Profession --'}
@@ -53,7 +55,7 @@ const DropdownExample = input => {
           keyExtractor={item => item.id.toString()}
         />
       )}
-    </ScrollView>
+    </View>
   );
 };
 

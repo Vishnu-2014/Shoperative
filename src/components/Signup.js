@@ -19,11 +19,16 @@ const Signup = () => {
         <TextInput
           style={styles.inputFeildStyles}
           placeholder="Mobile Number"
+          keyboardType="number-pad"
         />
       </View>
       <View style={styles.FeildViewStyles}>
         <AntDesign style={styles.iconStyleslock} name="lock" size={25} />
-        <TextInput style={styles.inputFeildStyles} placeholder="Password" />
+        <TextInput
+          style={styles.inputFeildStyles}
+          placeholder="Password"
+          secureTextEntry={true}
+        />
       </View>
 
       <Pressable style={styles.buttonStyles}>

@@ -78,10 +78,8 @@ const styles = StyleSheet.create({
     height: 220,
   },
   iconStyles: {
-    position: 'absolute',
-    marginRight: 350,
-    alignSelf: 'flex-end',
-    marginTop: 45,
+    marginLeft: 280,
+    marginTop: 35,
     color: '#ED7421',
   },
   productNameStyle: {

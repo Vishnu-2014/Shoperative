@@ -36,10 +36,10 @@ const HomeScreen = ({navigation}) => {
       title: 'OtpVerification',
       target: 'OtpVerification',
     },
-    {
-      title: 'DashBoard',
-      target: 'DashBoard',
-    },
+    // {
+    //   title: 'DashBoard',
+    //   target: 'DashBoard',
+    // },
     {
       title: 'ProductDetails',
       target: 'ProductDetails',
@@ -51,6 +51,10 @@ const HomeScreen = ({navigation}) => {
     {
       title: 'EditProfile',
       target: 'EditProfile',
+    },
+    {
+      title: 'MyOrders',
+      target: 'MyOrders',
     },
   ];
 
