@@ -57,6 +57,10 @@ const HomeScreen = ({navigation}) => {
       title: 'MyOrders',
       target: 'MyOrders',
     },
+    // {
+    //   title: 'MyWishlist',
+    //   target: 'MyWishlist',
+    // },
   ];
 
   return (

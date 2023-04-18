@@ -1,6 +1,6 @@
 import React from 'react';
 import {View, Text, StyleSheet, TextInput, Pressable} from 'react-native';
-import Ionicons from 'react-native-vector-icons/Ionicons';
+import {HeaderComponent} from './CustomComponents/HeaderComponent';
 
 const EditProfile = () => {
   const CustomFeilds = (textFeild, placeholderFeild) => {
@@ -16,10 +16,7 @@ const EditProfile = () => {
   };
   return (
     <View style={styles.container}>
-      <View style={styles.topBarStyles}>
-        <Ionicons name="arrow-back" size={24} style={styles.backArrowStyles} />
-        <Text style={styles.headingTextStyles}>Edit Profile</Text>
-      </View>
+      <HeaderComponent title={'Edit Profile'} />
 
       {CustomFeilds('Name*', 'Vishnu')}
       {CustomFeilds('Mobile Number*', '9988223377')}
@@ -46,7 +43,6 @@ const EditProfile = () => {
         <View style={{width: '48%'}}>
           <Text style={styles.textStyles}>City</Text>
           <TextInput
-            placeholder=" "
             style={{
               backgroundColor: '#F3F3F3',
               marginTop: 5,

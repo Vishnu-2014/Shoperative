@@ -4,6 +4,7 @@
 import React from 'react';
 import {View, Text, StyleSheet, ScrollView} from 'react-native';
 import {OrderData} from '../utils/Constants';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 
 import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
 const Tab = createMaterialTopTabNavigator();
@@ -61,19 +62,46 @@ const MyOrders = () => {
   };
 
   return (
-    <Tab.Navigator>
-      <Tab.Screen name="Delivered" component={YourOrders} />
-      <Tab.Screen name="Proecessing" component={YourOrders} />
-      <Tab.Screen
-        name="Cancelled"
-        component={YourOrders}
-        options={{tabBarLabel: 'red'}}
-      />
-    </Tab.Navigator>
+    <>
+      <View style={styles.headerStyles}>
+        <Ionicons
+          name="arrow-back"
+          size={24}
+          style={styles.headerBackArrowStyles}
+        />
+        <Text style={styles.headerTextStyles}>My Orders</Text>
+      </View>
+
+      <Tab.Navigator>
+        <Tab.Screen name="Delivered" component={YourOrders} />
+        <Tab.Screen name="Proecessing" component={YourOrders} />
+        <Tab.Screen
+          name="Cancelled"
+          component={YourOrders}
+          options={{tabBarLabel: 'red'}}
+        />
+      </Tab.Navigator>
+    </>
   );
 };
 
 const styles = StyleSheet.create({
+  headerStyles: {
+    width: '100%',
+    backgroundColor: '#ED7421',
+    height: 50,
+    alignItems: 'center',
+    flexDirection: 'row',
+  },
+  headerTextStyles: {
+    color: '#FFF',
+    fontSize: 18,
+    fontFamily: 'Poppins-SemiBold',
+  },
+  headerBackArrowStyles: {
+    paddingHorizontal: 15,
+    color: '#FFF',
+  },
   container: {
     backgroundColor: '#ffffff',
     padding: 16,
