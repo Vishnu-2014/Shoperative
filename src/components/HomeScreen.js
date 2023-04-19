@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {SafeAreaView, StyleSheet, View, Button} from 'react-native';
+import {StyleSheet, View, Button, ScrollView} from 'react-native';
 
 //We can remove once all the screens developed
 const HomeScreen = ({navigation}) => {
@@ -42,6 +42,10 @@ const HomeScreen = ({navigation}) => {
     //   target: 'DashBoard',
     // },
     {
+      title: 'DashBoard',
+      target: 'DashBoard',
+    },
+    {
       title: 'ProductDetails',
       target: 'ProductDetails',
     },
@@ -57,14 +61,26 @@ const HomeScreen = ({navigation}) => {
       title: 'MyOrders',
       target: 'MyOrders',
     },
-    // {
-    //   title: 'MyWishlist',
-    //   target: 'MyWishlist',
-    // },
+    {
+      title: 'MyWishlist',
+      target: 'MyWishlist',
+    },
+    {
+      title: 'MyWallet',
+      target: 'MyWallet',
+    },
+    {
+      title: 'Help',
+      target: 'Help',
+    },
+    {
+      title: 'ChangePassword',
+      target: 'ChangePassword',
+    },
   ];
 
   return (
-    <SafeAreaView style={ss.container}>
+    <ScrollView style={ss.container}>
       {targetsButtons.map(({target, title}, index) => {
         return (
           <View style={ss.button}>
@@ -77,7 +93,7 @@ const HomeScreen = ({navigation}) => {
           </View>
         );
       })}
-    </SafeAreaView>
+    </ScrollView>
   );
 };
 

@@ -19,6 +19,9 @@ import {Account} from './src/components/NavBarComponents/Account';
 import {EditProfile} from './src/components/EditProfile';
 import {MyOrders} from './src/components/MyOrders';
 import {MyWishlist} from './src/components/ProfileComponents/MyWishlist';
+import {MyWallet} from './src/components/ProfileComponents/MyWallet';
+import {Help} from './src/components/ProfileComponents/Help';
+import {ChangePassword} from './src/components/ProfileComponents/ChangePassword';
 
 const RootStack = createNativeStackNavigator();
 const screens = [
@@ -97,6 +100,21 @@ const screens = [
     name: 'MyWishlist',
     component: MyWishlist,
     headerBackTitle: 'MyWishlist',
+  },
+  {
+    name: 'MyWallet',
+    component: MyWallet,
+    headerBackTitle: 'MyWallet',
+  },
+  {
+    name: 'Help',
+    component: Help,
+    headerBackTitle: 'Help',
+  },
+  {
+    name: 'ChangePassword',
+    component: ChangePassword,
+    headerBackTitle: 'ChangePassword',
   },
 ];
 const App = () => {
