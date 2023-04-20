@@ -77,6 +77,14 @@ const HomeScreen = ({navigation}) => {
       title: 'ChangePassword',
       target: 'ChangePassword',
     },
+    {
+      title: 'AllCategories',
+      target: 'AllCategories',
+    },
+    {
+      title: 'SearchBar',
+      target: 'SearchBar',
+    },
   ];
 
   return (
