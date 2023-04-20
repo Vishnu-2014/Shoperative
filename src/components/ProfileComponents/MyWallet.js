@@ -3,6 +3,7 @@ import {View, Text, StyleSheet} from 'react-native';
 import {HeaderComponent} from '../CustomComponents/HeaderComponent';
 import {Pressable} from 'react-native';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 const MyWallet = () => {
   return (
@@ -14,17 +15,18 @@ const MyWallet = () => {
           width: '95%',
           marginTop: 10,
           backgroundColor: 'white',
+          justifyContent: 'space-between',
+          height: '80%',
         }}>
         <Text style={styles.headingTextStyles}>YOUR CASH BALANCE</Text>
         <Text style={styles.balanceTextStyles}>₹ 400</Text>
-        {/* <Text style={styles.contentTextStyles}>
-          Share your code and save 20% on your bill value upto 100 on your next
-          order
-        </Text> */}
-        <Text style={styles.referalStyles1}>Share Referral Code</Text>
-        <Text style={styles.referalStyles2}>
-          Earn ₹100 For Each Friend You Refer
-        </Text>
+
+        <View>
+          <Text style={styles.referalStyles1}>Share Referral Code</Text>
+          <Text style={styles.referalStyles2}>
+            Earn ₹100 For Each Friend You Refer
+          </Text>
+        </View>
 
         <Text style={styles.coupanCodeStyles}>DGSOHJNSJCJS</Text>
 
@@ -44,6 +46,40 @@ const MyWallet = () => {
         </View>
 
         <Text style={styles.rulesHeadingStyle}>How it works</Text>
+        <View style={styles.rulesContentView}>
+          <FontAwesome
+            name="share-alt"
+            size={15}
+            color={'#ED7421'}
+            style={styles.rulesIconStyles}
+          />
+          <Text style={styles.rulesTextStyles}>
+            Share the referral link with your friends
+          </Text>
+        </View>
+        <View style={styles.rulesContentView}>
+          <MaterialCommunityIcons
+            name="cursor-pointer"
+            size={15}
+            color={'#ED7421'}
+            style={styles.rulesIconStyles}
+          />
+          <Text style={styles.rulesTextStyles}>
+            Your friend clicks on the link or signs up{'\n'} through the code
+          </Text>
+        </View>
+        <View style={styles.rulesContentView}>
+          <MaterialCommunityIcons
+            name="cursor-pointer"
+            size={15}
+            color={'#ED7421'}
+            style={styles.rulesIconStyles}
+          />
+          <Text style={styles.rulesTextStyles}>
+            Your friend gets $100 Cash on sign up.{'\n'}You get 100 when they
+            complete an order{'\n'}of 3100 or more within 7 days.
+          </Text>
+        </View>
       </View>
     </View>
   );
@@ -71,14 +107,16 @@ const styles = StyleSheet.create({
     color: '#3f3f3f',
   },
   referalStyles1: {
-    fontSize: 16,
-    fontFamily: 'Poppins-SemiBold',
+    fontSize: 17,
+    // fontFamily: 'Poppins-Bold',
     color: '#3f3f3f',
+    fontWeight: '700',
   },
   referalStyles2: {
     fontSize: 14,
-    fontFamily: 'Poppins-Medium',
+    // fontFamily: 'Poppins-Medium',
     color: '#3f3f3f',
+    fontWeight: '500',
   },
   coupanCodeStyles: {
     width: '100%',
@@ -101,7 +139,7 @@ const styles = StyleSheet.create({
     shadowColor: '#3f3f3f',
     elevation: 5,
     backgroundColor: '#FFFFFF',
-    marginTop: 30,
+    marginTop: 10,
   },
   button1Styles: {
     flexDirection: 'row',
@@ -130,6 +168,19 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: '500',
     color: '#3f3f3f',
+  },
+  rulesContentView: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginTop: 15,
+  },
+  rulesTextStyles: {
+    fontSize: 14,
+    color: '#3f3f3f',
+    fontWeight: '500',
+  },
+  rulesIconStyles: {
+    paddingHorizontal: 15,
   },
 });
 

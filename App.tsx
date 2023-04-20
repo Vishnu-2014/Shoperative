@@ -20,6 +20,8 @@ import {MyWishlist} from './src/components/ProfileComponents/MyWishlist';
 import {MyWallet} from './src/components/ProfileComponents/MyWallet';
 import {Help} from './src/components/ProfileComponents/Help';
 import {ChangePassword} from './src/components/ProfileComponents/ChangePassword';
+import {AllCategories} from './src/components/AllCategories';
+import {SearchBar} from './src/components/SearchPage';
 
 const RootStack = createNativeStackNavigator();
 const screens = [
@@ -107,6 +109,16 @@ const screens = [
     name: 'ChangePassword',
     component: ChangePassword,
     headerBackTitle: 'ChangePassword',
+  },
+  {
+    name: 'AllCategories',
+    component: AllCategories,
+    headerBackTitle: 'AllCategories',
+  },
+  {
+    name: 'SearchBar',
+    component: SearchBar,
+    headerBackTitle: 'SearchBar',
   },
 ];
 const App = () => {
