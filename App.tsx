@@ -24,6 +24,11 @@ import {Help} from './src/components/ProfileComponents/Help';
 import {ChangePassword} from './src/components/ProfileComponents/ChangePassword';
 import {AllCategories} from './src/components/AllCategories';
 import {SearchBar} from './src/components/SearchPage';
+import {ShoppingCart} from './src/components/ShoppingCart';
+import {SearchFollowers} from './src/components/SearchFollowers';
+import {ShippingAddress} from './src/components/ShippingAddress';
+import {CheckOut} from './src/components/CheckOut';
+import {OrderDetails} from './src/components/OrderDetails';
 
 const RootStack = createNativeStackNavigator();
 const screens = [
@@ -127,6 +132,31 @@ const screens = [
     name: 'SearchBar',
     component: SearchBar,
     headerBackTitle: 'SearchBar',
+  },
+  {
+    name: 'ShoppingCart',
+    component: ShoppingCart,
+    headerBackTitle: 'ShoppingCart',
+  },
+  {
+    name: 'SearchFollowers',
+    component: SearchFollowers,
+    headerBackTitle: 'SearchFollowers',
+  },
+  {
+    name: 'ShippingAddress',
+    component: ShippingAddress,
+    headerBackTitle: 'ShippingAddress',
+  },
+  {
+    name: 'CheckOut',
+    component: CheckOut,
+    headerBackTitle: 'CheckOut',
+  },
+  {
+    name: 'OrderDetails',
+    component: OrderDetails,
+    headerBackTitle: 'OrderDetails',
   },
 ];
 const App = () => {
