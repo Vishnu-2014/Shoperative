@@ -1,12 +1,12 @@
 /* eslint-disable react/no-unstable-nested-components */
 /* eslint-disable react-native/no-inline-styles */
-/* eslint-disable prettier/prettier */
+
 import React, {useState} from 'react';
 import {View, StyleSheet, Text, Image} from 'react-native';
 import {HeaderComponent} from '../CustomComponents/HeaderComponent';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import {ScrollView} from 'react-native';
-import oilImage from '../../images/oilimage.png';
+import oilImage from '../../images/oilimage.jpg';
 
 const MyWishlist = () => {
   const [qty, Setqty] = useState(1);
