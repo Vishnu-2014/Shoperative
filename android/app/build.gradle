@@ -89,6 +89,10 @@ def reactNativeArchitectures() {
 }
 
 android {
+
+    
+
+    buildToolsVersion '33.0.0'
     ndkVersion rootProject.ext.ndkVersion
 
     compileSdkVersion rootProject.ext.compileSdkVersion
