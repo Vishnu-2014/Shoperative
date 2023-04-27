@@ -6,7 +6,7 @@ import {View, StyleSheet, Text, Image} from 'react-native';
 import {HeaderComponent} from '../CustomComponents/HeaderComponent';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import {ScrollView} from 'react-native';
-import oilImage from '../../images/oilimage.png';
+import oilImage from '../../images/oilImage.jpg';
 
 const MyWishlist = () => {
   const [qty, Setqty] = useState(1);

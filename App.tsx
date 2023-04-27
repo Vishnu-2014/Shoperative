@@ -27,6 +27,10 @@ import {SearchFollowers} from './src/components/SearchFollowers';
 import {ShippingAddress} from './src/components/ShippingAddress';
 import {CheckOut} from './src/components/CheckOut';
 import {OrderDetails} from './src/components/OrderDetails';
+import RadioButtons from './src/components/CustomComponents/RadioButton';
+import {ReturnProduct} from './src/components/ReturnProduct';
+import {ReturnProduct2} from './src/components/ReturnProduct2';
+import {ReturnProduct3} from './src/components/ReturnProduct3';
 
 const RootStack = createNativeStackNavigator();
 const screens = [
@@ -149,6 +153,26 @@ const screens = [
     name: 'OrderDetails',
     component: OrderDetails,
     headerBackTitle: 'OrderDetails',
+  },
+  {
+    name: 'RadioButtons',
+    component: RadioButtons,
+    headerBackTitle: 'RadioButtons',
+  },
+  {
+    name: 'ReturnProduct',
+    component: ReturnProduct,
+    headerBackTitle: 'ReturnProduct',
+  },
+  {
+    name: 'ReturnProduct2',
+    component: ReturnProduct2,
+    headerBackTitle: 'ReturnProduct2',
+  },
+  {
+    name: 'ReturnProduct3',
+    component: ReturnProduct3,
+    headerBackTitle: 'ReturnProduct3',
   },
 ];
 const App = () => {
