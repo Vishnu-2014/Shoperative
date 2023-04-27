@@ -105,6 +105,22 @@ const HomeScreen = ({navigation}) => {
       title: 'OrderDetails',
       target: 'OrderDetails',
     },
+    {
+      title: 'RadioButtons',
+      target: 'RadioButtons',
+    },
+    {
+      title: 'ReturnProduct',
+      target: 'ReturnProduct',
+    },
+    {
+      title: 'ReturnProduct2',
+      target: 'ReturnProduct2',
+    },
+    {
+      title: 'ReturnProduct3',
+      target: 'ReturnProduct3',
+    },
   ];
 
   return (

@@ -1,3 +1,6 @@
+/* eslint-disable prettier/prettier */
+/* eslint-disable react-native/no-inline-styles */
+/* eslint-disable react/no-unstable-nested-components */
 import React from 'react';
 import {Text, View, StyleSheet, ScrollView, Image} from 'react-native';
 import {HeaderComponent} from './CustomComponents/HeaderComponent';
@@ -190,6 +193,21 @@ const styles = StyleSheet.create({
     color: '#666',
     fontWeight: '400',
   },
+  DetailsButtonStyles: {
+    paddingVertical: 4,
+    paddingHorizontal: 20,
+    borderWidth: 1,
+    borderRadius: 20,
+    borderColor: '#707070',
+    fontSize: 13,
+    fontWeight: '500',
+    color: '#333',
+  },
+  DeliveredTextStyles: {
+    color: '#ED7421',
+    fontSize: 14,
+    fontWeight: '600',
+  },
 
   ReturnContentViewContainer: {
     width: '100%',
@@ -260,22 +278,6 @@ const styles = StyleSheet.create({
     height: 1.5,
     width: '100%',
     backgroundColor: '#707070',
-  },
-
-  DetailsButtonStyles: {
-    paddingVertical: 4,
-    paddingHorizontal: 20,
-    borderWidth: 1,
-    borderRadius: 20,
-    borderColor: '#707070',
-    fontSize: 13,
-    fontWeight: '500',
-    color: '#333',
-  },
-  DeliveredTextStyles: {
-    color: '#ED7421',
-    fontSize: 14,
-    fontWeight: '600',
   },
 });
 
