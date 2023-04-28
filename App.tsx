@@ -1,3 +1,4 @@
+import 'react-native-gesture-handler';
 import React from 'react';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
 import {NavigationContainer} from '@react-navigation/native';
@@ -10,7 +11,8 @@ import {Login} from './src/components/Login';
 import {Signup} from './src/components/Signup';
 import {ForgetPassword} from './src/components/ForgetPassword';
 import {OtpVerification} from './src/components/OtpVerification';
-import {HomeScreen} from './src/components/Home';
+import {HomeScreen} from './src/components/HomeScreen';
+import {DrawerView} from './src/components/dashboard/DrawerView';
 
 const RootStack = createNativeStackNavigator();
 const screens = [
@@ -54,14 +56,20 @@ const screens = [
     component: OtpVerification,
     headerBackTitle: 'Home',
   },
+  {
+    name: 'DrawerView',
+    component: DrawerView,
+    headerBackTitle: 'Home',
+    headerShown: false,
+  },
 ];
 const App = () => {
   return (
     <SafeAreaProvider>
       <NavigationContainer>
-        <RootStack.Navigator initialRouteName="Home">
+        <RootStack.Navigator initialRouteName="HomeScreen">
           <RootStack.Screen
-            name="Home"
+            name="HomeScreen"
             component={HomeScreen}
             options={{headerShown: false}}
           />
@@ -70,7 +78,10 @@ const App = () => {
               key={index}
               name={item.name}
               component={item.component}
-              options={{headerBackTitle: item.headerBackTitle ?? item.name}}
+              options={{
+                headerBackTitle: item.headerBackTitle ?? item.name,
+                headerShown: item.headerShown ?? true,
+              }}
             />
           ))}
         </RootStack.Navigator>

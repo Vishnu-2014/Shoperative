@@ -36,6 +36,7 @@ const HomeScreen = ({navigation}) => {
       title: 'OtpVerification',
       target: 'OtpVerification',
     },
+    {title: 'Dashboard', target: 'DrawerView'},
   ];
 
   return (
@@ -47,7 +48,6 @@ const HomeScreen = ({navigation}) => {
               title={title ?? target}
               onPress={() => {
                 navigation.navigate(target);
-                console.log('check check');
               }}
             />
           </View>
