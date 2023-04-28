@@ -120,7 +120,9 @@ const HomeScreen = ({navigation}) => {
   ];
 
   return (
-    <ScrollView style={ss.container}>
+    <ScrollView
+      style={ss.container}
+      contentContainerStyle={ss.contentContainerStyle}>
       {targetsButtons.map(({target, title}, index) => {
         return (
           <View style={ss.button}>
@@ -141,6 +143,9 @@ const ss = StyleSheet.create({
   container: {
     flex: 1,
     padding: 16,
+  },
+  contentContainerStyle: {
+    paddingBottom: 20,
   },
   button: {
     marginVertical: 6,

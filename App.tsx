@@ -175,7 +175,8 @@ const screens = [
     name: 'ReturnProduct3',
     component: ReturnProduct3,
     headerBackTitle: 'ReturnProduct3',
-  },{
+  },
+  {
     name: 'DrawerView',
     component: DrawerView,
     headerBackTitle: 'Home',
