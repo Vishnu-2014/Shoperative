@@ -1,3 +1,5 @@
+import mobile from '../images/DashBoardImages/mobile_image_curousel.png';
+
 export const OrderData = [
   {
     orderId: '178523995ADS',
@@ -81,3 +83,4 @@ export const OrderData = [
     rightTitle: 'Delivered',
   },
 ];
+export const imageCourselData = [mobile, mobile, mobile, mobile];

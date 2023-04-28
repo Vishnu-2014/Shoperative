@@ -1,15 +1,22 @@
 import React from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import {View, Text, StyleSheet, ScrollView} from 'react-native';
 import {SearchView} from '../CustomComponents/SearchView';
 import {MapLocationComponent} from '../CustomComponents/MapLocationComponent';
+import {ImageCurousel} from '../CustomComponents/ImageCurousel';
+import {imageCourselData} from '../../utils/Constants';
 const Home = () => {
   return (
     <>
       <SearchView />
       <MapLocationComponent />
-      <View style={ss.container}>
-        <Text>Dashboard Home page</Text>
-      </View>
+      <ScrollView>
+        <>
+          <ImageCurousel imageData={imageCourselData} />
+          <View style={ss.container}>
+            <Text>Dashboard Home page</Text>
+          </View>
+        </>
+      </ScrollView>
     </>
   );
 };

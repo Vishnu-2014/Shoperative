@@ -1,11 +1,11 @@
 /* eslint-disable react-native/no-inline-styles */
-/* eslint-disable prettier/prettier */
+
 import {Image} from '@rneui/base';
 import React from 'react';
 import {ScrollView} from 'react-native';
 import {View, Text, StyleSheet} from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import Cleaning from '../images/DashBoardImages/Cleaning&Household.png';
+import Cleaning from '../images/DashBoardImages/cleaning_household.png';
 
 const DashBoard = () => {
   const CategoriesFeilds = ({imageSource, imageHeading}) => {
