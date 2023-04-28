@@ -116,6 +116,7 @@ const HomeScreen = ({navigation}) => {
       title: 'ReturnProduct3',
       target: 'ReturnProduct3',
     },
+    {title: 'Dashboard', target: 'DrawerView'},
   ];
 
   return (
@@ -127,7 +128,6 @@ const HomeScreen = ({navigation}) => {
               title={title ?? target}
               onPress={() => {
                 navigation.navigate(target);
-                console.log('check check');
               }}
             />
           </View>

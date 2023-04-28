@@ -1,3 +1,4 @@
+import 'react-native-gesture-handler';
 import React from 'react';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
 import {NavigationContainer} from '@react-navigation/native';
@@ -10,7 +11,6 @@ import {Login} from './src/components/Login';
 import {Signup} from './src/components/Signup';
 import {ForgetPassword} from './src/components/ForgetPassword';
 import {OtpVerification} from './src/components/OtpVerification';
-import {HomeScreen} from './src/components/Home';
 import {DashBoard} from './src/components/DashBoard';
 import {ProductDetails} from './src/components/ProductDetails';
 import {Account} from './src/components/NavBarComponents/Account';
@@ -31,6 +31,8 @@ import RadioButtons from './src/components/CustomComponents/RadioButton';
 import {ReturnProduct} from './src/components/ReturnProduct';
 import {ReturnProduct2} from './src/components/ReturnProduct2';
 import {ReturnProduct3} from './src/components/ReturnProduct3';
+import {HomeScreen} from './src/components/HomeScreen';
+import {DrawerView} from './src/components/dashboard/DrawerView';
 
 const RootStack = createNativeStackNavigator();
 const screens = [
@@ -173,15 +175,20 @@ const screens = [
     name: 'ReturnProduct3',
     component: ReturnProduct3,
     headerBackTitle: 'ReturnProduct3',
+  },{
+    name: 'DrawerView',
+    component: DrawerView,
+    headerBackTitle: 'Home',
+    headerShown: false,
   },
 ];
 const App = () => {
   return (
     <SafeAreaProvider>
       <NavigationContainer>
-        <RootStack.Navigator initialRouteName="Home">
+        <RootStack.Navigator initialRouteName="HomeScreen">
           <RootStack.Screen
-            name="Home"
+            name="HomeScreen"
             component={HomeScreen}
             options={{headerShown: false}}
           />
@@ -194,7 +201,8 @@ const App = () => {
                 title: item.headerBackTitle,
                 headerTintColor: '#FFFFFF',
                 headerStyle: {backgroundColor: '#ED7421'},
-                headerShown: false,
+                headerBackTitle: item.headerBackTitle ?? item.name,
+                headerShown: item.headerShown ?? true,
               }}
             />
           ))}

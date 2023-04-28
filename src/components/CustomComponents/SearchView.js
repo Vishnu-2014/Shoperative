@@ -1,4 +1,4 @@
-// import {bgColor} from '../../theme/colors';
+import {bgColor} from '../../theme/colors';
 
 // React Navigate Drawer with Bottom Tab
 // https://aboutreact.com/bottom-tab-view-inside-navigation-drawer/
