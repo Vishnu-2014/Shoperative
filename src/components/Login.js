@@ -6,28 +6,40 @@ import {Pressable} from 'react-native';
 
 const Login = () => {
   return (
-    <View>
+    <View style={styles.container}>
       <Text style={styles.headingStyles}>Login</Text>
       <View style={styles.FeildViewStyles}>
-        <Foundation style={styles.iconStylesmobile} name="mobile" size={30} />
+        <Foundation style={styles.iconStylesmobile} name="mobile" size={25} />
         <TextInput
           style={styles.inputFeildStyles}
           placeholder="Mobile Number"
+          keyboardType="number-pad"
         />
       </View>
       <View style={styles.FeildViewStyles}>
-        <AntDesign style={styles.iconStyleslock} name="lock" size={30} />
-        <TextInput style={styles.inputFeildStyles} placeholder="Password" />
+        <AntDesign style={styles.iconStyleslock} name="lock" size={20} />
+        <TextInput
+          style={styles.inputFeildStyles}
+          placeholder="Password"
+          secureTextEntry={true}
+        />
       </View>
 
       <Text style={styles.forgetPasswordStyles}>Forget Password?</Text>
 
-      <Pressable style={styles.buttonStyles}>
+      <Pressable
+        style={styles.buttonStyles}
+        onPress={() => console.log('Login Button Clicked')}>
         <Text style={styles.buttonTextStyles}>LOG IN</Text>
       </Pressable>
 
       <Text style={styles.bottomTextStyles}>
-        Don't Have An Account? <Text style={{color: '#ED7421'}}>Sign Up</Text>
+        Don't Have An Account ?{' '}
+        <Text
+          style={{color: '#ED7421'}}
+          onPress={() => console.log('SignUp Clicked')}>
+          Sign Up
+        </Text>
       </Text>
     </View>
   );
@@ -36,52 +48,62 @@ const Login = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#FFF',
+    backgroundColor: '#FFFFFF',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   headingStyles: {
-    marginTop: 260,
     textAlign: 'center',
     color: '#ED7421',
-    fontSize: 32,
+    fontSize: 30,
     fontFamily: 'Poppins-Bold',
   },
   FeildViewStyles: {
-    height: 55,
-    marginLeft: 22,
-    marginRight: 22,
+    width: '90%',
+    height: 50,
     marginTop: 30,
     backgroundColor: '#F3F3F3',
     flexDirection: 'row',
     alignItems: 'center',
+    paddingHorizontal: 10,
   },
   inputFeildStyles: {
     marginLeft: 2,
     width: '80%',
+    flex: 15,
   },
   iconStylesmobile: {
-    padding: 10,
+    flex: 1,
+    width: '100%',
+    height: '100%',
+    verticalAlign: 'middle',
+    textAlign: 'center',
   },
   iconStyleslock: {
-    padding: 2,
+    flex: 1,
+    width: '100%',
+    height: '100%',
+    verticalAlign: 'middle',
+    textAlign: 'center',
   },
   forgetPasswordStyles: {
     color: '#ED7421',
     marginTop: 31,
-    marginLeft: 271,
+    alignSelf: 'flex-end',
+    marginRight: '5%',
     fontSize: 14,
     fontFamily: 'Poppins-Medium',
   },
   buttonStyles: {
-    marginLeft: 22,
-    marginRight: 22,
+    width: '90%',
     marginTop: 33,
     backgroundColor: '#ED7421',
-    height: 55,
+    height: 50,
     justifyContent: 'center',
     alignItems: 'center',
   },
   buttonTextStyles: {
-    fontSize: 20,
+    fontSize: 18,
     fontFamily: 'Poppins-Bold',
     color: '#FFFFFF',
   },
@@ -89,9 +111,7 @@ const styles = StyleSheet.create({
     fontSize: 14,
     fontFamily: 'Poppins-Medium',
     color: '#000000CC',
-    marginLeft: 101.5,
-    marginRight: 101.5,
-    marginTop: 37.5,
+    marginTop: 27.5,
   },
 });
 

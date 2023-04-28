@@ -6,7 +6,7 @@ import {Pressable} from 'react-native';
 
 const Signup = () => {
   return (
-    <View>
+    <View style={styles.container}>
       <Text style={styles.headingStyles}>SIGN UP</Text>
 
       <View style={styles.FeildViewStyles}>
@@ -19,11 +19,16 @@ const Signup = () => {
         <TextInput
           style={styles.inputFeildStyles}
           placeholder="Mobile Number"
+          keyboardType="number-pad"
         />
       </View>
       <View style={styles.FeildViewStyles}>
         <AntDesign style={styles.iconStyleslock} name="lock" size={25} />
-        <TextInput style={styles.inputFeildStyles} placeholder="Password" />
+        <TextInput
+          style={styles.inputFeildStyles}
+          placeholder="Password"
+          secureTextEntry={true}
+        />
       </View>
 
       <Pressable style={styles.buttonStyles}>
@@ -41,19 +46,18 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#FFF',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   headingStyles: {
-    marginTop: 260,
     color: '#ED7421',
     fontSize: 32,
     fontFamily: 'Poppins-Bold',
-    textAlign: 'center',
   },
   FeildViewStyles: {
-    height: 55,
-    marginLeft: 22,
-    marginRight: 22,
-    marginTop: 17.3,
+    height: 50,
+    width: '90%',
+    marginTop: 15,
     backgroundColor: '#F3F3F3',
     flexDirection: 'row',
     alignItems: 'center',
@@ -72,11 +76,10 @@ const styles = StyleSheet.create({
     padding: 2,
   },
   buttonStyles: {
-    marginLeft: 22,
-    marginRight: 22,
+    width: '90%',
     marginTop: 60,
     backgroundColor: '#ED7421',
-    height: 55,
+    height: 50,
     justifyContent: 'center',
     alignItems: 'center',
   },
@@ -89,9 +92,7 @@ const styles = StyleSheet.create({
     fontSize: 14,
     fontFamily: 'Poppins-Medium',
     color: '#000000CC',
-    marginLeft: 101.5,
-    marginRight: 101.5,
-    marginTop: 29.5,
+    marginTop: 30,
   },
 });
 

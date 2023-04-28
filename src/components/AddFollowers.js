@@ -6,34 +6,35 @@ import Entypo from 'react-native-vector-icons/Entypo';
 const AddFollowers = () => {
   return (
     <View style={styles.container}>
+      <Text style={styles.headingStyles}>
+        Add Followers{' '}
+        <Text style={{fontSize: 16}}>(Members of Food Co-op)</Text>
+      </Text>
       <View style={styles.card}>
-        <Text style={styles.headingStyles}>
-          Add Followers{' '}
-          <Text style={{fontSize: 16}}>(Members of Food Co-op)</Text>{' '}
-        </Text>
-
         <TextInput
           style={styles.feildStles}
           placeholder={'Name'}
-          placeholderTextColor={'#000000CC'}
+          placeholderTextColor={'#666666'}
           multiline={true}
         />
         <TextInput
           style={styles.feildStles}
           placeholder={'Email'}
-          placeholderTextColor={'#000000CC'}
+          placeholderTextColor={'#666666'}
           multiline={true}
+          keyboardType="email-address"
         />
         <TextInput
           style={styles.feildStles}
           placeholder={'Mobile'}
-          placeholderTextColor={'#000000CC'}
+          placeholderTextColor={'#666666'}
           multiline={true}
+          keyboardType="number-pad"
         />
         <TextInput
           style={styles.feildStles}
           placeholder={'City'}
-          placeholderTextColor={'#000000CC'}
+          placeholderTextColor={'#666666'}
           multiline={true}
         />
 
@@ -56,30 +57,32 @@ const AddFollowers = () => {
         <TextInput
           style={styles.feildStles}
           placeholder={'Name'}
-          placeholderTextColor={'#000000CC'}
+          placeholderTextColor={'#666666'}
           multiline={true}
         />
         <TextInput
           style={styles.feildStles}
           placeholder={'Email'}
-          placeholderTextColor={'#000000CC'}
+          placeholderTextColor={'#666666'}
           multiline={true}
+          keyboardType="email-address"
         />
         <TextInput
           style={styles.feildStles}
           placeholder={'Mobile'}
-          placeholderTextColor={'#000000CC'}
+          placeholderTextColor={'#666666'}
           multiline={true}
+          keyboardType="number-pad"
         />
         <TextInput
           style={styles.feildStles}
           placeholder={'City'}
-          placeholderTextColor={'#000000CC'}
+          placeholderTextColor={'#666666'}
           multiline={true}
         />
 
         <Pressable style={styles.buttonStyles}>
-          <Text style={styles.buttonTextStyles}>Add</Text>
+          <Text style={styles.buttonTextStyles}>ADD</Text>
         </Pressable>
       </View>
     </View>
@@ -90,33 +93,38 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#F3F3F3',
+    alignItems: 'center',
   },
   card: {
-    marginLeft: 22,
-    marginRight: 22,
-    marginTop: 30,
+    width: '90%',
   },
   headingStyles: {
-    fontSize: 20,
+    fontSize: 18,
     color: '#ED7421',
     fontFamily: 'Poppins-Medium',
+    alignSelf: 'flex-start',
+    marginLeft: '2.5%',
+    marginTop: 30,
   },
   feildStles: {
     backgroundColor: '#ffffff',
-    height: 55,
-    marginTop: 16.96,
+    height: 50,
+    marginTop: 10,
+    paddingHorizontal: 20,
+    fontFamily: 'Poppins-Medium',
+    fontSize: 14,
   },
   buttonStyles: {
-    height: 55,
+    height: 50,
     backgroundColor: '#ED7421',
-    marginTop: 70,
+    marginTop: 55,
     justifyContent: 'center',
     alignItems: 'center',
     marginBottom: 20,
   },
   buttonTextStyles: {
     color: '#FFFFFF',
-    fontSize: 18,
+    fontSize: 16,
     fontFamily: 'Poppins-Bold',
   },
 });
