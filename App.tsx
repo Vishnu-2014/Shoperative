@@ -33,6 +33,8 @@ import RadioButtons from './src/components/CustomComponents/RadioButton';
 import {ReturnProduct} from './src/components/ReturnProduct';
 import {ReturnProduct2} from './src/components/ReturnProduct2';
 import {ReturnProduct3} from './src/components/ReturnProduct3';
+import {Provider} from 'react-redux';
+import storeConfig from './src/store/configureStore';
 
 const RootStack = createNativeStackNavigator();
 const screens = [
@@ -184,34 +186,38 @@ const screens = [
   },
 ];
 const App = () => {
-  return (
-    <SafeAreaProvider>
-      <NavigationContainer>
-        <RootStack.Navigator initialRouteName="HomeScreen">
-          <RootStack.Screen
-            name="HomeScreen"
-            component={HomeScreen}
-            options={{headerShown: false}}
-          />
-          {screens.map((item, index) => (
+  const renderRootView = () => {
+    return (
+      <SafeAreaProvider>
+        <NavigationContainer>
+          <RootStack.Navigator initialRouteName="HomeScreen">
             <RootStack.Screen
-              key={index}
-              name={item.name}
-              component={item.component}
-              options={{
-                headerBackTitle: item.headerBackTitle ?? item.name,
-                headerShown: item.headerShown ?? true,
-                title: item.headerBackTitle,
-                headerTintColor: '#FFFFFF',
-                headerStyle: {backgroundColor: '#ED7421'},
-                headerShown: false,
-              }}
+              name="HomeScreen"
+              component={HomeScreen}
+              options={{headerShown: false}}
             />
-          ))}
-        </RootStack.Navigator>
-      </NavigationContainer>
-    </SafeAreaProvider>
-  );
+            {screens.map((item, index) => (
+              <RootStack.Screen
+                key={index}
+                name={item.name}
+                component={item.component}
+                options={{
+                  headerBackTitle: item.headerBackTitle ?? item.name,
+                  headerShown: item.headerShown ?? true,
+                  title: item.headerBackTitle,
+                  headerTintColor: '#FFFFFF',
+                  headerStyle: {backgroundColor: '#ED7421'},
+                  headerShown: false,
+                }}
+              />
+            ))}
+          </RootStack.Navigator>
+        </NavigationContainer>
+      </SafeAreaProvider>
+    );
+  };
+  const store = storeConfig();
+  return <Provider store={store}>{renderRootView()}</Provider>;
 };
 
 export default App;

@@ -3,8 +3,11 @@ import {View, Text, StyleSheet, TextInput} from 'react-native';
 import Foundation from 'react-native-vector-icons/Foundation';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import {Pressable} from 'react-native';
+import {useDispatch} from 'react-redux';
+import {login} from '../store/actions/loginActions';
 
 const Login = () => {
+  const dispatch = useDispatch();
   return (
     <View style={styles.container}>
       <Text style={styles.headingStyles}>Login</Text>
@@ -29,7 +32,10 @@ const Login = () => {
 
       <Pressable
         style={styles.buttonStyles}
-        onPress={() => console.log('Login Button Clicked')}>
+        onPress={() => {
+          dispatch(login('9000365957', '123123'));
+          console.log('Login Button Clicked');
+        }}>
         <Text style={styles.buttonTextStyles}>LOG IN</Text>
       </Pressable>
 
@@ -71,6 +77,7 @@ const styles = StyleSheet.create({
     marginLeft: 2,
     width: '80%',
     flex: 15,
+    color: '#000',
   },
   iconStylesmobile: {
     flex: 1,
