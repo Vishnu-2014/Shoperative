@@ -4,7 +4,7 @@ import {darkBgColor} from '../../theme/colors';
 import Entypo from 'react-native-vector-icons/Entypo';
 
 const MapLocationComponent = props => {
-  const {location = 'Deliver to Shaik Akeeb - Hyderabad 500081'} = props;
+  const {location = 'Deliver to Richlabz - Hyderabad 500081'} = props;
   return (
     <View style={ss.container}>
       <Entypo name="location-pin" size={16} color={'white'} />
@@ -18,6 +18,8 @@ const ss = StyleSheet.create({
     flexDirection: 'row',
     backgroundColor: darkBgColor,
     height: 46,
+    width: '100%',
+    paddingHorizontal: 10,
   },
   textStyle: {
     fontFamily: 'Poppins-Regular',

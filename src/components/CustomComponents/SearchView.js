@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import {bgColor} from '../../theme/colors';
 
 // React Navigate Drawer with Bottom Tab
@@ -18,7 +19,7 @@ import SearchIcon from '../../images/search.png';
 const SearchView = props => {
   const {
     textHeader,
-    searchPlaceholder = 'search products here',
+    searchPlaceholder = 'Search Products Here',
     onPress = () => {},
   } = props;
   const [searchText, setSearchText] = useState('');
@@ -64,7 +65,7 @@ const ss = StyleSheet.create({
     width: '100%',
     height: 18,
     alignItems: 'center',
-    justifyContent: 'space-between',
+    justifyContent: 'space-around',
   },
   searchContainer: {
     flexDirection: 'row',
@@ -79,10 +80,9 @@ const ss = StyleSheet.create({
     height: 48,
   },
   textStyle: {
-    fontFamily: 'Poppins-Regular',
+    fontFamily: 'Poppins-Medium',
     fontSize: 12,
-    lineHeight: 18,
-    color: 'white',
+    color: '#FFF',
   },
 
   searchIcon: {

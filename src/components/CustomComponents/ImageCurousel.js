@@ -17,20 +17,22 @@ const ImageCurousel = props => {
   const _renderItem = ({item, index}) => {
     return (
       <View>
-        <Image source={item} style={{width: '100%', height: 140}} />
+        <Image
+          source={item}
+          style={{width: '100%', height: 140, borderRadius: 20}}
+        />
       </View>
     );
   };
 
   return (
     <Carousel
-      loop
       data={imageData}
-      autoPlay={true}
+      // autoPlay={true}
       renderItem={_renderItem}
       width={SLIDER_WIDTH}
       snapEnabled
-      scrollAnimationDuration={3000}
+      scrollAnimationDuration={1000}
       height={140}
       onProgressChange={(_, absoluteProgress) =>
         (progressValue.value = absoluteProgress)
