@@ -37,6 +37,9 @@ const HomeScreen = ({navigation}) => {
       target: 'OtpVerification',
     },
     {title: 'Dashboard', target: 'DrawerView'},
+    {title: 'SearchFollowers', target: 'SearchFollowers'},
+    {title: 'PaymentSuccess', target: 'PaymentSuccess'},
+    {title: 'PaymentFailure', target: 'PaymentFailure'},
   ];
 
   return (

@@ -13,6 +13,9 @@ import {ForgetPassword} from './src/components/ForgetPassword';
 import {OtpVerification} from './src/components/OtpVerification';
 import {HomeScreen} from './src/components/HomeScreen';
 import {DrawerView} from './src/components/dashboard/DrawerView';
+import {SearchFollowers} from './src/components/SearchFollowers';
+import {PaymentSuccess} from './src/components/PaymentSuccess';
+import {PaymentFailure} from './src/components/PaymentFailure';
 
 const RootStack = createNativeStackNavigator();
 const screens = [
@@ -59,6 +62,24 @@ const screens = [
   {
     name: 'DrawerView',
     component: DrawerView,
+    headerBackTitle: 'Home',
+    headerShown: false,
+  },
+  {
+    name: 'SearchFollowers',
+    component: SearchFollowers,
+    headerBackTitle: 'Home',
+    headerShown: false,
+  },
+  {
+    name: 'PaymentSuccess',
+    component: PaymentSuccess,
+    headerBackTitle: 'Home',
+    headerShown: false,
+  },
+  {
+    name: 'PaymentFailure',
+    component: PaymentFailure,
     headerBackTitle: 'Home',
     headerShown: false,
   },

@@ -1,15 +1,24 @@
 import React from 'react';
 import {View, Text, StyleSheet, TextInput} from 'react-native';
 import {HeaderComponent} from './CustomComponents/HeaderComponent';
-import EvilIcons from 'react-native-vector-icons/EvilIcons';
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
 const SearchFollowers = () => {
   return (
     <View style={styles.container}>
       <HeaderComponent title={'Search Followers'} />
       <View style={styles.searchContainerStyles}>
-        <TextInput placeholder="Search by name/mobile/city" />
-        <EvilIcons name="search" size={20} />
+        <TextInput
+          placeholder="Search by name/mobile/city"
+          style={{
+            width: '80%',
+            color: '#3F3F3F80',
+            fontSize: 14,
+            fontWeight: '500',
+          }}
+          placeholderTextColor={'#3F3F3F80'}
+        />
+        <FontAwesome name="search" size={22} style={{fontWeight: '800'}} />
       </View>
     </View>
   );
@@ -19,6 +28,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#FFF',
+    alignItems: 'center',
   },
   searchContainerStyles: {
     width: '95%',
@@ -27,6 +37,8 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     paddingHorizontal: 20,
+    alignItems: 'center',
+    marginTop: 20,
   },
 });
 
