@@ -33,6 +33,7 @@ const Login = () => {
       <Pressable
         style={styles.buttonStyles}
         onPress={() => {
+          //get username and password and pass this method instead of hardcoded values
           dispatch(login('9000365957', '123123'));
           console.log('Login Button Clicked');
         }}>
