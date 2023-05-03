@@ -8,6 +8,9 @@ const initialState = {
   gender: '',
   blood_group: '',
   upi_code: '',
+  message: '',
+  description: '',
+  result: '',
   loginStarted: false,
   loginSuccess: false,
   loginFailure: false,
@@ -15,14 +18,37 @@ const initialState = {
 const loginReducer = (state = initialState, action) => {
   switch (action.type) {
     case login.LOGIN_STARTED:
-      console.log('the login started');
       return {
         ...state,
         loginStarted: true,
       };
     case login.LOGIN_SUCCESS:
+      const {
+        blood_group,
+        code,
+        description,
+        email,
+        gender,
+        message,
+        mobile,
+        name,
+        upi_code,
+        user_code,
+        user_id,
+      } = action.payload;
       return {
         ...state,
+        user_id: user_id,
+        name: name,
+        email: email,
+        mobile: mobile,
+        user_code: user_code,
+        gender: gender,
+        message: message,
+        description: description,
+        blood_group: blood_group,
+        upi_code: upi_code,
+        result: action.payload,
         loginStarted: false,
         loginSuccess: true,
       };
