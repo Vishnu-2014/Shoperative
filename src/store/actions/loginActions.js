@@ -12,7 +12,7 @@ export const login = (username, password) => {
       const result = await axios({
         method: 'post',
         url: 'https://trp3.com/api/trp_user/login',
-        data: {userdata: '9000365957', password: '123123'},
+        data: {userdata: username, password: password},
         headers: {'Content-Type': 'application/json; charset=utf-8'},
       });
 

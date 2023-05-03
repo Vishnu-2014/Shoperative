@@ -3,11 +3,15 @@ import {View, Text, StyleSheet, TextInput} from 'react-native';
 import Foundation from 'react-native-vector-icons/Foundation';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import {Pressable} from 'react-native';
-import {useDispatch} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import {login} from '../store/actions/loginActions';
 
 const Login = () => {
   const dispatch = useDispatch();
+  //check below two lines will bring th data from api
+  const loginResult = useSelector(state => state.login);
+  console.log('the result', loginResult.name, loginResult.email);
+  //
   return (
     <View style={styles.container}>
       <Text style={styles.headingStyles}>Login</Text>
