@@ -1,12 +1,13 @@
 import * as login from '../actions/loginActions';
 const initialState = {
+  blood_group: '',
+  code: '',
   user_id: 0,
   name: '',
   email: '',
   mobile: '',
   user_code: '',
   gender: '',
-  blood_group: '',
   upi_code: '',
   message: '',
   description: '',
@@ -47,6 +48,7 @@ const loginReducer = (state = initialState, action) => {
         message: message,
         description: description,
         blood_group: blood_group,
+        code: code,
         upi_code: upi_code,
         result: action.payload,
         loginStarted: false,

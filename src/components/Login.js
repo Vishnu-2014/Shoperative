@@ -1,16 +1,38 @@
-import React from 'react';
-import {View, Text, StyleSheet, TextInput} from 'react-native';
+import React, {useState} from 'react';
+import {View, Text, StyleSheet, TextInput, Alert} from 'react-native';
 import Foundation from 'react-native-vector-icons/Foundation';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import {Pressable} from 'react-native';
 import {useDispatch, useSelector} from 'react-redux';
 import {login} from '../store/actions/loginActions';
 
+const dummyusername = '9000365957';
+const dummypassword = '123123';
+
 const Login = () => {
+  const [username, SetUsername] = useState('');
+  const [password, SetPassword] = useState('');
+
+  const handleUsernameInput = data => {
+    SetUsername(data);
+  };
+  const Validation = () => {
+    if (username !== dummyusername) {
+      Alert.alert('Wrong Username');
+    } else if (password !== dummypassword) {
+      Alert.alert('Wrong Password');
+    } else {
+      Alert.alert('Hi', loginResult.description);
+    }
+  };
+  const handlePasswordInput = data => {
+    SetPassword(data);
+  };
+
   const dispatch = useDispatch();
   //check below two lines will bring th data from api
   const loginResult = useSelector(state => state.login);
-  console.log('the result', loginResult.name, loginResult.email);
+  console.log('the result', loginResult.name, loginResult.description);
   //
   return (
     <View style={styles.container}>
@@ -21,6 +43,7 @@ const Login = () => {
           style={styles.inputFeildStyles}
           placeholder="Mobile Number"
           keyboardType="number-pad"
+          onChangeText={handleUsernameInput}
         />
       </View>
       <View style={styles.FeildViewStyles}>
@@ -29,6 +52,7 @@ const Login = () => {
           style={styles.inputFeildStyles}
           placeholder="Password"
           secureTextEntry={true}
+          onChangeText={handlePasswordInput}
         />
       </View>
 
@@ -38,8 +62,10 @@ const Login = () => {
         style={styles.buttonStyles}
         onPress={() => {
           //get username and password and pass this method instead of hardcoded values
-          dispatch(login('9000365957', '123123'));
-          console.log('Login Button Clicked');
+          dispatch(login(username, password));
+          Validation();
+          // dispatch(login('9000365957', '123123'));
+          // Alert.alert('Hello')
         }}>
         <Text style={styles.buttonTextStyles}>LOG IN</Text>
       </Pressable>
