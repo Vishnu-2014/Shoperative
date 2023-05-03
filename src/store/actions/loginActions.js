@@ -8,15 +8,22 @@ export const login = (username, password) => {
     console.log('the result');
     dispatch({type: LOGIN_STARTED});
     //const body =; //{userdata: username, password: password};
-    const result = await axios.get('https://trp3.com/api/trp_user/login', {
-      params: {userdata: '9000365957', password: '123123'},
-    });
+    try {
+      const result = await axios({
+        method: 'post',
+        url: 'https://trp3.com/api/trp_user/login',
+        data: {userdata: '9000365957', password: '123123'},
+        headers: {'Content-Type': 'application/json; charset=utf-8'},
+      });
 
-    console.log('the result', result);
-    if (result.status === '200') {
-      dispatch({type: LOGIN_SUCCESS, payload: result.data});
-    } else {
-      dispatch({type: LOGIN_FAILURE});
+      console.log('the result', result);
+      if (result.status === 200) {
+        dispatch({type: LOGIN_SUCCESS, payload: result.data});
+      } else {
+        dispatch({type: LOGIN_FAILURE});
+      }
+    } catch (e) {
+      console.log('the error', e);
     }
   };
 };
