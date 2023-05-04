@@ -64,8 +64,7 @@ const Login = () => {
           //get username and password and pass this method instead of hardcoded values
           dispatch(login(username, password));
           Validation();
-          // dispatch(login('9000365957', '123123'));
-          // Alert.alert('Hello')
+          console.log(loginResult);
         }}>
         <Text style={styles.buttonTextStyles}>LOG IN</Text>
       </Pressable>

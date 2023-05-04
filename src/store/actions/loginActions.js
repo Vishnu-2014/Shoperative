@@ -5,7 +5,6 @@ export const LOGIN_FAILURE = 'login:LOGIN_FAILURE';
 
 export const login = (username, password) => {
   return async (dispatch, getState) => {
-    console.log('the result');
     dispatch({type: LOGIN_STARTED});
     //const body =; //{userdata: username, password: password};
     try {
@@ -16,7 +15,6 @@ export const login = (username, password) => {
         headers: {'Content-Type': 'application/json; charset=utf-8'},
       });
 
-      console.log('the result', result);
       if (result.status === 200) {
         dispatch({type: LOGIN_SUCCESS, payload: result.data});
       } else {
