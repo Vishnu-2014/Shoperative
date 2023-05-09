@@ -11,7 +11,7 @@ const Help = () => {
           <Text style={styles.textFeildStyles}>Subject</Text>
           <TextInput style={styles.inputFeilds1} />
           <Text style={styles.textFeildStyles}>Message</Text>
-          <TextInput style={styles.inputFeilds2} />
+          <TextInput style={styles.inputFeilds2} multiline={true} />
           <Pressable style={styles.buttonStyles}>
             <Text style={styles.buttonTextStyles}>REQUEST SUPPORT</Text>
           </Pressable>
@@ -29,10 +29,9 @@ const styles = StyleSheet.create({
   },
   contentContainerStyles: {
     width: '90%',
-    marginTop: 15,
   },
   textFeildStyles: {
-    fontFamily: 'Poppins-Medium',
+    fontWeight: '500',
     fontSize: 14,
     color: '#000000',
     marginTop: 25,
@@ -42,11 +41,15 @@ const styles = StyleSheet.create({
     backgroundColor: '#F3F3F3',
     width: '100%',
     height: 55,
+    paddingHorizontal: 10,
   },
   inputFeilds2: {
     backgroundColor: '#F3F3F3',
     width: '100%',
     height: 130,
+    alignSelf: 'flex-start',
+    textAlignVertical: 'top',
+    paddingHorizontal: 10,
   },
   buttonStyles: {
     backgroundColor: '#ED7421',

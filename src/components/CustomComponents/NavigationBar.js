@@ -5,6 +5,7 @@ import logo from '../../images/logo.png';
 import user from '../../images/user.png';
 import cart from '../../images/cart.png';
 import {bgColor} from '../../theme/colors';
+
 const NavigationBar = props => {
   const {
     navigation,
@@ -36,13 +37,12 @@ const ss = StyleSheet.create({
     height: 60,
     flexDirection: 'row',
     alignItems: 'center',
-    paddingLeft: 20,
+    padding: 10,
   },
   innerContainer: {
     flex: 1,
     alignItems: 'center',
     flexDirection: 'row',
-    paddingRight: 11,
     height: 24,
   },
   menuIcon: {

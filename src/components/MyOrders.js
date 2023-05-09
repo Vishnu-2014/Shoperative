@@ -7,6 +7,7 @@ import {OrderData} from '../utils/Constants';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
 import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
+import {HeaderComponent} from './CustomComponents/HeaderComponent';
 const Tab = createMaterialTopTabNavigator();
 const MyOrders = () => {
   const CustomCards = item => {
@@ -63,23 +64,12 @@ const MyOrders = () => {
 
   return (
     <>
-      <View style={styles.headerStyles}>
-        <Ionicons
-          name="arrow-back"
-          size={24}
-          style={styles.headerBackArrowStyles}
-        />
-        <Text style={styles.headerTextStyles}>My Orders</Text>
-      </View>
+      <HeaderComponent title={'My Orders'} />
 
       <Tab.Navigator>
         <Tab.Screen name="Delivered" component={YourOrders} />
         <Tab.Screen name="Proecessing" component={YourOrders} />
-        <Tab.Screen
-          name="Cancelled"
-          component={YourOrders}
-          options={{tabBarLabel: 'red'}}
-        />
+        <Tab.Screen name="Cancelled" component={YourOrders} />
       </Tab.Navigator>
     </>
   );
@@ -162,6 +152,12 @@ const styles = StyleSheet.create({
     fontSize: 13,
     fontWeight: '500',
     color: '#ED7421',
+  },
+  topNavBarTextStyles: {
+    flex: 1,
+  },
+  topNavBarTextStyles2: {
+    flex: 2,
   },
 });
 

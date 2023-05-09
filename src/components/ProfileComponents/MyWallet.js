@@ -12,9 +12,9 @@ const MyWallet = () => {
 
       <View
         style={{
-          width: '95%',
-          marginTop: 10,
-          backgroundColor: 'white',
+          width: '90%',
+          marginTop: 20,
+          backgroundColor: '#FFF',
           justifyContent: 'space-between',
           height: '80%',
         }}>
@@ -93,12 +93,12 @@ const styles = StyleSheet.create({
   },
   headingTextStyles: {
     fontSize: 18,
-    fontFamily: 'Poppins-Medium',
+    fontWeight: '600',
     color: '#3f3f3f',
   },
   balanceTextStyles: {
     fontSize: 44,
-    fontFamily: 'Poppins-SemiBold',
+    fontWeight: '600',
     color: '#ED7421',
   },
   contentTextStyles: {
@@ -136,10 +136,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     width: '100%',
     height: 80,
-    shadowColor: '#3f3f3f',
-    elevation: 5,
     backgroundColor: '#FFFFFF',
     marginTop: 10,
+    borderBottomWidth: 0.5,
+    borderBottomColor: '#707070',
   },
   button1Styles: {
     flexDirection: 'row',
@@ -166,7 +166,7 @@ const styles = StyleSheet.create({
   },
   rulesHeadingStyle: {
     fontSize: 16,
-    fontWeight: '500',
+    fontWeight: '800',
     color: '#3f3f3f',
   },
   rulesContentView: {
@@ -177,10 +177,10 @@ const styles = StyleSheet.create({
   rulesTextStyles: {
     fontSize: 14,
     color: '#3f3f3f',
-    fontWeight: '500',
+    fontWeight: '700',
   },
   rulesIconStyles: {
-    paddingHorizontal: 15,
+    paddingRight: 20,
   },
 });
 

@@ -5,13 +5,21 @@ import AntDesign from 'react-native-vector-icons/AntDesign';
 import {Pressable} from 'react-native';
 import {useDispatch, useSelector} from 'react-redux';
 import {login} from '../store/actions/loginActions';
+import {useNavigation} from '@react-navigation/native';
+import {Snackbar} from 'react-native-paper';
 
 const dummyusername = '9000365957';
 const dummypassword = '123123';
 
 const Login = () => {
+  const navigation = useNavigation();
   const [username, SetUsername] = useState('');
   const [password, SetPassword] = useState('');
+
+  const [visible, setVisible] = useState(false);
+  const onDismiss = () => {
+    setVisible(false);
+  };
 
   const handleUsernameInput = data => {
     SetUsername(data);
@@ -22,7 +30,10 @@ const Login = () => {
     } else if (password !== dummypassword) {
       Alert.alert('Wrong Password');
     } else {
-      Alert.alert('Hi', loginResult.description);
+      // if (loginResult.description === 'You are logged in successfully') {
+      //   navigation.navigate('Register');
+      // }
+      setVisible(true);
     }
   };
   const handlePasswordInput = data => {
@@ -33,6 +44,18 @@ const Login = () => {
   //check below two lines will bring th data from api
   const loginResult = useSelector(state => state.login);
   console.log('the result', loginResult.name, loginResult.description);
+
+  const snackBar = () => {
+    return (
+      <Snackbar
+        visible={visible}
+        onDismiss={onDismiss}
+        action={{label: 'Close'}}>
+        {loginResult.description}
+      </Snackbar>
+    );
+  };
+
   //
   return (
     <View style={styles.container}>
@@ -77,6 +100,8 @@ const Login = () => {
           Sign Up
         </Text>
       </Text>
+
+      {snackBar()}
     </View>
   );
 };

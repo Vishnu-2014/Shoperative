@@ -76,7 +76,11 @@ const ReturnProduct2 = () => {
           </View>
           <MaterialIcons name="arrow-forward-ios" size={25} />
         </View>
-        <View style={[styles.box, {borderBottomWidth: 1}]}>
+        <View
+          style={[
+            styles.box,
+            {borderBottomWidth: 0.5, borderBottomColor: '#707070'},
+          ]}>
           <View>
             <Text style={styles.contentHeadingStyles}>Please tell us more</Text>
             <Text style={styles.contentIssueStyles}>Poor Fabric Quality</Text>
@@ -85,7 +89,7 @@ const ReturnProduct2 = () => {
         </View>
 
         <Text style={styles.commentHeadingStyles}>Comments (Optional)</Text>
-        <TextInput style={styles.commentBoxFeildStyles} />
+        <TextInput multiline={true} style={styles.commentBoxFeildStyles} />
         <Text style={styles.remainingTextContainerStyles}>
           200 Charecters Remaining
         </Text>
@@ -190,6 +194,7 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     marginTop: 5,
     borderColor: '#707070',
+    textAlignVertical: 'top',
   },
   remainingTextContainerStyles: {
     color: '#666',

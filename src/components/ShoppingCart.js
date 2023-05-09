@@ -84,22 +84,24 @@ const ShoppingCart = () => {
         <View style={styles.paymentsDetailsContainer}>
           <Text style={styles.headingPaymentDetailsStyle}>PAYMENT DETAILS</Text>
           <View style={styles.boxPaymentDetailsStyles}>
-            <Text>Item Total</Text>
+            <Text style={styles.textStyles}>Item Total</Text>
             <Text style={styles.pricePaymentStyles}>₹ 54</Text>
           </View>
           <View style={styles.planeLineStyles} />
           <View style={styles.boxPaymentDetailsStyles}>
-            <Text>Partner Delivery Fee</Text>
+            <Text style={styles.textStyles}>Partner Delivery Fee</Text>
             <Text style={styles.pricePaymentStyles}>₹ 10</Text>
           </View>
           <View style={styles.planeLineStyles} />
           <View style={styles.boxPaymentDetailsStyles}>
-            <Text>Cash Discount{'\n'}20% off upto 100</Text>
+            <Text style={styles.textStyles}>
+              Cash Discount{'\n'}20% off upto 100
+            </Text>
             <Text style={styles.pricePaymentStyles}>₹ 14</Text>
           </View>
           <View style={styles.planeLineStyles} />
           <View style={styles.boxPaymentDetailsStyles}>
-            <Text>To Pay</Text>
+            <Text style={styles.textStyles}>To Pay</Text>
             <Text style={[styles.pricePaymentStyles, {color: '#ED7421'}]}>
               ₹ 44
             </Text>
@@ -241,8 +243,13 @@ const styles = StyleSheet.create({
   },
   planeLineStyles: {
     width: '100%',
-    height: 1,
-    backgroundColor: '#999',
+    height: 0.5,
+    backgroundColor: '#707070',
+  },
+  textStyles: {
+    fontWeight: '500',
+    color: '#707070',
+    fontSize: 14,
   },
 });
 

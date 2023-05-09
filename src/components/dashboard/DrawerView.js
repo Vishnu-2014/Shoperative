@@ -1,5 +1,4 @@
 import React from 'react';
-import {Pressable, Image} from 'react-native';
 import {createDrawerNavigator} from '@react-navigation/drawer';
 import {MyOrders} from './MyOrders';
 import {Profile} from './Profile';

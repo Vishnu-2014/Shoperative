@@ -126,7 +126,7 @@ const styles = StyleSheet.create({
   },
   productNameStyles: {
     fontSize: 14,
-    fontFamily: 'Poppins-Medium',
+    fontWeight: '600',
     color: '#000000',
   },
   productStrikePriceStyles: {
@@ -144,7 +144,7 @@ const styles = StyleSheet.create({
   productPriceStyles: {
     fontSize: 14,
     color: '#000',
-    textDecorationLine: 'none',
+    fontWeight: '500',
   },
   productDetailsStyles: {
     alignItems: 'flex-start',

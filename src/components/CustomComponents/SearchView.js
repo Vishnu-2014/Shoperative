@@ -18,7 +18,7 @@ import SearchIcon from '../../images/search.png';
 const SearchView = props => {
   const {
     textHeader,
-    searchPlaceholder = 'search products here',
+    searchPlaceholder = 'Search Products Here',
     onPress = () => {},
   } = props;
   const [searchText, setSearchText] = useState('');
@@ -42,7 +42,7 @@ const SearchView = props => {
           </Pressable>
         </View>
         <View style={ss.searchLabelsContainer}>
-          <Text style={ss.textStyle}>Search by category</Text>
+          <Text style={ss.textStyle}>Search By Category</Text>
           <Text style={ss.textStyle}>Search Followers</Text>
           <Text style={ss.textStyle}>Search Power Users</Text>
         </View>

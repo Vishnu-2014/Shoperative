@@ -36,14 +36,9 @@ const HomeScreen = ({navigation}) => {
       title: 'OtpVerification',
       target: 'OtpVerification',
     },
-    {title: 'Dashboard', target: 'DrawerView'},
-    // {
-    //   title: 'DashBoard',
-    //   target: 'DashBoard',
-    // },
     {
-      title: 'DashBoard',
-      target: 'DashBoard',
+      title: 'Dashboard',
+      target: 'DrawerView',
     },
     {
       title: 'ProductDetails',
@@ -120,6 +115,14 @@ const HomeScreen = ({navigation}) => {
     {
       title: 'ReturnProduct3',
       target: 'ReturnProduct3',
+    },
+    {
+      title: 'ManagePayments',
+      target: 'ManagePayments',
+    },
+    {
+      title: 'HeaderComponent',
+      target: 'HeaderComponent',
     },
   ];
 

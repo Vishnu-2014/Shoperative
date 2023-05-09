@@ -13,9 +13,8 @@ import {ForgetPassword} from './src/components/ForgetPassword';
 import {OtpVerification} from './src/components/OtpVerification';
 import {HomeScreen} from './src/components/HomeScreen';
 import {DrawerView} from './src/components/dashboard/DrawerView';
-import {DashBoard} from './src/components/DashBoard';
 import {ProductDetails} from './src/components/ProductDetails';
-import {Account} from './src/components/NavBarComponents/Account';
+import {Account} from './src/components/dashboard/Account';
 import {EditProfile} from './src/components/EditProfile';
 import {MyOrders} from './src/components/MyOrders';
 import {MyWishlist} from './src/components/ProfileComponents/MyWishlist';
@@ -33,6 +32,8 @@ import RadioButtons from './src/components/CustomComponents/RadioButton';
 import {ReturnProduct} from './src/components/ReturnProduct';
 import {ReturnProduct2} from './src/components/ReturnProduct2';
 import {ReturnProduct3} from './src/components/ReturnProduct3';
+import {ManagePayments} from './src/components/ManagePayments';
+import {HeaderComponent} from './src/components/CustomComponents/HeaderComponent';
 import {Provider} from 'react-redux';
 import storeConfig from './src/store/configureStore';
 
@@ -47,6 +48,11 @@ const screens = [
     name: 'DropdownExample',
     component: DropdownExample,
     headerBackTitle: 'Home',
+  },
+  {
+    name: 'HeaderComponent',
+    component: HeaderComponent,
+    headerBackTitle: 'HeaderComponent',
   },
   {
     name: 'PowerUserRegister',
@@ -83,11 +89,6 @@ const screens = [
     component: DrawerView,
     headerBackTitle: 'Home',
     headerShown: false,
-  },
-  {
-    name: 'DashBoard',
-    component: DashBoard,
-    headerBackTitle: 'DashBoard',
   },
   {
     name: 'ProductDetails',
@@ -184,6 +185,11 @@ const screens = [
     component: ReturnProduct3,
     headerBackTitle: 'ReturnProduct3',
   },
+  {
+    name: 'ManagePayments',
+    component: ManagePayments,
+    headerBackTitle: 'ManagePayments',
+  },
 ];
 const App = () => {
   const renderRootView = () => {
@@ -203,7 +209,6 @@ const App = () => {
                 component={item.component}
                 options={{
                   headerBackTitle: item.headerBackTitle ?? item.name,
-                  headerShown: item.headerShown ?? true,
                   title: item.headerBackTitle,
                   headerTintColor: '#FFFFFF',
                   headerStyle: {backgroundColor: '#ED7421'},
