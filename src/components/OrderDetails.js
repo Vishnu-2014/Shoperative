@@ -262,7 +262,7 @@ const styles = StyleSheet.create({
   },
   OrderInfoContentConatinerStyles: {
     width: '95%',
-    height: 49,
+    height: '33%',
     justifyContent: 'space-between',
     flexDirection: 'row',
     paddingHorizontal: 10,
@@ -275,9 +275,9 @@ const styles = StyleSheet.create({
     color: '#666',
   },
   ViewLineStyles: {
-    height: 1.5,
+    height: 1,
     width: '100%',
-    backgroundColor: '#707070',
+    backgroundColor: '#333',
   },
 });
 

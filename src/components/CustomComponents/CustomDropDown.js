@@ -48,7 +48,12 @@ const DropdownExample = props => {
           data={options}
           nestedScrollEnabled={true}
           renderItem={({item}) => (
-            <TouchableOpacity onPress={() => selectOption(item.value)}>
+            <TouchableOpacity
+              onPress={() => selectOption(item.value)}
+              style={{
+                borderTopColor: '#333',
+                borderTopWidth: 1,
+              }}>
               <Text style={styles.contentTextStyles}>{item.label}</Text>
             </TouchableOpacity>
           )}
@@ -74,7 +79,6 @@ const styles = StyleSheet.create({
   },
   contentTextStyles: {
     height: 50,
-    borderBottomWidth: 2,
     backgroundColor: '#fff',
     textAlign: 'center',
     textAlignVertical: 'center',
