@@ -1,8 +1,11 @@
 import React from 'react';
 import {View, Text, StyleSheet, TextInput, Pressable} from 'react-native';
 import {HeaderComponent} from './CustomComponents/HeaderComponent';
+import {useSelector} from 'react-redux';
 
 const EditProfile = () => {
+  const loginResult = useSelector(state => state.login);
+
   const CustomFeilds = (textFeild, placeholderFeild) => {
     return (
       <View style={styles.elementsContainerStyles}>
@@ -18,9 +21,9 @@ const EditProfile = () => {
     <View style={styles.container}>
       <HeaderComponent title={'Edit Profile'} />
 
-      {CustomFeilds('Name*', 'Vishnu')}
-      {CustomFeilds('Mobile Number*', '9988223377')}
-      {CustomFeilds('Email Id*', 'Vishnu@gmail.com')}
+      {CustomFeilds('Name*', loginResult.name)}
+      {CustomFeilds('Mobile Number*', loginResult.mobile)}
+      {CustomFeilds('Email Id*', loginResult.email)}
 
       <View
         style={{

@@ -7,13 +7,14 @@ import {
   Pressable,
   ScrollView,
 } from 'react-native';
+import {useNavigation} from '@react-navigation/native';
 
 import DropdownExample from './CustomComponents/CustomDropDown';
 
-const Register = navigation => {
-  // const powerUserButton = () => navigation.navigate(HomeScreen);
+const Register = () => {
+  const navigation = useNavigation();
   return (
-    <ScrollView style={styles.container}>
+    <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
       <Text style={styles.logoStyles}>Hi!</Text>
       <Text style={styles.headingStyles}>Register a New Account</Text>
       <View style={styles.card}>
@@ -87,7 +88,9 @@ const Register = navigation => {
         <Pressable style={styles.signUpButton}>
           <Text style={styles.signUpButtonText}>SIGN UP</Text>
         </Pressable>
-        <Pressable style={styles.powerUserButton}>
+        <Pressable
+          style={styles.powerUserButton}
+          onPress={() => navigation.navigate('PowerUserRegister')}>
           <Text style={styles.powerUserButtonText}>
             REGISTER AS A POWER USER
           </Text>

@@ -16,7 +16,7 @@ const PowerUserRegister = () => {
     <View style={styles.container}>
       <Text style={styles.logoStyles}>Power User</Text>
       <Text style={styles.headingStyles}>Registration</Text>
-      <ScrollView style={styles.card}>
+      <ScrollView style={styles.card} showsVerticalScrollIndicator={false}>
         {/* name */}
         <TextInput
           style={styles.feildStles}

@@ -6,9 +6,11 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import profileImage from '../../images/userimag.jpg';
 import {useNavigation} from '@react-navigation/native';
+import {useDispatch, useSelector} from 'react-redux';
 
 const Account = () => {
   const navigation = useNavigation();
+  const loginResult = useSelector(state => state.login);
   const CustomFeilds = ({icon, iconName, title}) => {
     return (
       <View style={styles.boxContainerStyles}>
@@ -41,8 +43,8 @@ const Account = () => {
       <ScrollView
         contentContainerStyle={{alignItems: 'center'}}
         style={styles.cardContainer}>
-        <Text style={styles.profileNameTextStyles}>Vishnu Reddy</Text>
-        <Text style={styles.numberTextStyles}>+91-7780515180</Text>
+        <Text style={styles.profileNameTextStyles}>{loginResult.name}</Text>
+        <Text style={styles.numberTextStyles}>+91-{loginResult.mobile}</Text>
 
         <CustomFeilds iconName={'user'} title={'My Profile'} />
         <CustomFeilds iconName={'shopping-bag'} title={'My Orders'} />
