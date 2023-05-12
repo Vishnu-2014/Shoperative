@@ -3,7 +3,7 @@ import {View, StyleSheet} from 'react-native';
 import {Text, TouchableOpacity, FlatList} from 'react-native';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 
-const DropdownExample = props => {
+const DropdownExample = title => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [selectedValue, setSelectedValue] = useState('');
 
@@ -15,6 +15,9 @@ const DropdownExample = props => {
     {id: 2, label: 'Option 2', value: 'option2'},
     {id: 3, label: 'Option 3', value: 'option3'},
     {id: 4, label: 'Option 4', value: 'option4'},
+    {id: 5, label: 'Option 5', value: 'option5'},
+    {id: 6, label: 'Option 6', value: 'option6'},
+    {id: 7, label: 'Option 7', value: 'option7'},
   ];
 
   const toggleDropdown = () => {
@@ -46,6 +49,14 @@ const DropdownExample = props => {
       {isDropdownOpen && (
         <FlatList
           data={options}
+          style={{
+            position: 'absolute',
+            width: '100%',
+            height: 200,
+            marginTop: 50,
+            alignSelf: 'center',
+            backgroundColor: '#FFF',
+          }}
           nestedScrollEnabled={true}
           renderItem={({item}) => (
             <TouchableOpacity
@@ -70,7 +81,7 @@ const styles = StyleSheet.create({
     marginTop: 10,
   },
   ButtonStyles: {
-    backgroundColor: '#FFFFFF',
+    backgroundColor: '#FFF',
     flexDirection: 'row',
     justifyContent: 'space-between',
     height: 50,
