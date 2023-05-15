@@ -2,6 +2,7 @@ import React from 'react';
 import {View, Text, StyleSheet, TextInput, Pressable} from 'react-native';
 import {HeaderComponent} from './CustomComponents/HeaderComponent';
 import {useSelector} from 'react-redux';
+import {placeHolderTextColor} from '../theme/colors';
 
 const EditProfile = () => {
   const loginResult = useSelector(state => state.login);
@@ -12,6 +13,7 @@ const EditProfile = () => {
         <Text style={styles.textStyles}>{textFeild}</Text>
         <TextInput
           placeholder={placeholderFeild}
+          placeholderTextColor={placeHolderTextColor}
           style={styles.inputFeildsStyles}
         />
       </View>
@@ -36,10 +38,12 @@ const EditProfile = () => {
           <Text style={styles.textStyles}>State</Text>
           <TextInput
             placeholder="Telangana"
+            placeholderTextColor={placeHolderTextColor}
             style={{
               backgroundColor: '#F3F3F3',
               marginTop: 5,
               paddingHorizontal: 20,
+              fontWeight: '500',
             }}
           />
         </View>
@@ -50,6 +54,7 @@ const EditProfile = () => {
               backgroundColor: '#F3F3F3',
               marginTop: 5,
               paddingHorizontal: 20,
+              fontWeight: '500',
             }}
           />
         </View>
@@ -92,8 +97,8 @@ const styles = StyleSheet.create({
   },
   textStyles: {
     fontSize: 14,
-    fontFamily: 'Poppins-Medium',
-    color: '#000000',
+    fontWeight: '500',
+    color: '#000000CC',
   },
   inputFeildsStyles: {
     width: '100%',
@@ -102,7 +107,7 @@ const styles = StyleSheet.create({
     marginTop: 5,
     paddingHorizontal: 20,
     fontSize: 14,
-    fontFamily: 'Poppins-Medium',
+    fontWeight: '500',
   },
   buttonStyles: {
     width: '90%',

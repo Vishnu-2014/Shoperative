@@ -16,7 +16,7 @@ const OtpVerification = () => {
       <Text style={styles.headingStyle}>OTP VERIFICATION</Text>
       <Text style={styles.numberTextStyle}>
         Code Sent To{' '}
-        <Text style={{fontFamily: 'Poppins-Medium', color: '#000'}}>
+        <Text style={{fontWeight: '500', color: '#242424'}}>
           +91 8833229798
         </Text>
       </Text>
@@ -59,26 +59,26 @@ const styles = StyleSheet.create({
   numberTextStyle: {
     fontSize: 15,
     fontFamily: 'Poppins-Medium',
+    color: '#242424CC',
   },
   inputFeildsViewStyle: {
-    width: '70%',
+    width: '75%',
     flexDirection: 'row',
     justifyContent: 'space-between',
-    height: 48,
+    height: 45,
     marginTop: 38,
   },
   inputFeildStyle: {
     borderWidth: 1,
-    width: 46,
+    width: 45,
     borderColor: '#70707080',
     textAlign: 'center',
     color: '#ED7421',
     fontFamily: 'Poppins-Bold',
-    textAlignVertical: 'center',
   },
   resendTextStyles: {
     fontSize: 14,
-    fontFamily: 'Poppins-Regular',
+    fontWeight: '500',
     color: '#242424CC',
     marginTop: 45,
   },

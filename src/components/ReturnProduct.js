@@ -3,9 +3,11 @@ import {View, Text, StyleSheet, Image, Pressable} from 'react-native';
 import {HeaderComponent} from './CustomComponents/HeaderComponent';
 import Product from '../images/Product.png';
 import {RadioButton} from 'react-native-paper';
+import {useNavigation} from '@react-navigation/native';
 
 const ReturnProduct = () => {
   const [selectedOption, setSelectedOption] = useState('hello');
+  const navigation = useNavigation();
 
   const returnReasonData = [
     'Item defective or doesn work',
@@ -94,7 +96,11 @@ const ReturnProduct = () => {
             <Text style={styles.ReturnOptionsTextStyles}>{option}</Text>
           </View>
         ))}
-        <Pressable style={styles.buttonStyles}>
+        <Pressable
+          style={styles.buttonStyles}
+          onPress={() => {
+            navigation.navigate('ReturnProduct2');
+          }}>
           <Text style={styles.buttonTextStyles}>CONTINUE</Text>
         </Pressable>
       </View>

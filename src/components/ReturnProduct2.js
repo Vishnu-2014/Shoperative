@@ -11,8 +11,10 @@ import {
 import {HeaderComponent} from './CustomComponents/HeaderComponent';
 import Product from '../images/Product.png';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+import {useNavigation} from '@react-navigation/native';
 
 const ReturnProduct2 = () => {
+  const navigation = useNavigation();
   const ProductContainer = () => {
     return (
       <View style={styles.ProductContainer}>
@@ -102,7 +104,11 @@ const ReturnProduct2 = () => {
             and scramb led it to make a type specimen book.
           </Text>
         </View>
-        <Pressable style={styles.buttonStyles}>
+        <Pressable
+          style={styles.buttonStyles}
+          onPress={() => {
+            navigation.navigate('ReturnProduct3');
+          }}>
           <Text style={styles.buttonTextStyles}>CONTINUE</Text>
         </Pressable>
       </View>

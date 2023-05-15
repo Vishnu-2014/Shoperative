@@ -11,9 +11,9 @@ import {useDispatch, useSelector} from 'react-redux';
 const Account = () => {
   const navigation = useNavigation();
   const loginResult = useSelector(state => state.login);
-  const CustomFeilds = ({icon, iconName, title}) => {
+  const CustomFeilds = ({iconName, title, onPress}) => {
     return (
-      <View style={styles.boxContainerStyles}>
+      <View style={styles.boxContainerStyles} onPress={onPress}>
         <View style={styles.insideBoxContainerStyles}>
           <FontAwesome name={iconName} size={20} style={styles.boxIconStyles} />
           <Text style={styles.boxTextStyles}>{title}</Text>
@@ -56,7 +56,14 @@ const Account = () => {
         />
         <CustomFeilds iconName={'address-book-o'} title={'Address Book'} />
         <CustomFeilds iconName={'help-circle'} title={'Help'} />
-        <CustomFeilds iconName={'lock'} title={'Change Password'} />
+        <CustomFeilds
+          iconName={'lock'}
+          title={'Change Password'}
+          onPress={() => console.log('ChangePassword')}
+          // onPressProps={() => {
+          //   navigation.navigate('ChangePassword');
+          // }}
+        />
         <CustomFeilds iconName={'power-off'} title={'Logout'} />
       </ScrollView>
     </View>
@@ -129,7 +136,7 @@ const styles = StyleSheet.create({
   boxTextStyles: {
     color: '#000',
     fontSize: 15,
-    fontFamily: 'Poppins-Medium',
+    fontWeight: '400',
   },
   profileNameTextStyles: {
     fontSize: 24,

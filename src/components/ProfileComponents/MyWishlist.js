@@ -33,7 +33,7 @@ const MyWishlist = () => {
           />
         </View>
         <View style={styles.productDetailsStyles}>
-          <Text style={styles.productNameStyles}>PRODUCT NAME</Text>
+          <Text style={styles.productNameStyles}>MADHUKARI HERBAL TEA</Text>
           <View style={styles.priceContainer}>
             <Text style={styles.productPriceStyles}>MRP</Text>
             <Text style={styles.productStrikePriceStyles}>Rs.400</Text>
@@ -43,7 +43,7 @@ const MyWishlist = () => {
             style={{flexDirection: 'row', alignItems: 'center', marginTop: 5}}>
             <MaterialCommunityIcons
               name="minus"
-              size={25}
+              size={20}
               color={'#999'}
               style={styles.iconStyles}
               onPress={DecreaseQty}
@@ -51,7 +51,7 @@ const MyWishlist = () => {
             <Text style={styles.qtyTextStyles}>{qty}</Text>
             <MaterialCommunityIcons
               name="plus"
-              size={25}
+              size={20}
               color={'#999'}
               style={styles.iconStyles}
               onPress={IncreaseQty}
@@ -98,6 +98,7 @@ const styles = StyleSheet.create({
   },
   card: {
     width: '90%',
+    height: 120,
     backgroundColor: '#ffffff',
     borderRadius: 10,
     shadowColor: 'black',
@@ -106,28 +107,18 @@ const styles = StyleSheet.create({
     shadowRadius: 10,
     shadowOpacity: 0.8,
     elevation: 6,
-    padding: 16,
+    padding: 10,
     flexDirection: 'row',
     alignItems: 'center',
   },
   imageContainerStyles: {
-    width: 90,
-    height: 90,
-    shadowColor: 'black',
-    shadowOffset: {width: 0, height: 3},
-    shadowOpacity: 0.26,
-    shadowRadius: 10,
-    elevation: 8,
-    borderRadius: 10,
-    backgroundColor: '#FFF',
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: 5,
+    width: 100,
+    height: 100,
   },
   productNameStyles: {
     fontSize: 14,
     fontWeight: '600',
-    color: '#000000',
+    color: '#000000CC',
   },
   productStrikePriceStyles: {
     fontSize: 13,
@@ -164,7 +155,7 @@ const styles = StyleSheet.create({
   qtyTextStyles: {
     fontSize: 16,
     fontFamily: 'Poppins-Medium',
-    paddingHorizontal: 15,
+    paddingHorizontal: 10,
     color: '#000',
   },
 });

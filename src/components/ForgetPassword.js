@@ -1,7 +1,7 @@
 import React from 'react';
 import {View, Text, StyleSheet, TextInput} from 'react-native';
+import {placeHolderTextColor} from '../theme/colors';
 import Foundation from 'react-native-vector-icons/Foundation';
-import AntDesign from 'react-native-vector-icons/AntDesign';
 import {Pressable} from 'react-native';
 
 const ForgetPassword = () => {
@@ -13,6 +13,7 @@ const ForgetPassword = () => {
         <TextInput
           style={styles.inputFeildStyles}
           placeholder="Mobile Number"
+          placeholderTextColor={placeHolderTextColor}
           keyboardType="number-pad"
         />
       </View>
@@ -50,9 +51,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   inputFeildStyles: {
-    marginLeft: 2,
+    marginLeft: 5,
     width: '80%',
-    fontFamily: 'Poppins-Medium',
+    fontWeight: '500',
+    color: '#000',
   },
   iconStylesmobile: {
     padding: 10,
@@ -72,9 +74,9 @@ const styles = StyleSheet.create({
   },
   bottomTextStyles: {
     fontSize: 14,
-    fontFamily: 'Poppins-Medium',
     color: '#000000CC',
-    marginTop: 37.5,
+    marginTop: 37,
+    fontWeight: '500',
   },
 });
 

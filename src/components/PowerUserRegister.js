@@ -8,10 +8,13 @@ import {
   Pressable,
   ScrollView,
 } from 'react-native';
+import {useNavigation} from '@react-navigation/native';
+import {placeHolderTextColor} from '../theme/colors';
 
 import DropdownExample from './CustomComponents/CustomDropDown';
 
 const PowerUserRegister = () => {
+  const navigation = useNavigation();
   return (
     <View style={styles.container}>
       <Text style={styles.logoStyles}>Power User</Text>
@@ -21,14 +24,14 @@ const PowerUserRegister = () => {
         <TextInput
           style={styles.feildStles}
           placeholder={'Name'}
-          placeholderTextColor={'#666666'}
+          placeholderTextColor={placeHolderTextColor}
         />
 
         {/* mobile number */}
         <TextInput
           style={styles.feildStles}
           placeholder={'Name Of The Food Co-operative'}
-          placeholderTextColor={'#666666'}
+          placeholderTextColor={placeHolderTextColor}
         />
 
         <View
@@ -45,7 +48,7 @@ const PowerUserRegister = () => {
           <TextInput
             style={[styles.feildStles, {width: '48%', marginTop: 0}]}
             placeholder={'Mobile'}
-            placeholderTextColor={'#666666'}
+            placeholderTextColor={placeHolderTextColor}
             keyboardType="number-pad"
           />
 
@@ -53,7 +56,7 @@ const PowerUserRegister = () => {
           <TextInput
             style={[styles.feildStles, {width: '48%', marginTop: 0}]}
             placeholder={'Email'}
-            placeholderTextColor={'#666666'}
+            placeholderTextColor={placeHolderTextColor}
             keyboardType="email-address"
           />
         </View>
@@ -62,7 +65,7 @@ const PowerUserRegister = () => {
         <TextInput
           style={styles.feildStles}
           placeholder={'Area'}
-          placeholderTextColor={'#666666'}
+          placeholderTextColor={placeHolderTextColor}
         />
 
         <View
@@ -79,14 +82,14 @@ const PowerUserRegister = () => {
           <TextInput
             style={[styles.feildStles, {width: '48%', marginTop: 0}]}
             placeholder={'City'}
-            placeholderTextColor={'#666666'}
+            placeholderTextColor={placeHolderTextColor}
           />
 
           {/* state */}
           <TextInput
             style={[styles.feildStles, {width: '48%', marginTop: 0}]}
             placeholder={'state'}
-            placeholderTextColor={'#666666'}
+            placeholderTextColor={placeHolderTextColor}
           />
         </View>
 
@@ -104,7 +107,7 @@ const PowerUserRegister = () => {
           <TextInput
             style={[styles.feildStles, {width: '48%', marginTop: 0}]}
             placeholder={'Password'}
-            placeholderTextColor={'#666666'}
+            placeholderTextColor={placeHolderTextColor}
             secureTextEntry={true}
           />
 
@@ -112,7 +115,7 @@ const PowerUserRegister = () => {
           <TextInput
             style={[styles.feildStles, {width: '48%', marginTop: 0}]}
             placeholder={'Confirm Password'}
-            placeholderTextColor={'#666666'}
+            placeholderTextColor={placeHolderTextColor}
             secureTextEntry={true}
           />
         </View>
@@ -122,25 +125,20 @@ const PowerUserRegister = () => {
 
         <TextInput
           style={styles.feildStles}
-          placeholder={'Add Elements'}
-          placeholderTextColor={'#666666'}
+          placeholder={'Facebook Link'}
+          placeholderTextColor={placeHolderTextColor}
         />
 
         <TextInput
           style={styles.feildStles}
           placeholder={'GST Number'}
-          placeholderTextColor={'#666666'}
-        />
-        <TextInput
-          style={styles.feildStles}
-          placeholder={'PAN Number'}
-          placeholderTextColor={'#666666'}
+          placeholderTextColor={placeHolderTextColor}
         />
 
         <TextInput
-          style={[styles.feildStles, {height: 90, textAlignVertical: 'top'}]}
+          style={[styles.feildStles, {height: 100, textAlignVertical: 'top'}]}
           placeholder={'Address'}
-          placeholderTextColor={'#666666'}
+          placeholderTextColor={placeHolderTextColor}
           multiline={true}
         />
 
@@ -148,12 +146,14 @@ const PowerUserRegister = () => {
           <Text style={styles.powerUserButtonText}>+ Choose Id Proof</Text>
         </Pressable>
 
-        <Pressable style={styles.powerUserButton}>
+        {/* <Pressable style={styles.powerUserButton}>
           <Text style={styles.powerUserButtonText}>+ Upload Logo</Text>
-        </Pressable>
+        </Pressable> */}
 
-        <Pressable style={styles.signUpButton}>
-          <Text style={styles.signUpButtonText}>ADD</Text>
+        <Pressable
+          style={styles.AddButton}
+          onPress={() => navigation.navigate('Login')}>
+          <Text style={styles.AddButtonText}>ADD</Text>
         </Pressable>
       </ScrollView>
     </View>
@@ -169,20 +169,20 @@ const styles = StyleSheet.create({
     fontSize: 38,
     color: '#ED7421',
     fontFamily: 'Nunito-Bold',
-    marginTop: 5,
-    marginLeft: 22,
+    marginTop: 10,
+    marginLeft: '5%',
   },
   headingStyles: {
     fontSize: 18,
-    color: '#000000',
-    fontFamily: 'Poppins-Medium',
-    marginLeft: 22,
+    color: '#000',
+    fontWeight: '500',
+    marginLeft: '5%',
     marginTop: 5,
   },
   card: {
-    marginLeft: 22,
     marginTop: 10,
-    marginRight: 22,
+    width: '90%',
+    alignSelf: 'center',
   },
   feildStles: {
     backgroundColor: '#ffffff',
@@ -190,23 +190,22 @@ const styles = StyleSheet.create({
     marginTop: 12,
     paddingHorizontal: 15,
     fontSize: 13,
-    fontFamily: 'Poppins-Medium',
+    fontWeight: '500',
   },
-  signUpButton: {
-    height: 45,
+  AddButton: {
+    height: 50,
     backgroundColor: '#ED7421',
-    marginTop: 20,
+    marginVertical: 20,
     justifyContent: 'center',
     alignItems: 'center',
-    marginBottom: 10,
   },
-  signUpButtonText: {
+  AddButtonText: {
     color: '#FFFFFF',
     fontSize: 18,
     fontFamily: 'Poppins-Bold',
   },
   powerUserButton: {
-    height: 45,
+    height: 50,
     backgroundColor: '#FFFFFF',
     marginTop: 10,
     justifyContent: 'center',

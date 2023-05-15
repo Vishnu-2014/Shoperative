@@ -21,19 +21,20 @@ const MyOrders = () => {
       rightTitle,
     } = item;
     return (
-      <ScrollView style={styles.card}>
+      <View style={styles.card}>
         <View style={styles.InsideCardView1}>
           <Text style={styles.OrdersTextStyles}>{`Order ID -${orderId}`} </Text>
-          <Text>{time}</Text>
+          <Text style={{fontWeight: '500'}}>{time}</Text>
         </View>
-        <Text style={{alignSelf: 'flex-start', marginTop: 5}}>
+        <Text
+          style={{alignSelf: 'flex-start', marginTop: 5, fontWeight: '500'}}>
           Tracking Number: <Text style={styles.TrackingText}>{trackId}</Text>
         </Text>
         <View style={styles.InsideCardView2}>
-          <Text>
+          <Text style={{fontWeight: '500'}}>
             Quantity: <Text style={styles.TrackingText}>{quntity}</Text>
           </Text>
-          <Text>
+          <Text style={{fontWeight: '500'}}>
             Total Amount: <Text style={styles.TrackingText}>{totalAmount}</Text>
           </Text>
         </View>
@@ -41,16 +42,16 @@ const MyOrders = () => {
           <View style={styles.DetailsButtonStyles}>
             <Text
               style={{
-                color: '#000',
+                color: '#333',
                 fontSize: 12,
-                fontFamily: 'Poppins-Medium',
+                fontWeight: '500',
               }}>
               {leftTitle}
             </Text>
           </View>
           <Text style={styles.DeliveredTextStyles}>{rightTitle}</Text>
         </View>
-      </ScrollView>
+      </View>
     );
   };
 
@@ -66,7 +67,8 @@ const MyOrders = () => {
     <>
       <HeaderComponent title={'My Orders'} />
 
-      <Tab.Navigator>
+      <Tab.Navigator
+        screenOptions={{tabBarLabelStyle: {fontSize: 12, fontWeight: '500'}}}>
         <Tab.Screen name="Delivered" component={YourOrders} />
         <Tab.Screen name="Proecessing" component={YourOrders} />
         <Tab.Screen name="Cancelled" component={YourOrders} />
@@ -94,10 +96,12 @@ const styles = StyleSheet.create({
   },
   container: {
     backgroundColor: '#ffffff',
-    padding: 16,
   },
   card: {
-    backgroundColor: '#ffffff',
+    width: '90%',
+    height: 140,
+    alignSelf: 'center',
+    backgroundColor: '#FFF',
     borderRadius: 10,
     shadowColor: 'black',
     marginVertical: 8,
@@ -105,9 +109,9 @@ const styles = StyleSheet.create({
     shadowOffset: {width: 0, height: 2},
     shadowRadius: 6,
     shadowOpacity: 0.26,
-    elevation: 8,
-    padding: 16,
-    minHeight: 140,
+    elevation: 6,
+    paddingHorizontal: 15,
+    justifyContent: 'space-evenly',
   },
   InsideCardView1: {
     flexDirection: 'row',
@@ -119,13 +123,11 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: '#000000',
     fontWeight: '500',
-    fontFamily: 'Poppins-Medium',
   },
   TrackingText: {
     fontSize: 13,
     color: '#000000',
     fontWeight: '500',
-    fontFamily: 'Poppins-Medium',
   },
   InsideCardView2: {
     flexDirection: 'row',
@@ -140,6 +142,7 @@ const styles = StyleSheet.create({
     borderRadius: 30,
     alignItems: 'center',
     justifyContent: 'center',
+    borderColor: '#707070',
   },
   InsideCardView3: {
     flexDirection: 'row',

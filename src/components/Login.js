@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import {View, Text, StyleSheet, TextInput, Alert} from 'react-native';
+import {placeHolderTextColor} from '../theme/colors';
 import Foundation from 'react-native-vector-icons/Foundation';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import {Pressable} from 'react-native';
@@ -66,6 +67,7 @@ const Login = () => {
           style={styles.inputFeildStyles}
           placeholder="Mobile Number"
           keyboardType="number-pad"
+          placeholderTextColor={placeHolderTextColor}
           onChangeText={handleUsernameInput}
         />
       </View>
@@ -74,6 +76,7 @@ const Login = () => {
         <TextInput
           style={styles.inputFeildStyles}
           placeholder="Password"
+          placeholderTextColor={placeHolderTextColor}
           secureTextEntry={true}
           onChangeText={handlePasswordInput}
         />
@@ -96,7 +99,7 @@ const Login = () => {
         Don't Have An Account ?{' '}
         <Text
           style={{color: '#ED7421'}}
-          onPress={() => console.log('SignUp Clicked')}>
+          onPress={() => navigation.navigate('Register')}>
           Sign Up
         </Text>
       </Text>
@@ -129,10 +132,10 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
   },
   inputFeildStyles: {
-    marginLeft: 2,
-    width: '80%',
+    marginLeft: 5,
     flex: 15,
     color: '#000',
+    fontWeight: '500',
   },
   iconStylesmobile: {
     flex: 1,
@@ -150,11 +153,11 @@ const styles = StyleSheet.create({
   },
   forgetPasswordStyles: {
     color: '#ED7421',
-    marginTop: 31,
+    marginTop: 30,
     alignSelf: 'flex-end',
     marginRight: '5%',
     fontSize: 14,
-    fontFamily: 'Poppins-Medium',
+    fontWeight: '500',
   },
   buttonStyles: {
     width: '90%',
@@ -167,13 +170,13 @@ const styles = StyleSheet.create({
   buttonTextStyles: {
     fontSize: 18,
     fontFamily: 'Poppins-Bold',
-    color: '#FFFFFF',
+    color: '#FFF',
   },
   bottomTextStyles: {
     fontSize: 14,
-    fontFamily: 'Poppins-Medium',
+    fontWeight: '500',
     color: '#000000CC',
-    marginTop: 27.5,
+    marginTop: 27,
   },
 });
 

@@ -8,6 +8,7 @@ import {
   ScrollView,
 } from 'react-native';
 import {useNavigation} from '@react-navigation/native';
+import {placeHolderTextColor} from '../theme/colors';
 
 import DropdownExample from './CustomComponents/CustomDropDown';
 
@@ -22,14 +23,14 @@ const Register = () => {
         <TextInput
           style={styles.feildStles}
           placeholder={'Name'}
-          placeholderTextColor={'#666666'}
+          placeholderTextColor={placeHolderTextColor}
         />
 
         {/* mobile number */}
         <TextInput
           style={styles.feildStles}
           placeholder={'Mobile Number'}
-          placeholderTextColor={'#666666'}
+          placeholderTextColor={placeHolderTextColor}
           keyboardType="number-pad"
         />
 
@@ -37,7 +38,7 @@ const Register = () => {
         <TextInput
           style={styles.feildStles}
           placeholder={'Email'}
-          placeholderTextColor={'#666666'}
+          placeholderTextColor={placeHolderTextColor}
           keyboardType="email-address"
         />
 
@@ -45,7 +46,7 @@ const Register = () => {
         <TextInput
           style={styles.feildStles}
           placeholder={'Password'}
-          placeholderTextColor={'#666666'}
+          placeholderTextColor={placeHolderTextColor}
           secureTextEntry={true}
         />
 
@@ -53,7 +54,7 @@ const Register = () => {
         <TextInput
           style={styles.feildStles}
           placeholder={'Confirm Passwod'}
-          placeholderTextColor={'#666666'}
+          placeholderTextColor={placeHolderTextColor}
           secureTextEntry={true}
         />
         <View
@@ -71,21 +72,23 @@ const Register = () => {
           <TextInput
             style={[styles.feildStles, {width: '48%', marginTop: 0}]}
             placeholder={'City'}
-            placeholderTextColor={'#666666'}
+            placeholderTextColor={placeHolderTextColor}
           />
 
           {/* state */}
           <TextInput
             style={[styles.feildStles, {width: '48%', marginTop: 0}]}
             placeholder={'State'}
-            placeholderTextColor={'#666666'}
+            placeholderTextColor={placeHolderTextColor}
           />
         </View>
 
         <DropdownExample />
         <DropdownExample />
 
-        <Pressable style={styles.signUpButton}>
+        <Pressable
+          style={styles.signUpButton}
+          onPress={() => navigation.navigate('Login')}>
           <Text style={styles.signUpButtonText}>SIGN UP</Text>
         </Pressable>
         <Pressable
@@ -110,27 +113,30 @@ const styles = StyleSheet.create({
     color: '#ED7421',
     fontFamily: 'Nunito-Bold',
     marginTop: 5,
-    marginLeft: 12,
+    marginLeft: '5%',
   },
   headingStyles: {
     fontSize: 17,
-    color: '#000000',
+    color: '#000',
     fontWeight: '500',
-    marginLeft: 12,
+    marginLeft: '5%',
   },
   card: {
-    margin: 12,
+    width: '90%',
+    alignSelf: 'center',
   },
   feildStles: {
     backgroundColor: '#ffffff',
     height: 50,
     marginTop: 12,
     paddingHorizontal: 15,
+    color: '#000',
+    fontWeight: '500',
   },
   signUpButton: {
     height: 50,
     backgroundColor: '#ED7421',
-    marginTop: 34,
+    marginTop: 35,
     justifyContent: 'center',
     alignItems: 'center',
   },
@@ -141,10 +147,9 @@ const styles = StyleSheet.create({
   },
   powerUserButton: {
     height: 50,
-    marginTop: 20,
+    marginVertical: 20,
     justifyContent: 'center',
     alignItems: 'center',
-    marginBottom: 20,
     borderWidth: 1,
     borderColor: '#ED7421',
   },
