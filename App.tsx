@@ -34,6 +34,8 @@ import {ReturnProduct2} from './src/components/ReturnProduct2';
 import {ReturnProduct3} from './src/components/ReturnProduct3';
 import {ManagePayments} from './src/components/ManagePayments';
 import {HeaderComponent} from './src/components/CustomComponents/HeaderComponent';
+import {PaymentSuccess} from './src/components/PaymentSuccess';
+import {PaymentFailure} from './src/components/PaymentFailure';
 import {Provider} from 'react-redux';
 import storeConfig from './src/store/configureStore';
 
@@ -189,6 +191,16 @@ const screens = [
     name: 'ManagePayments',
     component: ManagePayments,
     headerBackTitle: 'ManagePayments',
+  },
+  {
+    name: 'PaymentSuccess',
+    component: PaymentSuccess,
+    headerBackTitle: 'PaymentSuccess',
+  },
+  {
+    name: 'PaymentFailure',
+    component: PaymentFailure,
+    headerBackTitle: 'PaymentFailure',
   },
 ];
 const App = () => {

@@ -124,6 +124,14 @@ const HomeScreen = ({navigation}) => {
       title: 'HeaderComponent',
       target: 'HeaderComponent',
     },
+    {
+      title: 'PaymentSuccess',
+      target: 'PaymentSuccess',
+    },
+    {
+      title: 'PaymentFailure',
+      target: 'PaymentFailure',
+    },
   ];
 
   return (
