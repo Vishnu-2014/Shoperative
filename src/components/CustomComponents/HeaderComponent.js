@@ -24,7 +24,7 @@ const HeaderComponent = HeaderTitle => {
 const styles = StyleSheet.create({
   headerStyles: {
     width: '100%',
-    height: 50,
+    height: 55,
     backgroundColor: '#ED7421',
     alignItems: 'center',
     flexDirection: 'row',

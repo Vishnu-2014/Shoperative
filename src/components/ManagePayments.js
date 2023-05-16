@@ -123,7 +123,7 @@ const styles = StyleSheet.create({
     width: '100%',
     padding: 20,
     borderBottomWidth: 1,
-    borderBottomColor: '#707070',
+    borderBottomColor: '#70707020',
   },
   feildsContainerStyles: {
     flexDirection: 'row',

@@ -2,6 +2,7 @@ import React from 'react';
 import {View, Text, StyleSheet, Pressable, ScrollView} from 'react-native';
 import {HeaderComponent} from './CustomComponents/HeaderComponent';
 import {Row, Rows, Table, TableWrapper} from 'react-native-table-component';
+import {color} from '@rneui/base';
 
 const headers = [
   'UserDetails',
@@ -63,12 +64,17 @@ const CheckOut = () => {
       </View>
 
       <View style={{width: '100%'}}>
-        <Table borderStyle={{borderWidth: 0.5}}>
+        <Table borderStyle={{borderWidth: 1, borderColor: '#7070703D'}}>
           <Row
             data={headers}
             style={{backgroundColor: '#ED742133', height: 40}}
             flexArr={[1.75, 1.5, 1, 1, 1.25]}
-            textStyle={{textAlign: 'center', color: '#7F7F7F'}}
+            textStyle={{
+              textAlign: 'center',
+              color: '#7F7F7F',
+              fontSize: 12,
+              fontWeight: '700',
+            }}
           />
           <TableWrapper style={{flexDirection: 'row'}}>
             <Rows
@@ -78,7 +84,7 @@ const CheckOut = () => {
               textStyle={{
                 textAlign: 'center',
                 fontSize: 12,
-                fontWeight: '500',
+                fontWeight: '700',
                 color: '#00000099',
               }}
             />
@@ -89,7 +95,7 @@ const CheckOut = () => {
       <Text
         style={{
           fontSize: 16,
-          fontWeight: '700',
+          fontWeight: '800',
           color: '#3F3F3F',
           marginLeft: '5%',
           marginVertical: 10,
@@ -114,17 +120,17 @@ const CheckOut = () => {
         }}>
         <Text
           style={{
-            fontSize: 19,
+            fontSize: 20,
             fontFamily: 'Poppins-Bold',
-            color: '#FF0000',
+            color: '#ED7421',
           }}>
           Grand Total
         </Text>
         <Text
           style={{
             fontSize: 20,
-            color: '#FF0000',
-            fontWeight: '800',
+            color: '#ED7421',
+            fontWeight: '500',
           }}>
           ₹ 892
         </Text>
@@ -153,11 +159,11 @@ const styles = StyleSheet.create({
   },
   buttonTextStyles: {
     fontSize: 14,
-    fontFamily: 'Poppins-SemiBold',
-    color: '#666',
+    fontWeight: '500',
+    color: '#00000099',
   },
   buttonsContainerView: {
-    width: '90%',
+    width: '100%',
     height: 120,
     justifyContent: 'space-between',
     alignItems: 'center',
@@ -166,14 +172,14 @@ const styles = StyleSheet.create({
   },
   horizontalButtonsView: {
     flexDirection: 'row',
-    width: '100%',
+    width: '95%',
     height: '45%',
     justifyContent: 'space-between',
   },
   priceDetailsContainer: {
     color: '#3F3F3F',
     fontSize: 14,
-    fontWeight: '700',
+    fontWeight: '500',
   },
   PaymentsConatainerStyles: {
     height: 150,

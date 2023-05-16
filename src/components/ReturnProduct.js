@@ -154,7 +154,7 @@ const styles = StyleSheet.create({
 
   headingConatinerStyles: {
     width: '95%',
-    backgroundColor: '#ED742140',
+    backgroundColor: '#ED742126',
     alignSelf: 'center',
     height: 55,
     justifyContent: 'center',
@@ -182,7 +182,7 @@ const styles = StyleSheet.create({
   },
   ReturnOptionsTextStyles: {
     fontSize: 14,
-    fontWeight: '600',
+    fontWeight: '700',
     color: '#000000CC',
     marginLeft: 5,
   },

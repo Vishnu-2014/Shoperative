@@ -76,18 +76,26 @@ const ReturnProduct2 = () => {
             </Text>
             <Text style={styles.contentIssueStyles}>Product Quality Issue</Text>
           </View>
-          <MaterialIcons name="arrow-forward-ios" size={25} />
+          <MaterialIcons
+            name="arrow-forward-ios"
+            size={25}
+            color={'#00000080'}
+          />
         </View>
         <View
           style={[
             styles.box,
-            {borderBottomWidth: 0.5, borderBottomColor: '#707070'},
+            {borderBottomWidth: 1, borderBottomColor: '#70707040'},
           ]}>
           <View>
             <Text style={styles.contentHeadingStyles}>Please tell us more</Text>
             <Text style={styles.contentIssueStyles}>Poor Fabric Quality</Text>
           </View>
-          <MaterialIcons name="arrow-forward-ios" size={25} />
+          <MaterialIcons
+            name="arrow-forward-ios"
+            size={25}
+            color={'#00000080'}
+          />
         </View>
 
         <Text style={styles.commentHeadingStyles}>Comments (Optional)</Text>
@@ -97,7 +105,7 @@ const ReturnProduct2 = () => {
         </Text>
         <Text style={styles.commentHeadingStyles}>NOTE : </Text>
         <View style={{width: '95%', alignSelf: 'center'}}>
-          <Text style={{color: '#666', fontFamily: 'Poppins-Medium'}}>
+          <Text style={{color: '#00000080', fontFamily: 'Poppins-Medium'}}>
             Lorem Ipsum is simply dummy text of the printing and typesetting
             industry. Lorem Ipsum has been the indus try's standard dummy text
             ever since the 1500s, when an unknown printer took a galley of type
@@ -199,11 +207,11 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     alignSelf: 'center',
     marginTop: 5,
-    borderColor: '#707070',
+    borderColor: '#70707080',
     textAlignVertical: 'top',
   },
   remainingTextContainerStyles: {
-    color: '#666',
+    color: '#00000080',
     marginLeft: '2.5%',
     fontWeight: '600',
     marginTop: 5,

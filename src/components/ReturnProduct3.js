@@ -87,7 +87,7 @@ const ReturnProduct3 = () => {
             </Text>
             <Text style={styles.contentIssueStyles}>Product Quality Issue</Text>
           </View>
-          <MaterialIcons name="arrow-forward-ios" size={25} />
+          <MaterialIcons name="arrow-forward-ios" size={20} />
         </View>
 
         <Text style={styles.commentHeadingStyles}>How can we make Right?</Text>
@@ -109,7 +109,12 @@ const ReturnProduct3 = () => {
 
         <Text style={styles.commentHeadingStyles}>NOTE : </Text>
         <View style={{width: '95%', alignSelf: 'center'}}>
-          <Text style={{color: '#666', fontFamily: 'Poppins-Medium'}}>
+          <Text
+            style={{
+              color: '#00000080',
+              fontFamily: 'Poppins-Medium',
+              fontWeight: '500',
+            }}>
             Lorem Ipsum is simply dummy text of the printing and typesetting
             industry. Lorem Ipsum has been the indus try's standard dummy text
             ever since the 1500s, when an unknown printer took a galley of type
@@ -190,13 +195,18 @@ const styles = StyleSheet.create({
     fontWeight: '700',
     color: '#000',
   },
+  contentIssueStyles: {
+    fontSize: 14,
+    fontWeight: '500',
+    color: '#00000080',
+  },
   RadioButtonMaincontainer: {
     width: '95%',
     alignSelf: 'center',
     backgroundColor: '#FFF',
     borderWidth: 1,
     borderRadius: 5,
-    borderColor: '#707070',
+    borderColor: '#70707080',
     marginTop: 10,
   },
   RadioButtonContainer: {

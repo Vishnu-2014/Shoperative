@@ -222,8 +222,8 @@ const styles = StyleSheet.create({
   },
   ContainersHeadingStyles: {
     fontSize: 18,
-    fontWeight: '700',
-    color: '#000',
+    fontFamily: 'Poppins-Bold',
+    color: '#000000CC',
   },
   ReturnContainerMainTextStyles: {
     fontSize: 16,
@@ -255,7 +255,7 @@ const styles = StyleSheet.create({
 
   OrderInfoContainerViewStyles: {
     width: '100%',
-    height: 150,
+    height: 160,
     borderWidth: 1,
     borderRadius: 5,
     borderColor: '#707070',
@@ -271,8 +271,8 @@ const styles = StyleSheet.create({
   },
   OrderInfoDateStyles: {
     fontSize: 14,
-    fontWeight: '600',
-    color: '#666',
+    fontWeight: '700',
+    color: '#00000080',
   },
   ViewLineStyles: {
     height: 1,

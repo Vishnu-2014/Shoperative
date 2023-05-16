@@ -7,6 +7,7 @@ import {
   TextInput,
   ScrollView,
 } from 'react-native';
+import {placeHolderTextColor} from '../theme/colors';
 import {HeaderComponent} from './CustomComponents/HeaderComponent';
 import DropdownExample from './CustomComponents/CustomDropDown';
 
@@ -18,7 +19,7 @@ const ShippingAddress = () => {
         <TextInput
           style={styles.inputFeildsStyles}
           placeholder={placeholderText}
-          placeholderTextColor={'#999'}
+          placeholderTextColor={placeHolderTextColor}
         />
       </View>
     );
@@ -26,21 +27,9 @@ const ShippingAddress = () => {
 
   const CustomPaymentFeilds = (priceDetailsFeild, PriceFeild) => {
     return (
-      <View
-        style={{
-          flexDirection: 'row',
-          width: '100%',
-          justifyContent: 'space-between',
-        }}>
+      <View style={styles.CustomPaymentFeildsContainerStyles}>
         <Text style={styles.priceDetailsContainer}>{priceDetailsFeild}</Text>
-        <Text
-          style={{
-            fontSize: 14,
-            color: '#3f3f3f',
-            fontWeight: '600',
-          }}>
-          {PriceFeild}
-        </Text>
+        <Text style={styles.CustomPaymentFeildsTextStyles}>{PriceFeild}</Text>
       </View>
     );
   };
@@ -48,7 +37,7 @@ const ShippingAddress = () => {
     <View style={styles.container}>
       <HeaderComponent title={'Shipping Address'} />
 
-      <ScrollView style={styles.card}>
+      <ScrollView showsVerticalScrollIndicator={false} style={styles.card}>
         {CustomFeilds('Name', 'Vishnu')}
         {CustomFeilds('Mobile Number', '+91 7788335544')}
         {CustomFeilds('Address', 'Himagiri Nagar')}
@@ -62,17 +51,19 @@ const ShippingAddress = () => {
             marginTop: 15,
           }}>
           <View style={{width: '48%', justifyContent: 'space-between'}}>
-            <Text style={styles.feildHeadingStyles}>state</Text>
+            <Text style={styles.feildHeadingStyles}>State</Text>
             <TextInput
               placeholder="Telangana"
-              style={{backgroundColor: '#F3F3F3'}}
+              placeholderTextColor={placeHolderTextColor}
+              style={[styles.inputFeildsStyles, {backgroundColor: '#F3F3F3'}]}
             />
           </View>
           <View style={{width: '48%', justifyContent: 'space-between'}}>
             <Text style={styles.feildHeadingStyles}>City</Text>
             <TextInput
               placeholder="Hyderabad"
-              style={{backgroundColor: '#F3F3F3'}}
+              placeholderTextColor={placeHolderTextColor}
+              style={[styles.inputFeildsStyles, {backgroundColor: '#F3F3F3'}]}
             />
           </View>
         </View>
@@ -84,7 +75,7 @@ const ShippingAddress = () => {
             width: '100%',
             marginTop: 15,
           }}>
-          <Text>Payment Mode</Text>
+          <Text style={styles.feildHeadingStyles}>Payment Mode</Text>
           <DropdownExample />
         </View>
 
@@ -94,10 +85,10 @@ const ShippingAddress = () => {
 
         <View style={styles.PaymentsConatainerStyles}>
           {CustomPaymentFeilds('Total Item Count', 4)}
-          {CustomPaymentFeilds('Sub Total', 820)}
-          {CustomPaymentFeilds('Service Charge', 0)}
-          {CustomPaymentFeilds('Total Savings', 0)}
-          {CustomPaymentFeilds('Shipping Charges', 0)}
+          {CustomPaymentFeilds('Sub Total', '₹ 820')}
+          {CustomPaymentFeilds('Service Charge', '₹ 0')}
+          {CustomPaymentFeilds('Total Savings', '₹ 0')}
+          {CustomPaymentFeilds('Shipping Charges', '₹ 0')}
         </View>
         <View
           style={{
@@ -108,7 +99,7 @@ const ShippingAddress = () => {
           }}>
           <Text
             style={{
-              fontSize: 19,
+              fontSize: 20,
               fontFamily: 'Poppins-Bold',
               color: '#FF0000',
             }}>
@@ -155,8 +146,8 @@ const styles = StyleSheet.create({
   },
   feildHeadingStyles: {
     fontSize: 14,
-    fontFamily: 'Poppins-Medium',
-    color: '#000',
+    fontWeight: '500',
+    color: '#000000CC',
   },
 
   inputFeildsStyles: {
@@ -164,9 +155,18 @@ const styles = StyleSheet.create({
     height: 50,
     backgroundColor: '#F3F3F3',
     fontSize: 14,
-    fontFamily: 'Poppins-Medium',
+    fontWeight: '500',
     paddingHorizontal: 15,
-    color: '#666',
+  },
+  CustomPaymentFeildsContainerStyles: {
+    flexDirection: 'row',
+    width: '100%',
+    justifyContent: 'space-between',
+  },
+  CustomPaymentFeildsTextStyles: {
+    fontSize: 14,
+    color: '#3f3f3f',
+    fontWeight: '600',
   },
   PaymentsConatainerStyles: {
     height: 150,

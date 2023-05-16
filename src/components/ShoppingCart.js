@@ -18,17 +18,7 @@ const ShoppingCart = () => {
           <Text style={{fontSize: 12}}>{qty}</Text>
         </View>
         <View style={styles.qtyChangerContainerStyles}>
-          <View
-            style={{
-              flexDirection: 'row',
-              alignItems: 'center',
-              width: 75,
-              height: 30,
-              justifyContent: 'space-evenly',
-              borderRadius: 30,
-              borderWidth: 1.5,
-              borderColor: '#ccc',
-            }}>
+          <View style={styles.qtyCheckContainerStyles}>
             <MaterialCommunityIcons
               name="minus"
               size={18}
@@ -101,8 +91,12 @@ const ShoppingCart = () => {
           </View>
           <View style={styles.planeLineStyles} />
           <View style={styles.boxPaymentDetailsStyles}>
-            <Text style={styles.textStyles}>To Pay</Text>
-            <Text style={[styles.pricePaymentStyles, {color: '#ED7421'}]}>
+            <Text style={[styles.textStyles, {fontWeight: '700'}]}>To Pay</Text>
+            <Text
+              style={[
+                styles.pricePaymentStyles,
+                {color: '#ED7421', fontWeight: '500'},
+              ]}>
               ₹ 44
             </Text>
           </View>
@@ -243,13 +237,23 @@ const styles = StyleSheet.create({
   },
   planeLineStyles: {
     width: '100%',
-    height: 0.5,
-    backgroundColor: '#707070',
+    height: 2,
+    backgroundColor: '#70707033',
   },
   textStyles: {
-    fontWeight: '500',
+    fontWeight: '400',
     color: '#707070',
     fontSize: 14,
+  },
+  qtyCheckContainerStyles: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    width: 75,
+    height: 30,
+    justifyContent: 'space-evenly',
+    borderRadius: 30,
+    borderWidth: 1,
+    borderColor: '#70707059',
   },
 });
 
