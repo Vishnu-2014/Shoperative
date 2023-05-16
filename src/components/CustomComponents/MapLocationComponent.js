@@ -18,6 +18,7 @@ const ss = StyleSheet.create({
     flexDirection: 'row',
     backgroundColor: darkBgColor,
     height: 46,
+    width: '100%',
   },
   textStyle: {
     fontFamily: 'Poppins-Regular',

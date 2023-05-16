@@ -39,7 +39,11 @@ const BottomTabs = () => {
             return (
               <Image
                 source={iconName}
-                style={{height: 24, width: 24, tintColor: color}}
+                style={{
+                  height: 24,
+                  width: 24,
+                  tintColor: color,
+                }}
               />
             );
           },
