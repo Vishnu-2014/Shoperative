@@ -27,17 +27,13 @@ const Login = () => {
   };
   const Validation = () => {
     if (username !== dummyusername) {
-      {
-        snackBar();
-      }
+      setVisible(true);
     } else if (password !== dummypassword) {
-      {
-        snackBar();
-      }
+      setVisible(true);
     } else {
-      // if (loginResult.description === 'You are logged in successfully') {
-      //   navigation.navigate('Register');
-      // }
+      if (loginResult.description === 'You are logged in successfully') {
+        navigation.navigate('Register');
+      }
       setVisible(true);
     }
   };
