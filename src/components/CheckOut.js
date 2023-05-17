@@ -1,8 +1,19 @@
 import React from 'react';
-import {View, Text, StyleSheet, Pressable, ScrollView} from 'react-native';
+import {
+  View,
+  Text,
+  StyleSheet,
+  Pressable,
+  ScrollView,
+  Button,
+} from 'react-native';
 import {HeaderComponent} from './CustomComponents/HeaderComponent';
 import {Row, Rows, Table, TableWrapper} from 'react-native-table-component';
 import {color} from '@rneui/base';
+import {ShareWithFollowers} from './CheckOutPages/ShareWithFollowers';
+import {ShareCartItem} from './CheckOutPages/ShareCartItem';
+import {ShareCartUser} from './CheckOutPages/ShareCartUser';
+import {ClosingDate} from './CheckOutPages/ClosingDate';
 
 const headers = [
   'UserDetails',
@@ -52,6 +63,36 @@ const CheckOut = () => {
   return (
     <ScrollView style={styles.container}>
       <HeaderComponent title={'Back'} />
+      {/*
+      <View
+        style={{
+          padding: 10,
+          width: '90%',
+          justifyContent: 'center',
+          backgroundColor: 'red',
+          alignSelf: 'center',
+        }}>
+        <View
+          style={{
+            flexDirection: 'row',
+            flexWrap: 'wrap',
+            justifyContent: 'space-around',
+          }}>
+          <Pressable style={styles.button}>
+            <Text>Vishnu</Text>
+          </Pressable>
+          <Pressable style={styles.button}>
+            <Text>Vishnu</Text>
+          </Pressable>
+          <Pressable style={styles.button}>
+            <Text>Vishnu</Text>
+          </Pressable>
+          <Pressable style={styles.button}>
+            <Text>Vishnu</Text>
+          </Pressable>
+        </View>
+      </View> */}
+
       <View style={styles.buttonsContainerView}>
         <View style={styles.horizontalButtonsView}>
           {CustomButton('Closing Date')}
@@ -63,7 +104,7 @@ const CheckOut = () => {
         </View>
       </View>
 
-      <View style={{width: '100%'}}>
+      <View style={{width: '100%', backgroundColor: 'red'}}>
         <Table borderStyle={{borderWidth: 1, borderColor: '#7070703D'}}>
           <Row
             data={headers}
@@ -92,16 +133,7 @@ const CheckOut = () => {
         </Table>
       </View>
 
-      <Text
-        style={{
-          fontSize: 16,
-          fontWeight: '800',
-          color: '#3F3F3F',
-          marginLeft: '5%',
-          marginVertical: 10,
-        }}>
-        Order Summary
-      </Text>
+      <Text style={styles.headingOrderTextStyles}>Order Summary</Text>
       <View style={styles.PaymentsConatainerStyles}>
         {CustomPaymentFeilds('Total Item Count', 4)}
         {CustomPaymentFeilds('Sub Total', 820)}
@@ -157,6 +189,18 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  button: {
+    paddingHorizontal: 8,
+    paddingVertical: 6,
+    borderRadius: 4,
+    backgroundColor: 'oldlace',
+    alignSelf: 'flex-start',
+    marginHorizontal: '1%',
+    marginBottom: 6,
+    minWidth: '45%',
+    textAlign: 'center',
+    alignItems: 'center',
+  },
   buttonTextStyles: {
     fontSize: 14,
     fontWeight: '500',
@@ -197,6 +241,13 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontFamily: 'Poppins-Bold',
     color: '#FFFFFF',
+  },
+  headingOrderTextStyles: {
+    fontSize: 16,
+    fontWeight: '800',
+    color: '#3F3F3F',
+    marginLeft: '5%',
+    marginVertical: 10,
   },
 });
 
