@@ -27,9 +27,13 @@ const Login = () => {
   };
   const Validation = () => {
     if (username !== dummyusername) {
-      Alert.alert('Wrong Username');
+      {
+        snackBar();
+      }
     } else if (password !== dummypassword) {
-      Alert.alert('Wrong Password');
+      {
+        snackBar();
+      }
     } else {
       // if (loginResult.description === 'You are logged in successfully') {
       //   navigation.navigate('Register');
@@ -44,7 +48,7 @@ const Login = () => {
   const dispatch = useDispatch();
   //check below two lines will bring th data from api
   const loginResult = useSelector(state => state.login);
-  console.log('the result', loginResult.name, loginResult.description);
+  console.log('the result', loginResult.message);
 
   const snackBar = () => {
     return (
@@ -52,7 +56,7 @@ const Login = () => {
         visible={visible}
         onDismiss={onDismiss}
         action={{label: 'Close'}}>
-        {loginResult.description}
+        {loginResult.message}
       </Snackbar>
     );
   };
@@ -90,7 +94,6 @@ const Login = () => {
           //get username and password and pass this method instead of hardcoded values
           dispatch(login(username, password));
           Validation();
-          console.log(loginResult);
         }}>
         <Text style={styles.buttonTextStyles}>LOG IN</Text>
       </Pressable>
@@ -100,7 +103,7 @@ const Login = () => {
         <Text
           style={{color: '#ED7421'}}
           onPress={() => navigation.navigate('Register')}>
-          Sign Up
+          Register
         </Text>
       </Text>
 
