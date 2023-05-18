@@ -7,7 +7,7 @@ import {Pressable} from 'react-native';
 import {useDispatch, useSelector} from 'react-redux';
 import {login} from '../store/actions/loginActions';
 import {useNavigation} from '@react-navigation/native';
-import {Snackbar} from 'react-native-paper';
+import {ActivityIndicator, Snackbar} from 'react-native-paper';
 
 const dummyusername = '9000365957';
 const dummypassword = '123123';
@@ -16,6 +16,7 @@ const Login = () => {
   const navigation = useNavigation();
   const [username, SetUsername] = useState('');
   const [password, SetPassword] = useState('');
+  const [activity, SetActivity] = useState(false);
 
   const [visible, setVisible] = useState(false);
   const onDismiss = () => {
@@ -25,6 +26,7 @@ const Login = () => {
   const handleUsernameInput = data => {
     SetUsername(data);
   };
+
   const Validation = () => {
     if (username !== dummyusername) {
       setVisible(true);
@@ -32,7 +34,8 @@ const Login = () => {
       setVisible(true);
     } else {
       if (loginResult.description === 'You are logged in successfully') {
-        navigation.navigate('Register');
+        // navigation.navigate('Register');
+        console.log('Hello');
       }
       setVisible(true);
     }
@@ -55,6 +58,18 @@ const Login = () => {
         {loginResult.message}
       </Snackbar>
     );
+  };
+
+  const activityIndicator = () => {
+    SetActivity(true);
+    setTimeout(() => {
+      SetActivity(false);
+      if (loginResult.description === 'You are logged in successfully') {
+        // navigation.navigate('Register');
+        // Alert.alert('Hello');
+        setVisible(true);
+      }
+    }, 500);
   };
 
   //
@@ -90,6 +105,7 @@ const Login = () => {
           //get username and password and pass this method instead of hardcoded values
           dispatch(login(username, password));
           Validation();
+          activityIndicator();
         }}>
         <Text style={styles.buttonTextStyles}>LOG IN</Text>
       </Pressable>
@@ -102,6 +118,8 @@ const Login = () => {
           Register
         </Text>
       </Text>
+
+      <ActivityIndicator size={'small'} color="#ED7421" animating={activity} />
 
       {snackBar()}
     </View>
