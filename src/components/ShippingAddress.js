@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import React from 'react';
 import {
   View,
@@ -10,8 +11,10 @@ import {
 import {placeHolderTextColor} from '../theme/colors';
 import {HeaderComponent} from './CustomComponents/HeaderComponent';
 import DropdownExample from './CustomComponents/CustomDropDown';
+import {useNavigation} from '@react-navigation/native';
 
 const ShippingAddress = () => {
+  const navigation = useNavigation();
   const CustomFeilds = (title, placeholderText) => {
     return (
       <View style={styles.feildsContainerStyles}>
@@ -120,7 +123,11 @@ const ShippingAddress = () => {
         <Pressable style={[styles.buttonStyles, {backgroundColor: '#337AB7'}]}>
           <Text style={styles.buttonTextStyles}>CONTINUE SHOPPING</Text>
         </Pressable>
-        <Pressable style={[styles.buttonStyles, {backgroundColor: '#ED7421'}]}>
+        <Pressable
+          style={[styles.buttonStyles, {backgroundColor: '#ED7421'}]}
+          onPress={() => {
+            navigation.navigate('ManagePayments');
+          }}>
           <Text style={styles.buttonTextStyles}>PROCEED TO PAY</Text>
         </Pressable>
       </View>
