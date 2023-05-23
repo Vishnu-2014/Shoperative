@@ -1,7 +1,14 @@
 /* eslint-disable react/no-unstable-nested-components */
 /* eslint-disable prettier/prettier */
 import React from 'react';
-import {View, Text, StyleSheet, ScrollView, Image} from 'react-native';
+import {
+  View,
+  Text,
+  StyleSheet,
+  ScrollView,
+  Image,
+  Pressable,
+} from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import profileImage from '../../images/userimag.jpg';
@@ -11,15 +18,15 @@ import {useDispatch, useSelector} from 'react-redux';
 const Account = () => {
   const navigation = useNavigation();
   const loginResult = useSelector(state => state.login);
-  const CustomFeilds = ({iconName, title, onPress}) => {
+  const CustomFeilds = ({iconName, title, onPressButton}) => {
     return (
-      <View style={styles.boxContainerStyles} onPress={onPress}>
+      <Pressable style={styles.boxContainerStyles} onPress={onPressButton}>
         <View style={styles.insideBoxContainerStyles}>
           <FontAwesome name={iconName} size={20} style={styles.boxIconStyles} />
           <Text style={styles.boxTextStyles}>{title}</Text>
         </View>
         <Ionicons name="chevron-forward" size={20} />
-      </View>
+      </Pressable>
     );
   };
 
@@ -47,22 +54,31 @@ const Account = () => {
         <Text style={styles.numberTextStyles}>+91-{loginResult.mobile}</Text>
 
         <CustomFeilds iconName={'user'} title={'My Profile'} />
-        <CustomFeilds iconName={'shopping-bag'} title={'My Orders'} />
+        <CustomFeilds
+          iconName={'shopping-bag'}
+          title={'My Orders'}
+          onPressButton={() => navigation.navigate('MyOrders')}
+        />
         <CustomFeilds iconName={'shopping-cart'} title={'My Shared Cart'} />
-        <CustomFeilds iconName={'heart'} title={'My Wishlist'} />
+        <CustomFeilds
+          iconName={'heart'}
+          title={'My Wishlist'}
+          onPressButton={() => navigation.navigate('MyWishlist')}
+        />
         <CustomFeilds
           iconName={'shopping-basket'}
           title={'My Regular Basket'}
         />
         <CustomFeilds iconName={'address-book-o'} title={'Address Book'} />
-        <CustomFeilds iconName={'help-circle'} title={'Help'} />
+        <CustomFeilds
+          iconName={'help-circle'}
+          title={'Help'}
+          onPressButton={() => navigation.navigate('Help')}
+        />
         <CustomFeilds
           iconName={'lock'}
           title={'Change Password'}
-          onPress={() => console.log('ChangePassword')}
-          // onPressProps={() => {
-          //   navigation.navigate('ChangePassword');
-          // }}
+          onPressButton={() => navigation.navigate('ChangePassword')}
         />
         <CustomFeilds iconName={'power-off'} title={'Logout'} />
       </ScrollView>

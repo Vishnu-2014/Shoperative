@@ -3,11 +3,11 @@
 /* eslint-disable prettier/prettier */
 import React from 'react';
 import {View, Text, StyleSheet, ScrollView} from 'react-native';
-import {OrderData} from '../utils/Constants';
+import {OrderData} from '../../utils/Constants';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
 import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
-import {HeaderComponent} from './CustomComponents/HeaderComponent';
+import {HeaderComponent} from '../CustomComponents/HeaderComponent';
 const Tab = createMaterialTopTabNavigator();
 const MyOrders = () => {
   const CustomCards = item => {

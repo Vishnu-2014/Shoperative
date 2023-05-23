@@ -4,37 +4,13 @@ import {StyleSheet, View, Button, ScrollView} from 'react-native';
 //We can remove once all the screens developed
 const HomeScreen = ({navigation}) => {
   const targetsButtons = [
-    {
-      title: 'Register',
-      target: 'Register',
-    },
-    {
-      title: 'DropdownExample',
-      target: 'DropdownExample',
-    },
-    {
-      title: 'PowerUserRegister',
-      target: 'PowerUserRegister',
-    },
-    {
-      title: 'AddFollowers',
-      target: 'AddFollowers',
-    },
+    // {
+    //   title: 'AddFollowers',
+    //   target: 'AddFollowers',
+    // },
     {
       title: 'Login',
       target: 'Login',
-    },
-    {
-      title: 'SignUp',
-      target: 'SignUp',
-    },
-    {
-      title: 'ForgetPassword',
-      target: 'ForgetPassword',
-    },
-    {
-      title: 'OtpVerification',
-      target: 'OtpVerification',
     },
     {
       title: 'Dashboard',
@@ -45,32 +21,12 @@ const HomeScreen = ({navigation}) => {
       target: 'ProductDetails',
     },
     {
-      title: 'Account',
-      target: 'Account',
-    },
-    {
       title: 'EditProfile',
       target: 'EditProfile',
     },
     {
-      title: 'MyOrders',
-      target: 'MyOrders',
-    },
-    {
-      title: 'MyWishlist',
-      target: 'MyWishlist',
-    },
-    {
       title: 'MyWallet',
       target: 'MyWallet',
-    },
-    {
-      title: 'Help',
-      target: 'Help',
-    },
-    {
-      title: 'ChangePassword',
-      target: 'ChangePassword',
     },
     {
       title: 'AllCategories',
@@ -101,36 +57,8 @@ const HomeScreen = ({navigation}) => {
       target: 'OrderDetails',
     },
     {
-      title: 'RadioButtons',
-      target: 'RadioButtons',
-    },
-    {
-      title: 'ReturnProduct',
-      target: 'ReturnProduct',
-    },
-    {
-      title: 'ReturnProduct2',
-      target: 'ReturnProduct2',
-    },
-    {
-      title: 'ReturnProduct3',
-      target: 'ReturnProduct3',
-    },
-    {
       title: 'ManagePayments',
       target: 'ManagePayments',
-    },
-    {
-      title: 'HeaderComponent',
-      target: 'HeaderComponent',
-    },
-    {
-      title: 'PaymentSuccess',
-      target: 'PaymentSuccess',
-    },
-    {
-      title: 'PaymentFailure',
-      target: 'PaymentFailure',
     },
   ];
 

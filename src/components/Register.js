@@ -88,7 +88,7 @@ const Register = () => {
 
         <Pressable
           style={styles.signUpButton}
-          onPress={() => navigation.navigate('Login')}>
+          onPress={() => navigation.navigate('OtpVerification')}>
           <Text style={styles.signUpButtonText}>SIGN UP</Text>
         </Pressable>
         <Pressable

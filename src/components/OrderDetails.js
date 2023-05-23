@@ -6,8 +6,11 @@ import {Text, View, StyleSheet, ScrollView, Image} from 'react-native';
 import {HeaderComponent} from './CustomComponents/HeaderComponent';
 import Product from '../images/Product.png';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+import {useNavigation} from '@react-navigation/native';
+import {Pressable} from '@react-native-material/core';
 
 const OrderDetails = () => {
+  const navigation = useNavigation();
   const ProductContainer = () => {
     return (
       <View style={styles.ProductContainer}>
@@ -64,7 +67,9 @@ const OrderDetails = () => {
           Need Help With Your Item ?
         </Text>
         <View>
-          <View style={styles.ReturnContentViewContainer}>
+          <Pressable
+            style={styles.ReturnContentViewContainer}
+            onPress={() => navigation.navigate('ReturnProduct')}>
             <View style={{justifyContent: 'space-evenly', height: '70%'}}>
               <Text style={styles.ReturnContainerMainTextStyles}>
                 Return Or Replace Items
@@ -74,7 +79,7 @@ const OrderDetails = () => {
               </Text>
             </View>
             <MaterialIcons name="arrow-forward-ios" size={25} />
-          </View>
+          </Pressable>
         </View>
       </View>
     );

@@ -152,7 +152,7 @@ const PowerUserRegister = () => {
 
         <Pressable
           style={styles.AddButton}
-          onPress={() => navigation.navigate('Login')}>
+          onPress={() => navigation.navigate('OtpVerification')}>
           <Text style={styles.AddButtonText}>ADD</Text>
         </Pressable>
       </ScrollView>

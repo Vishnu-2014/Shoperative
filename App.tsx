@@ -16,7 +16,7 @@ import {DrawerView} from './src/components/dashboard/DrawerView';
 import {ProductDetails} from './src/components/ProductDetails';
 import {Account} from './src/components/dashboard/Account';
 import {EditProfile} from './src/components/EditProfile';
-import {MyOrders} from './src/components/MyOrders';
+import {MyOrders} from './src/components/ProfileComponents/MyOrders';
 import {MyWishlist} from './src/components/ProfileComponents/MyWishlist';
 import {MyWallet} from './src/components/ProfileComponents/MyWallet';
 import {Help} from './src/components/ProfileComponents/Help';
