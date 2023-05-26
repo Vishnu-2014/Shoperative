@@ -4,10 +4,11 @@ import {placeHolderTextColor} from '../theme/colors';
 import Foundation from 'react-native-vector-icons/Foundation';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import {Pressable} from 'react-native';
+import ActivityStatus from '../components/shared/ActivityStatus';
 import {useDispatch, useSelector} from 'react-redux';
 import {login} from '../store/actions/loginActions';
 import {useNavigation} from '@react-navigation/native';
-import {ActivityIndicator, Snackbar} from 'react-native-paper';
+import {Snackbar} from 'react-native-paper';
 
 const dummyusername = '9000365957';
 const dummypassword = '123123';
@@ -47,7 +48,6 @@ const Login = () => {
   const dispatch = useDispatch();
   //check below two lines will bring th data from api
   const loginResult = useSelector(state => state.login);
-  console.log('the result', loginResult.message);
 
   const snackBar = () => {
     return (
@@ -123,7 +123,9 @@ const Login = () => {
         </Text>
       </Text>
 
-      <ActivityIndicator size={'small'} color="#ED7421" animating={activity} />
+      {loginResult.loginStarted && (
+        <ActivityStatus message={'Login inprogress'} />
+      )}
 
       {snackBar()}
     </View>
