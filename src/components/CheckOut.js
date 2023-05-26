@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {
   View,
   Text,
@@ -9,6 +9,7 @@ import {
 } from 'react-native';
 import {HeaderComponent} from './CustomComponents/HeaderComponent';
 import {Row, Rows, Table, TableWrapper} from 'react-native-table-component';
+import {bgColor} from '../theme/colors';
 import {color} from '@rneui/base';
 import {ShareWithFollowers} from './CheckOutPages/ShareWithFollowers';
 import {ShareCartItem} from './CheckOutPages/ShareCartItem';
@@ -32,6 +33,8 @@ const rows = [
 ];
 
 const CheckOut = () => {
+  const [pressedButton, setPressedButton] = useState('Closing Date');
+
   const CustomPaymentFeilds = (priceDetailsFeild, PriceFeild) => {
     return (
       <View
@@ -53,11 +56,149 @@ const CheckOut = () => {
       </View>
     );
   };
+
   const CustomButton = buttonTitle => {
     return (
-      <Pressable style={styles.buttonStyles}>
+      <Pressable
+        style={[
+          styles.buttonStyles,
+          {
+            backgroundColor:
+              pressedButton === buttonTitle ? bgColor : '#F3F3F3',
+          },
+        ]}
+        onPress={() => setPressedButton(buttonTitle)}>
         <Text style={styles.buttonTextStyles}>{buttonTitle}</Text>
       </Pressable>
+    );
+  };
+
+  const closingDatePressed = () => {
+    return (
+      pressedButton === 'Closing Date' && (
+        <Table borderStyle={{borderWidth: 1, borderColor: '#7070703D'}}>
+          <Row
+            data={headers}
+            style={{backgroundColor: '#ED742133', height: 40}}
+            flexArr={[1.75, 1.5, 1, 1, 1.25]}
+            textStyle={{
+              textAlign: 'center',
+              color: '#7F7F7F',
+              fontSize: 12,
+              fontWeight: '700',
+            }}
+          />
+          <TableWrapper style={{flexDirection: 'row'}}>
+            <Rows
+              data={rows}
+              heightArr={[40, 40, 40, 40, 40, 40]}
+              flexArr={[1.75, 1.5, 1, 1, 1.25]}
+              textStyle={{
+                textAlign: 'center',
+                fontSize: 12,
+                fontWeight: '700',
+                color: '#00000099',
+              }}
+            />
+          </TableWrapper>
+        </Table>
+      )
+    );
+  };
+  const shareWithFollowers = () => {
+    return (
+      pressedButton === 'Share With Followers' && (
+        <Table borderStyle={{borderWidth: 1, borderColor: '#7070703D'}}>
+          <Row
+            data={headers}
+            style={{backgroundColor: 'pink', height: 40}}
+            flexArr={[1.75, 1.5, 1, 1, 1.25]}
+            textStyle={{
+              textAlign: 'center',
+              color: '#7F7F7F',
+              fontSize: 12,
+              fontWeight: '700',
+            }}
+          />
+          <TableWrapper style={{flexDirection: 'row'}}>
+            <Rows
+              data={rows}
+              heightArr={[40, 40, 40, 40, 40, 40]}
+              flexArr={[1.75, 1.5, 1, 1, 1.25]}
+              textStyle={{
+                textAlign: 'center',
+                fontSize: 12,
+                fontWeight: '700',
+                color: '#00000099',
+              }}
+            />
+          </TableWrapper>
+        </Table>
+      )
+    );
+  };
+  const shareCartByUser = () => {
+    return (
+      pressedButton === 'Share Cart - By user' && (
+        <Table borderStyle={{borderWidth: 1, borderColor: '#7070703D'}}>
+          <Row
+            data={headers}
+            style={{backgroundColor: 'red', height: 40}}
+            flexArr={[1.75, 1.5, 1, 1, 1.25]}
+            textStyle={{
+              textAlign: 'center',
+              color: '#7F7F7F',
+              fontSize: 12,
+              fontWeight: '700',
+            }}
+          />
+          <TableWrapper style={{flexDirection: 'row'}}>
+            <Rows
+              data={rows}
+              heightArr={[40, 40, 40, 40, 40, 40]}
+              flexArr={[1.75, 1.5, 1, 1, 1.25]}
+              textStyle={{
+                textAlign: 'center',
+                fontSize: 12,
+                fontWeight: '700',
+                color: '#00000099',
+              }}
+            />
+          </TableWrapper>
+        </Table>
+      )
+    );
+  };
+  const shareCartByItem = () => {
+    return (
+      pressedButton === 'Share Cart - By Item' && (
+        <Table borderStyle={{borderWidth: 1, borderColor: '#7070703D'}}>
+          <Row
+            data={headers}
+            style={{backgroundColor: 'green', height: 40}}
+            flexArr={[1.75, 1.5, 1, 1, 1.25]}
+            textStyle={{
+              textAlign: 'center',
+              color: '#7F7F7F',
+              fontSize: 12,
+              fontWeight: '700',
+            }}
+          />
+          <TableWrapper style={{flexDirection: 'row'}}>
+            <Rows
+              data={rows}
+              heightArr={[40, 40, 40, 40, 40, 40]}
+              flexArr={[1.75, 1.5, 1, 1, 1.25]}
+              textStyle={{
+                textAlign: 'center',
+                fontSize: 12,
+                fontWeight: '700',
+                color: '#00000099',
+              }}
+            />
+          </TableWrapper>
+        </Table>
+      )
     );
   };
   return (
@@ -104,33 +245,11 @@ const CheckOut = () => {
         </View>
       </View>
 
-      <View style={{width: '100%', backgroundColor: 'red'}}>
-        <Table borderStyle={{borderWidth: 1, borderColor: '#7070703D'}}>
-          <Row
-            data={headers}
-            style={{backgroundColor: '#ED742133', height: 40}}
-            flexArr={[1.75, 1.5, 1, 1, 1.25]}
-            textStyle={{
-              textAlign: 'center',
-              color: '#7F7F7F',
-              fontSize: 12,
-              fontWeight: '700',
-            }}
-          />
-          <TableWrapper style={{flexDirection: 'row'}}>
-            <Rows
-              data={rows}
-              heightArr={[40, 40, 40, 40, 40, 40]}
-              flexArr={[1.75, 1.5, 1, 1, 1.25]}
-              textStyle={{
-                textAlign: 'center',
-                fontSize: 12,
-                fontWeight: '700',
-                color: '#00000099',
-              }}
-            />
-          </TableWrapper>
-        </Table>
+      <View style={{width: '100%'}}>
+        {closingDatePressed()}
+        {shareWithFollowers()}
+        {shareCartByUser()}
+        {shareCartByItem()}
       </View>
 
       <Text style={styles.headingOrderTextStyles}>Order Summary</Text>
@@ -185,7 +304,6 @@ const styles = StyleSheet.create({
   buttonStyles: {
     width: '48%',
     height: '100%',
-    backgroundColor: '#F3F3F3',
     alignItems: 'center',
     justifyContent: 'center',
   },
