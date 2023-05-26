@@ -11,9 +11,12 @@ const SearchBar = () => {
     return (
       <View style={styles.TrendingproductsContainer}>
         <View style={styles.imageContainerStyles}>
-          <Image source={mirchi} style={styles.TrendingproductImageStyles} />
+          <Image
+            source={imageSource}
+            style={styles.TrendingproductImageStyles}
+          />
         </View>
-        <Text style={styles.TrendingproductTextStyles}>Green Mirchi</Text>
+        <Text style={styles.TrendingproductTextStyles}>{productName}</Text>
       </View>
     );
   };
@@ -38,12 +41,12 @@ const SearchBar = () => {
 
         <Text style={styles.recentTextStyles}>Trending Searches</Text>
 
-        {TrendingProducts({mirchi}, 'Green Chilli')}
-        {TrendingProducts({mirchi}, 'Green Chilli')}
-        {TrendingProducts({mirchi}, 'Green Chilli')}
-        {TrendingProducts({mirchi}, 'Green Chilli')}
-        {TrendingProducts({mirchi}, 'Green Chilli')}
-        {TrendingProducts({mirchi}, 'Green Chilli')}
+        {TrendingProducts(mirchi, 'Green Chilli')}
+        {TrendingProducts(mirchi, 'Green Chilli')}
+        {TrendingProducts(mirchi, 'Green Chilli')}
+        {TrendingProducts(mirchi, 'Green Chilli')}
+        {TrendingProducts(mirchi, 'Green Chilli')}
+        {TrendingProducts(mirchi, 'Green Chilli')}
 
         {/*
           {TrendingProducts(mirchi, 'Green Chilli')}
@@ -101,6 +104,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#FCECE24D',
     borderRadius: 5,
     color: '#3F3F3F99',
+    marginHorizontal: 5,
   },
   imageContainerStyles: {
     width: 45,

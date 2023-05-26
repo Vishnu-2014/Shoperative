@@ -64,7 +64,7 @@ const ss = StyleSheet.create({
     width: '100%',
     height: 18,
     alignItems: 'center',
-    justifyContent: 'space-between',
+    justifyContent: 'space-evenly',
   },
   searchContainer: {
     flexDirection: 'row',

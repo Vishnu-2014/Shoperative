@@ -7,7 +7,12 @@ const MapLocationComponent = props => {
   const {location = 'Deliver to Shaik Akeeb - Hyderabad 500081'} = props;
   return (
     <View style={ss.container}>
-      <Entypo name="location-pin" size={16} color={'white'} />
+      <Entypo
+        name="location-pin"
+        size={20}
+        color={'white'}
+        style={{marginRight: 5}}
+      />
       <Text style={ss.textStyle}>{location}</Text>
     </View>
   );
@@ -19,6 +24,7 @@ const ss = StyleSheet.create({
     backgroundColor: darkBgColor,
     height: 46,
     width: '100%',
+    paddingHorizontal: 10,
   },
   textStyle: {
     fontFamily: 'Poppins-Regular',

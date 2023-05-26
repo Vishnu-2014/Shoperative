@@ -45,6 +45,17 @@ const Login = () => {
     SetPassword(data);
   };
 
+  const mobileNumberValidation = () => {
+    if (username.length < 10) {
+      console.log('Please Enter a valid 10-Digit Mobile Number');
+    }
+  };
+  const passwordValidation = () => {
+    if (username.length < 8) {
+      console.log('Password Must Contain 8 Letters');
+    }
+  };
+
   const dispatch = useDispatch();
   //check below two lines will bring th data from api
   const loginResult = useSelector(state => state.login);
@@ -84,6 +95,7 @@ const Login = () => {
           keyboardType="number-pad"
           placeholderTextColor={placeHolderTextColor}
           onChangeText={handleUsernameInput}
+          maxLength={10}
         />
       </View>
       <View style={styles.FeildViewStyles}>
@@ -109,6 +121,7 @@ const Login = () => {
           //get username and password and pass this method instead of hardcoded values
           dispatch(login(username, password));
           Validation();
+          mobileNumberValidation();
           activityIndicator();
         }}>
         <Text style={styles.buttonTextStyles}>LOG IN</Text>
