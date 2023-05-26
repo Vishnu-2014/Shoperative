@@ -204,35 +204,6 @@ const CheckOut = () => {
   return (
     <ScrollView style={styles.container}>
       <HeaderComponent title={'Back'} />
-      {/*
-      <View
-        style={{
-          padding: 10,
-          width: '90%',
-          justifyContent: 'center',
-          backgroundColor: 'red',
-          alignSelf: 'center',
-        }}>
-        <View
-          style={{
-            flexDirection: 'row',
-            flexWrap: 'wrap',
-            justifyContent: 'space-around',
-          }}>
-          <Pressable style={styles.button}>
-            <Text>Vishnu</Text>
-          </Pressable>
-          <Pressable style={styles.button}>
-            <Text>Vishnu</Text>
-          </Pressable>
-          <Pressable style={styles.button}>
-            <Text>Vishnu</Text>
-          </Pressable>
-          <Pressable style={styles.button}>
-            <Text>Vishnu</Text>
-          </Pressable>
-        </View>
-      </View> */}
 
       <View style={styles.buttonsContainerView}>
         <View style={styles.horizontalButtonsView}>
