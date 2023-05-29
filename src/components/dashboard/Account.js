@@ -60,16 +60,20 @@ const Account = () => {
           onPressButton={() => navigation.navigate('MyOrders')}
         />
         <CustomFeilds iconName={'shopping-cart'} title={'My Shared Cart'} />
+
         <CustomFeilds
           iconName={'heart'}
           title={'My Wishlist'}
           onPressButton={() => navigation.navigate('MyWishlist')}
         />
+
         <CustomFeilds
           iconName={'shopping-basket'}
           title={'My Regular Basket'}
         />
+
         <CustomFeilds iconName={'address-book-o'} title={'Address Book'} />
+
         <CustomFeilds
           iconName={'help-circle'}
           title={'Help'}
@@ -80,6 +84,13 @@ const Account = () => {
           title={'Change Password'}
           onPressButton={() => navigation.navigate('ChangePassword')}
         />
+
+        <CustomFeilds
+          iconName={'lock'}
+          title={'My Wallet'}
+          onPressButton={() => navigation.navigate('MyWallet')}
+        />
+
         <CustomFeilds iconName={'power-off'} title={'Logout'} />
       </ScrollView>
     </View>

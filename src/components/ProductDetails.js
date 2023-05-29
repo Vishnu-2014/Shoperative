@@ -5,8 +5,10 @@ import ProductDetailsImage from '../images/productDetails.png';
 import {StyleSheet} from 'react-native';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import {Pressable} from 'react-native';
+import {useNavigation} from '@react-navigation/native';
 
 const ProductDetails = () => {
+  const navigation = useNavigation();
   return (
     <View style={styles.container}>
       <FontAwesome name="heart" style={styles.iconStyles} size={20} />
@@ -55,7 +57,9 @@ const ProductDetails = () => {
         </View>
       </View>
 
-      <Pressable style={styles.buttonStyles}>
+      <Pressable
+        style={styles.buttonStyles}
+        onPress={() => navigation.navigate('ShoppingCart')}>
         <Text style={styles.buttonTextStyles}>Add To Cart</Text>
       </Pressable>
     </View>

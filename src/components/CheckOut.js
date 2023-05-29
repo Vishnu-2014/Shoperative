@@ -15,6 +15,7 @@ import {ShareWithFollowers} from './CheckOutPages/ShareWithFollowers';
 import {ShareCartItem} from './CheckOutPages/ShareCartItem';
 import {ShareCartUser} from './CheckOutPages/ShareCartUser';
 import {ClosingDate} from './CheckOutPages/ClosingDate';
+import {useNavigation} from '@react-navigation/native';
 
 const headers = [
   'UserDetails',
@@ -33,7 +34,8 @@ const rows = [
 ];
 
 const CheckOut = () => {
-  const [pressedButton, setPressedButton] = useState('Closing Date');
+  const navigation = useNavigation();
+  const [pressedButton, setPressedButton] = useState('Share Cart - By user');
 
   const CustomPaymentFeilds = (priceDetailsFeild, PriceFeild) => {
     return (
@@ -79,7 +81,7 @@ const CheckOut = () => {
         <Table borderStyle={{borderWidth: 1, borderColor: '#7070703D'}}>
           <Row
             data={headers}
-            style={{backgroundColor: '#ED742133', height: 40}}
+            style={{backgroundColor: 'red', height: 40}}
             flexArr={[1.75, 1.5, 1, 1, 1.25]}
             textStyle={{
               textAlign: 'center',
@@ -143,7 +145,7 @@ const CheckOut = () => {
         <Table borderStyle={{borderWidth: 1, borderColor: '#7070703D'}}>
           <Row
             data={headers}
-            style={{backgroundColor: 'red', height: 40}}
+            style={{backgroundColor: '#ED742133', height: 40}}
             flexArr={[1.75, 1.5, 1, 1, 1.25]}
             textStyle={{
               textAlign: 'center',
@@ -258,7 +260,9 @@ const CheckOut = () => {
         </Text>
       </View>
 
-      <Pressable style={styles.checkOutButtonStyles}>
+      <Pressable
+        style={styles.checkOutButtonStyles}
+        onPress={() => navigation.navigate('ShippingAddress')}>
         <Text style={styles.checkOutButtonTextStyles}>
           CONTINUE TO CHECKOUT
         </Text>

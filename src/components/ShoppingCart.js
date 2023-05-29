@@ -5,8 +5,10 @@ import {HeaderComponent} from './CustomComponents/HeaderComponent';
 import discountIcon from '../images/discountIcon.png';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import {Pressable} from 'react-native';
+import {useNavigation} from '@react-navigation/native';
 
 const ShoppingCart = () => {
+  const navigation = useNavigation();
   const productCartDetails = (productName, qty, price) => {
     return (
       <View style={styles.productContainerStyles}>
@@ -102,7 +104,9 @@ const ShoppingCart = () => {
           </View>
         </View>
 
-        <Pressable style={styles.buttonStyles}>
+        <Pressable
+          style={styles.buttonStyles}
+          onPress={() => navigation.navigate('CheckOut')}>
           <Text style={styles.buttonTextStyles}>PROCEED TO CHECKOUT</Text>
         </Pressable>
       </View>

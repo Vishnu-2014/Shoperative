@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, StyleSheet, Image} from 'react-native';
+import {View, Text, StyleSheet, Image, Pressable} from 'react-native';
 import {HeaderComponent} from './CustomComponents/HeaderComponent';
 import HDFC from '../images/Payments/HDFC.png';
 import ICICI from '../images/Payments/icici.png';
@@ -10,8 +10,10 @@ import Paytm from '../images/Payments/paytm.png';
 import Card from '../images/Payments/Card.png';
 import {ScrollView} from 'react-native';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+import {useNavigation} from '@react-navigation/native';
 
 const ManagePayments = () => {
+  const navigation = useNavigation();
   const ImageComponent = image => {
     return (
       <View style={styles.imageContainer}>
@@ -20,12 +22,12 @@ const ManagePayments = () => {
     );
   };
 
-  const FeildsContainer = (imageSource, title) => {
+  const FeildsContainer = (imageSource, title, onPress) => {
     return (
-      <View style={styles.feildsContainerStyles}>
+      <Pressable style={styles.feildsContainerStyles} onPress={onPress}>
         {ImageComponent(imageSource)}
         <Text style={styles.textStyles}>{title}</Text>
-      </View>
+      </Pressable>
     );
   };
 
@@ -33,9 +35,15 @@ const ManagePayments = () => {
     return (
       <View style={styles.NetBankingCardStyles}>
         <Text style={styles.headingTextStyles}>Net Banking</Text>
-        {FeildsContainer(HDFC, 'HDFC Bank')}
-        {FeildsContainer(ICICI, 'ICICI Bank')}
-        {FeildsContainer(SBI, 'SBI Bank')}
+        {FeildsContainer(HDFC, 'HDFC Bank', () =>
+          navigation.navigate('PaymentSuccess'),
+        )}
+        {FeildsContainer(ICICI, 'ICICI Bank', () =>
+          navigation.navigate('PaymentSuccess'),
+        )}
+        {FeildsContainer(SBI, 'SBI Bank', () =>
+          navigation.navigate('PaymentSuccess'),
+        )}
       </View>
     );
   };
@@ -71,9 +79,15 @@ const ManagePayments = () => {
     return (
       <View style={styles.NetBankingCardStyles}>
         <Text style={styles.headingTextStyles}>UPI</Text>
-        {FeildsContainer(Gpay, 'Gpay')}
-        {FeildsContainer(Paytm, 'Paytm')}
-        {FeildsContainer(PhonePe, 'PhonePe')}
+        {FeildsContainer(Gpay, 'Gpay', () =>
+          navigation.navigate('PaymentFailure'),
+        )}
+        {FeildsContainer(Paytm, 'Paytm', () =>
+          navigation.navigate('PaymentFailure'),
+        )}
+        {FeildsContainer(PhonePe, 'PhonePe', () =>
+          navigation.navigate('PaymentFailure'),
+        )}
       </View>
     );
   };

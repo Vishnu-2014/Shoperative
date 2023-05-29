@@ -25,40 +25,16 @@ const HomeScreen = ({navigation}) => {
       target: 'EditProfile',
     },
     {
-      title: 'MyWallet',
-      target: 'MyWallet',
-    },
-    {
-      title: 'AllCategories',
-      target: 'AllCategories',
-    },
-    {
       title: 'SearchBar',
       target: 'SearchBar',
-    },
-    {
-      title: 'ShoppingCart',
-      target: 'ShoppingCart',
     },
     {
       title: 'SearchFollowers',
       target: 'SearchFollowers',
     },
     {
-      title: 'ShippingAddress',
-      target: 'ShippingAddress',
-    },
-    {
-      title: 'CheckOut',
-      target: 'CheckOut',
-    },
-    {
       title: 'OrderDetails',
       target: 'OrderDetails',
-    },
-    {
-      title: 'ManagePayments',
-      target: 'ManagePayments',
     },
   ];
 
