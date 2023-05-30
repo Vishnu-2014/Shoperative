@@ -1,5 +1,5 @@
 import 'react-native-gesture-handler';
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
@@ -36,6 +36,8 @@ import {ManagePayments} from './src/components/ManagePayments';
 import {HeaderComponent} from './src/components/CustomComponents/HeaderComponent';
 import {PaymentSuccess} from './src/components/PaymentSuccess';
 import {PaymentFailure} from './src/components/PaymentFailure';
+import {Splash} from './src/components/Splash';
+
 import {Provider} from 'react-redux';
 import storeConfig from './src/store/configureStore';
 
@@ -202,34 +204,51 @@ const screens = [
     component: PaymentFailure,
     headerBackTitle: 'PaymentFailure',
   },
+  {
+    name: 'Splash',
+    component: Splash,
+    headerBackTitle: 'Splash',
+  },
 ];
 const App = () => {
+  const [splash, SetSplash] = useState(true);
+
+  useEffect(() => {
+    setTimeout(() => {
+      SetSplash(false);
+    }, 2000);
+  }, [splash]);
+
   const renderRootView = () => {
     return (
       <SafeAreaProvider>
-        <NavigationContainer>
-          <RootStack.Navigator initialRouteName="HomeScreen">
-            <RootStack.Screen
-              name="HomeScreen"
-              component={HomeScreen}
-              options={{headerShown: false}}
-            />
-            {screens.map((item, index) => (
+        {splash ? (
+          <Splash />
+        ) : (
+          <NavigationContainer>
+            <RootStack.Navigator initialRouteName="HomeScreen">
               <RootStack.Screen
-                key={index}
-                name={item.name}
-                component={item.component}
-                options={{
-                  headerBackTitle: item.headerBackTitle ?? item.name,
-                  title: item.headerBackTitle,
-                  headerTintColor: '#FFFFFF',
-                  headerStyle: {backgroundColor: '#ED7421'},
-                  headerShown: false,
-                }}
+                name="HomeScreen"
+                component={HomeScreen}
+                options={{headerShown: false}}
               />
-            ))}
-          </RootStack.Navigator>
-        </NavigationContainer>
+              {screens.map((item, index) => (
+                <RootStack.Screen
+                  key={index}
+                  name={item.name}
+                  component={item.component}
+                  options={{
+                    headerBackTitle: item.headerBackTitle ?? item.name,
+                    title: item.headerBackTitle,
+                    headerTintColor: '#FFFFFF',
+                    headerStyle: {backgroundColor: '#ED7421'},
+                    headerShown: false,
+                  }}
+                />
+              ))}
+            </RootStack.Navigator>
+          </NavigationContainer>
+        )}
       </SafeAreaProvider>
     );
   };

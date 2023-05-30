@@ -5,10 +5,11 @@ import logo from '../../images/logo.png';
 import user from '../../images/user.png';
 import cart from '../../images/cart.png';
 import {bgColor} from '../../theme/colors';
+import {useNavigation} from '@react-navigation/native';
 
 const NavigationBar = props => {
+  const navigation = useNavigation();
   const {
-    navigation,
     userPress = () => Alert.alert('Under Development'),
     cartPress = () => Alert.alert('Under Development'),
   } = props;
