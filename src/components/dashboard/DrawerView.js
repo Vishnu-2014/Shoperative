@@ -1,6 +1,6 @@
 import React from 'react';
 import {createDrawerNavigator} from '@react-navigation/drawer';
-import {MyOrders} from './MyOrders';
+import {MyOrders} from '../ProfileComponents/MyOrders';
 import {Profile} from './Profile';
 import {Dashboard} from './Dashboard';
 const DrawerView = ({navigation}) => {

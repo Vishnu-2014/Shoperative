@@ -35,8 +35,8 @@ const Login = () => {
       setVisible(true);
     } else {
       if (loginResult.description === 'You are logged in successfully') {
-        // navigation.navigate('Register');
-        console.log('Hello');
+        navigation.navigate('Register');
+        // console.log('Hello');
       }
       setVisible(true);
     }
@@ -78,7 +78,7 @@ const Login = () => {
       if (loginResult.description === 'You are logged in successfully') {
         // navigation.navigate('Register');
         // Alert.alert('Hello');
-        setVisible(true);
+        setVisible(false);
       }
     }, 500);
   };

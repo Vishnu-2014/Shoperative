@@ -22,7 +22,7 @@ const ImageCurousel = props => {
           style={{
             width: '100%',
             height: 140,
-            borderRadius: 20,
+            borderRadius: 15,
           }}
         />
       </View>
@@ -36,8 +36,8 @@ const ImageCurousel = props => {
       renderItem={_renderItem}
       width={SLIDER_WIDTH}
       snapEnabled
-      scrollAnimationDuration={1000}
-      height={140}
+      scrollAnimationDuration={500}
+      height={150}
       onProgressChange={(_, absoluteProgress) =>
         (progressValue.value = absoluteProgress)
       }

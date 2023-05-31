@@ -8,8 +8,10 @@ import {
   Pressable,
 } from 'react-native';
 import OtpLock from '../images/OtpPageLock.png';
+import {useNavigation} from '@react-navigation/native';
 
 const OtpVerification = () => {
+  const navigation = useNavigation();
   return (
     <View style={styles.container}>
       <Image style={styles.OtpLockImageStyles} source={OtpLock} />
@@ -32,7 +34,9 @@ const OtpVerification = () => {
         Didn't Receive Otp ? <Text style={{color: '#ED7421'}}>Resend OTP!</Text>
       </Text>
 
-      <Pressable style={styles.buttonStyle}>
+      <Pressable
+        style={styles.buttonStyle}
+        onPress={navigation.navigate('DrawerView')}>
         <Text style={styles.buttonTextStyle}>VERIFY AND PROCEED</Text>
       </Pressable>
     </View>
