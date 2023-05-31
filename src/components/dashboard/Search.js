@@ -1,11 +1,14 @@
 import React from 'react';
 import {View, Text, StyleSheet} from 'react-native';
-
+import {HeaderComponent} from '../CustomComponents/HeaderComponent';
 const Search = () => {
   return (
-    <View style={ss.container}>
-      <Text>Search page</Text>
-    </View>
+    <>
+      <HeaderComponent title={'Search'} />
+      <View style={ss.container}>
+        <Text>Search page</Text>
+      </View>
+    </>
   );
 };
 const ss = StyleSheet.create({

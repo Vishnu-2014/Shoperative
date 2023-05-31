@@ -1,5 +1,5 @@
 /* eslint-disable react/no-unstable-nested-components */
-/* eslint-disable prettier/prettier */
+
 import React from 'react';
 import {
   View,
@@ -37,7 +37,7 @@ const Account = () => {
           name="arrow-back"
           size={20}
           style={styles.backArrowStyles}
-          onPress={() => navigation.navigate('HomeScreen')}
+          onPress={() => navigation.navigate('Home')}
         />
         <Text style={styles.topHeaddingStyles}>Profile</Text>
       </View>
