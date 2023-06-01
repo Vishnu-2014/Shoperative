@@ -6189,6 +6189,11 @@
   dependencies:
     "lodash" "^4.17.15"
 
+"react-native-razorpay@^2.3.0":
+  "integrity" "sha512-xxiZCPuZmiRq5UHDr+D4OoyxEjMu0ujC+RaE+rYo938EK0Vc21dZRUVxMVP1L2WgzA8PYwmD5FWvdHNtWLQC4Q=="
+  "resolved" "https://registry.npmjs.org/react-native-razorpay/-/react-native-razorpay-2.3.0.tgz"
+  "version" "2.3.0"
+
 "react-native-reanimated-carousel@^3.3.2":
   "integrity" "sha512-mlYLt43dEQzYhfioBr59/iDk25UzU3Rb48HYcI+nnDLu7bWO7y6pC22ugL0RV/XehmMxo5oK6QlaoEPgcdRxLg=="
   "resolved" "https://registry.npmjs.org/react-native-reanimated-carousel/-/react-native-reanimated-carousel-3.3.2.tgz"
@@ -6250,7 +6255,7 @@
     "prop-types" "^15.7.2"
     "yargs" "^16.1.1"
 
-"react-native@*", "react-native@>=0.57", "react-native@>=0.59", "react-native@>=0.6.0", "react-native@0.71.6":
+"react-native@*", "react-native@>=0.57", "react-native@>=0.59", "react-native@>=0.6.0", "react-native@>=0.66.0", "react-native@0.71.6":
   "integrity" "sha512-gHrDj7qaAaiE41JwaFCh3AtvOqOLuRgZtHKzNiwxakG/wvPAYmG73ECfWHGxjxIx/QT17Hp37Da3ipCei/CayQ=="
   "resolved" "https://registry.npmjs.org/react-native/-/react-native-0.71.6.tgz"
   "version" "0.71.6"

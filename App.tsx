@@ -102,7 +102,6 @@ const screens = [
   {
     name: 'Account',
     component: Account,
-    headerBackTitle: 'Profile',
   },
   {
     name: 'EditProfile',

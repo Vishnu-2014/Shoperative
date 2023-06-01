@@ -35,7 +35,7 @@ const Login = () => {
       setVisible(true);
     } else {
       if (loginResult.description === 'You are logged in successfully') {
-        navigation.navigate('Register');
+        navigation.navigate('DrawerView');
         // console.log('Hello');
       }
       setVisible(true);

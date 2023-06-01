@@ -36,6 +36,10 @@ const HomeScreen = ({navigation}) => {
       title: 'OrderDetails',
       target: 'OrderDetails',
     },
+    {
+      title: 'ShippingAddress',
+      target: 'ShippingAddress',
+    },
   ];
 
   return (

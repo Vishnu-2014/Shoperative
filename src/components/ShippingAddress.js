@@ -12,8 +12,14 @@ import {placeHolderTextColor} from '../theme/colors';
 import {HeaderComponent} from './CustomComponents/HeaderComponent';
 import DropdownExample from './CustomComponents/CustomDropDown';
 import {useNavigation} from '@react-navigation/native';
+import RazorpayCheckout from 'react-native-razorpay';
+import {useDispatch, useSelector} from 'react-redux';
+import Logo from '../images/logo.png';
 
 const ShippingAddress = () => {
+  const dispatch = useDispatch();
+  //check below two lines will bring th data from api
+  const loginResult = useSelector(state => state.login);
   const navigation = useNavigation();
   const CustomFeilds = (title, placeholderText) => {
     return (
@@ -126,7 +132,32 @@ const ShippingAddress = () => {
         <Pressable
           style={[styles.buttonStyles, {backgroundColor: '#ED7421'}]}
           onPress={() => {
-            navigation.navigate('ManagePayments');
+            var options = {
+              description: 'Credits towards consultation',
+              // image: Logo,
+              currency: 'INR',
+              key: 'rzp_test_fBPQsOjg7Bt8Xa',
+              amount: '20000',
+              name: 'Shoperative',
+              order_id: '', //Replace this with an order_id created using Orders API.
+              prefill: {
+                email: 'Shoperative@example.com',
+                // contact: loginResult.mobile,
+                // name: loginResult.name,
+                contact: '5362762362',
+                name: 'Shoperative',
+              },
+              theme: {color: '#ED7421'},
+            };
+            RazorpayCheckout.open(options)
+              .then(data => {
+                // handle success
+                alert(`Success: ${data.razorpay_payment_id}`);
+              })
+              .catch(error => {
+                // handle failure
+                alert(`Error: ${error.code} | ${error.description}`);
+              });
           }}>
           <Text style={styles.buttonTextStyles}>PROCEED TO PAY</Text>
         </Pressable>
