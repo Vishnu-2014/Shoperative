@@ -12,6 +12,31 @@ import {placeHolderTextColor} from '../theme/colors';
 
 import DropdownExample from './CustomComponents/CustomDropDown';
 
+const ProfessionData = [
+  {
+    id: 0,
+    label: '-- Select Your Profession --',
+    value: '-- Select Your Profession --',
+  },
+  {id: 1, label: 'Employee', value: 'Employee'},
+  {id: 2, label: 'entrepreneur', value: 'entrepreneur'},
+  {id: 3, label: 'HouseWife', value: 'HouseWife'},
+  {id: 4, label: 'Professional(Doctor)', value: 'Professional(Doctor)'},
+  {id: 5, label: 'Professional(Others)', value: 'Professional(Others)'},
+  {id: 6, label: 'Self Employed', value: 'Self Employed'},
+];
+const IncomeData = [
+  {
+    id: 0,
+    label: '-- Monthly HouseHold Income --',
+    value: '-- Monthly HouseHold Income --',
+  },
+  {id: 1, label: 'Below 10000', value: 'Below 10000'},
+  {id: 2, label: '10000 - 20000', value: '10000 - 20000'},
+  {id: 3, label: '20000 - 50000', value: '20000 - 50000'},
+  {id: 3, label: 'Above 50000', value: 'Above 50000'},
+];
+
 const Register = () => {
   const navigation = useNavigation();
   return (
@@ -57,35 +82,18 @@ const Register = () => {
           placeholderTextColor={placeHolderTextColor}
           secureTextEntry={true}
         />
-        <View
-          style={[
-            styles.feildStles,
-            {
-              flexDirection: 'row',
-              backgroundColor: '#F3F3F3',
-              justifyContent: 'space-between',
-              alignItems: 'center',
-              paddingHorizontal: 0,
-            },
-          ]}>
-          {/* city */}
-          <TextInput
-            style={[styles.feildStles, {width: '48%', marginTop: 0}]}
-            placeholder={'City'}
-            placeholderTextColor={placeHolderTextColor}
-          />
 
-          {/* state */}
-          <TextInput
-            style={[styles.feildStles, {width: '48%', marginTop: 0}]}
-            placeholder={'State'}
-            placeholderTextColor={placeHolderTextColor}
-          />
-        </View>
+        {/* City */}
+        <TextInput
+          style={styles.feildStles}
+          placeholder={'City'}
+          placeholderTextColor={placeHolderTextColor}
+        />
 
-        <DropdownExample />
-        <DropdownExample />
+        <DropdownExample titleinput={'Hello'} data={ProfessionData} />
+        <DropdownExample titleinput={'Hi'} data={IncomeData} />
 
+        {/* Buttons */}
         <Pressable
           style={styles.signUpButton}
           onPress={() => navigation.navigate('OtpVerification')}>

@@ -13,6 +13,31 @@ import {placeHolderTextColor} from '../theme/colors';
 
 import DropdownExample from './CustomComponents/CustomDropDown';
 
+const ProfessionData = [
+  {
+    id: 0,
+    label: '-- Select Your Profession --',
+    value: '-- Select Your Profession --',
+  },
+  {id: 1, label: 'Employee', value: 'Employee'},
+  {id: 2, label: 'entrepreneur', value: 'entrepreneur'},
+  {id: 3, label: 'HouseWife', value: 'HouseWife'},
+  {id: 4, label: 'Professional(Doctor)', value: 'Professional(Doctor)'},
+  {id: 5, label: 'Professional(Others)', value: 'Professional(Others)'},
+  {id: 6, label: 'Self Employed', value: 'Self Employed'},
+];
+const IncomeData = [
+  {
+    id: 0,
+    label: '-- Monthly HouseHold Income --',
+    value: '-- Monthly HouseHold Income --',
+  },
+  {id: 1, label: 'Below 10000', value: 'Below 10000'},
+  {id: 2, label: '10000 - 20000', value: '10000 - 20000'},
+  {id: 3, label: '20000 - 50000', value: '20000 - 50000'},
+  {id: 3, label: 'Above 50000', value: 'Above 50000'},
+];
+
 const PowerUserRegister = () => {
   const navigation = useNavigation();
   return (
@@ -30,38 +55,19 @@ const PowerUserRegister = () => {
         {/* mobile number */}
         <TextInput
           style={styles.feildStles}
-          placeholder={'Name Of The Food Co-operative'}
+          placeholder={'Mobile Number'}
           placeholderTextColor={placeHolderTextColor}
         />
 
-        <View
-          style={[
-            styles.feildStles,
-            {
-              flexDirection: 'row',
-              backgroundColor: '#F3F3F3',
-              justifyContent: 'space-between',
-              paddingHorizontal: 0,
-            },
-          ]}>
-          {/* city */}
-          <TextInput
-            style={[styles.feildStles, {width: '48%', marginTop: 0}]}
-            placeholder={'Mobile'}
-            placeholderTextColor={placeHolderTextColor}
-            keyboardType="number-pad"
-          />
+        {/* Email */}
+        <TextInput
+          style={styles.feildStles}
+          placeholder={'Email'}
+          placeholderTextColor={placeHolderTextColor}
+          keyboardType="number-pad"
+        />
 
-          {/* state */}
-          <TextInput
-            style={[styles.feildStles, {width: '48%', marginTop: 0}]}
-            placeholder={'Email'}
-            placeholderTextColor={placeHolderTextColor}
-            keyboardType="email-address"
-          />
-        </View>
-
-        {/* email */}
+        {/* Area */}
         <TextInput
           style={styles.feildStles}
           placeholder={'Area'}
@@ -120,18 +126,12 @@ const PowerUserRegister = () => {
           />
         </View>
 
-        <DropdownExample />
-        <DropdownExample />
+        <DropdownExample titleinput={'Hi'} data={ProfessionData} />
+        <DropdownExample titleinput={'Hi'} data={IncomeData} />
 
         <TextInput
           style={styles.feildStles}
           placeholder={'Facebook Link'}
-          placeholderTextColor={placeHolderTextColor}
-        />
-
-        <TextInput
-          style={styles.feildStles}
-          placeholder={'GST Number'}
           placeholderTextColor={placeHolderTextColor}
         />
 
@@ -145,10 +145,6 @@ const PowerUserRegister = () => {
         <Pressable style={styles.powerUserButton}>
           <Text style={styles.powerUserButtonText}>+ Choose Id Proof</Text>
         </Pressable>
-
-        {/* <Pressable style={styles.powerUserButton}>
-          <Text style={styles.powerUserButtonText}>+ Upload Logo</Text>
-        </Pressable> */}
 
         <Pressable
           style={styles.AddButton}

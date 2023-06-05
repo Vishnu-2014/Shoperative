@@ -13,7 +13,7 @@ const HeaderComponent = HeaderTitle => {
         size={24}
         style={styles.headerBackArrowStyles}
         onPress={() => {
-          navigation.navigate('Home');
+          navigation.goBack();
         }}
       />
       <Text style={styles.headerTextStyles}>{title}</Text>

@@ -144,7 +144,7 @@ const ShippingAddress = () => {
                 email: 'Shoperative@example.com',
                 // contact: loginResult.mobile,
                 // name: loginResult.name,
-                contact: '5362762362',
+                contact: '8328651345',
                 name: 'Shoperative',
               },
               theme: {color: '#ED7421'},

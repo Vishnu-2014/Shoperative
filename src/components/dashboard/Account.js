@@ -12,15 +12,15 @@ import {
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import profileImage from '../../images/userimag.jpg';
-import {useNavigation} from '@react-navigation/native';
 import {useDispatch, useSelector} from 'react-redux';
 
-const Account = () => {
-  const navigation = useNavigation();
+const Account = ({navigation}) => {
   const loginResult = useSelector(state => state.login);
   const CustomFeilds = ({iconName, title, onPressButton}) => {
     return (
-      <Pressable style={styles.boxContainerStyles} onPress={onPressButton}>
+      <Pressable
+        style={styles.boxContainerStyles}
+        onPress={() => navigation.navigate(onPressButton)}>
         <View style={styles.insideBoxContainerStyles}>
           <FontAwesome name={iconName} size={20} style={styles.boxIconStyles} />
           <Text style={styles.boxTextStyles}>{title}</Text>
@@ -37,7 +37,7 @@ const Account = () => {
           name="arrow-back"
           size={20}
           style={styles.backArrowStyles}
-          onPress={() => navigation.navigate('Home')}
+          onPress={() => navigation.goBack()}
         />
         <Text style={styles.topHeaddingStyles}>Profile</Text>
       </View>
@@ -57,14 +57,14 @@ const Account = () => {
         <CustomFeilds
           iconName={'shopping-bag'}
           title={'My Orders'}
-          onPressButton={() => navigation.navigate('MyOrders')}
+          onPressButton={'MyOrders'}
         />
         <CustomFeilds iconName={'shopping-cart'} title={'My Shared Cart'} />
 
         <CustomFeilds
           iconName={'heart'}
           title={'My Wishlist'}
-          onPressButton={() => navigation.navigate('MyWishlist')}
+          onPressButton={'MyWishlist'}
         />
 
         <CustomFeilds
@@ -77,18 +77,18 @@ const Account = () => {
         <CustomFeilds
           iconName={'help-circle'}
           title={'Help'}
-          onPressButton={() => navigation.navigate('Help')}
+          onPressButton={'Help'}
         />
         <CustomFeilds
           iconName={'lock'}
           title={'Change Password'}
-          onPressButton={() => navigation.navigate('ChangePassword')}
+          onPressButton={'ChangePassword'}
         />
 
         <CustomFeilds
           iconName={'lock'}
           title={'My Wallet'}
-          onPressButton={() => navigation.navigate('MyWallet')}
+          onPressButton={'MyWallet'}
         />
 
         <CustomFeilds iconName={'power-off'} title={'Logout'} />

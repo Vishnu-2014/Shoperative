@@ -3,11 +3,11 @@ import {View, StyleSheet} from 'react-native';
 import {Text, TouchableOpacity, FlatList} from 'react-native';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 
-const DropdownExample = title => {
+const DropdownExample = ({titleinput, data}) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [selectedValue, setSelectedValue] = useState('');
 
-  // const {input = '-- Select Your Profession --'} = props;
+  const {input} = titleinput;
 
   const options = [
     {id: 0, label: 'None', value: 'None'},
@@ -32,9 +32,7 @@ const DropdownExample = title => {
   return (
     <View style={styles.container}>
       <TouchableOpacity style={styles.ButtonStyles} onPress={toggleDropdown}>
-        <Text style={styles.TextStyles}>
-          {selectedValue || '-- Select Your Profession --'}
-        </Text>
+        <Text style={styles.TextStyles}>{selectedValue || input}</Text>
         <MaterialIcons
           name="keyboard-arrow-down"
           color={'#333'}
@@ -48,12 +46,10 @@ const DropdownExample = title => {
       </TouchableOpacity>
       {isDropdownOpen && (
         <FlatList
-          data={options}
+          data={data}
           style={{
-            position: 'absolute',
             width: '100%',
             height: 200,
-            marginTop: 50,
             alignSelf: 'center',
             backgroundColor: '#FFF',
           }}
