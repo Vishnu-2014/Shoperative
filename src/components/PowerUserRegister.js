@@ -1,5 +1,5 @@
 /* eslint-disable prettier/prettier */
-import React from 'react';
+import React, {useState} from 'react';
 import {
   View,
   Text,
@@ -7,9 +7,12 @@ import {
   TextInput,
   Pressable,
   ScrollView,
+  Image,
 } from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import {placeHolderTextColor} from '../theme/colors';
+import {launchImageLibrary} from 'react-native-image-picker';
+import * as ImagePicker from 'react-native-image-picker';
 
 import DropdownExample from './CustomComponents/CustomDropDown';
 
@@ -40,6 +43,7 @@ const IncomeData = [
 
 const PowerUserRegister = () => {
   const navigation = useNavigation();
+  const [resourcePath, SetResourcePath] = useState();
   return (
     <View style={styles.container}>
       <Text style={styles.logoStyles}>Power User</Text>
@@ -126,8 +130,14 @@ const PowerUserRegister = () => {
           />
         </View>
 
-        <DropdownExample titleinput={'Hi'} data={ProfessionData} />
-        <DropdownExample titleinput={'Hi'} data={IncomeData} />
+        <DropdownExample
+          titleInput={'-- Select Your Proffession --'}
+          data={ProfessionData}
+        />
+        <DropdownExample
+          titleInput={'-- Monthly Household Income --'}
+          data={IncomeData}
+        />
 
         <TextInput
           style={styles.feildStles}
@@ -142,13 +152,27 @@ const PowerUserRegister = () => {
           multiline={true}
         />
 
-        <Pressable style={styles.powerUserButton}>
+        <Pressable
+          style={styles.powerUserButton}
+          onPress={() =>
+            ImagePicker.launchImageLibrary(
+              {
+                mediaType: 'photo',
+                includeBase64: false,
+                maxHeight: 200,
+                maxWidth: 200,
+              },
+              response => {
+                console.log(response.assets[0].uri);
+              },
+            )
+          }>
           <Text style={styles.powerUserButtonText}>+ Choose Id Proof</Text>
         </Pressable>
 
         <Pressable
           style={styles.AddButton}
-          onPress={() => navigation.navigate('OtpVerification')}>
+          onPress={() => navigation.navigate('AddFollowers')}>
           <Text style={styles.AddButtonText}>ADD</Text>
         </Pressable>
       </ScrollView>

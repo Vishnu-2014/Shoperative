@@ -91,11 +91,11 @@ const Register = () => {
         />
 
         <DropdownExample
-          titleInput={'Select Your Profession'}
+          titleInput={'-- Select Your Profession --'}
           data={ProfessionData}
         />
         <DropdownExample
-          titleInput={'Monthly HouseHold Income'}
+          titleInput={'-- Monthly HouseHold Income --'}
           data={IncomeData}
         />
 

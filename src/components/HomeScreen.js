@@ -4,10 +4,10 @@ import {StyleSheet, View, Button, ScrollView} from 'react-native';
 //We can remove once all the screens developed
 const HomeScreen = ({navigation}) => {
   const targetsButtons = [
-    // {
-    //   title: 'AddFollowers',
-    //   target: 'AddFollowers',
-    // },
+    {
+      title: 'AddFollowers',
+      target: 'AddFollowers',
+    },
     {
       title: 'Login',
       target: 'Login',

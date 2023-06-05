@@ -1,11 +1,22 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {View, Text, StyleSheet, TextInput, Pressable} from 'react-native';
 import {placeHolderTextColor} from '../theme/colors';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import Entypo from 'react-native-vector-icons/Entypo';
 import {ScrollView} from 'react-native-gesture-handler';
 
+const CustomTextInput = feildName => {
+  return (
+    <TextInput
+      style={styles.feildStles}
+      placeholder={feildName}
+      placeholderTextColor={placeHolderTextColor}
+    />
+  );
+};
+
 const AddFollowers = () => {
+  const [value, SetValue] = useState([2]);
   return (
     <View style={styles.container}>
       <Text style={styles.headingStyles}>
@@ -13,81 +24,39 @@ const AddFollowers = () => {
         <Text style={{fontSize: 16}}>(Members of Food Co-op)</Text>
       </Text>
       <ScrollView style={styles.card}>
-        <TextInput
-          style={styles.feildStles}
-          placeholder={'Name'}
-          placeholderTextColor={placeHolderTextColor}
-          multiline={true}
-        />
-        <TextInput
-          style={styles.feildStles}
-          placeholder={'Email'}
-          placeholderTextColor={placeHolderTextColor}
-          multiline={true}
-          keyboardType="email-address"
-        />
-        <TextInput
-          style={styles.feildStles}
-          placeholder={'Mobile'}
-          placeholderTextColor={placeHolderTextColor}
-          multiline={true}
-          keyboardType="number-pad"
-        />
-        <TextInput
-          style={styles.feildStles}
-          placeholder={'City'}
-          placeholderTextColor={placeHolderTextColor}
-          multiline={true}
-        />
+        {value.map(() => (
+          <View style={{flex: 1}}>
+            <Text>Follower 1</Text>
+            {CustomTextInput('Name')}
+            {CustomTextInput('Email')}
+            {CustomTextInput('Mobile')}
+            {CustomTextInput('City')}
+          </View>
+        ))}
+        {/* <View style={{flex: 1}}>
+          <Text>Follower 1</Text>
+          {CustomTextInput('Name')}
+          {CustomTextInput('Email')}
+          {CustomTextInput('Mobile')}
+          {CustomTextInput('City')}
+        </View> */}
 
-        <View
-          style={[
-            styles.feildStles,
-            {
-              flexDirection: 'row',
-              backgroundColor: '#F3F3F3',
-              justifyContent: 'space-between',
-              alignItems: 'center',
-              paddingHorizontal: 0,
-            },
-          ]}>
-          {/* city */}
-          <MaterialIcons name="add" size={25} color={'#ED7421'} />
-          <Entypo name="cross" size={25} color={'#ED7421'} />
-
-          {/* state */}
-        </View>
-        <TextInput
-          style={styles.feildStles}
-          placeholder={'Name'}
-          placeholderTextColor={placeHolderTextColor}
-          multiline={true}
-        />
-        <TextInput
-          style={styles.feildStles}
-          placeholder={'Email'}
-          placeholderTextColor={placeHolderTextColor}
-          multiline={true}
-          keyboardType="email-address"
-        />
-        <TextInput
-          style={styles.feildStles}
-          placeholder={'Mobile'}
-          placeholderTextColor={placeHolderTextColor}
-          multiline={true}
-          keyboardType="number-pad"
-        />
-        <TextInput
-          style={styles.feildStles}
-          placeholder={'City'}
-          placeholderTextColor={placeHolderTextColor}
-          multiline={true}
-        />
+        <Entypo name="cross" size={25} color={'#ED7421'} />
 
         <Pressable style={styles.buttonStyles}>
           <Text style={styles.buttonTextStyles}>ADD</Text>
         </Pressable>
       </ScrollView>
+      <MaterialIcons
+        name="add"
+        size={50}
+        color={'#ED7421'}
+        style={styles.addButtonStyles}
+        onPress={() => {
+          SetValue(SetValue + 1);
+        }}
+      />
+      {console.log(value)}
     </View>
   );
 };
@@ -130,6 +99,13 @@ const styles = StyleSheet.create({
     color: '#FFFFFF',
     fontSize: 18,
     fontFamily: 'Poppins-Bold',
+  },
+  addButtonStyles: {
+    position: 'absolute',
+    bottom: 30,
+    right: 30,
+    backgroundColor: '#FFF',
+    borderRadius: 40,
   },
 });
 
