@@ -3,11 +3,9 @@ import {View, StyleSheet} from 'react-native';
 import {Text, TouchableOpacity, FlatList} from 'react-native';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 
-const DropdownExample = ({titleinput, data}) => {
+const DropdownExample = ({titleInput, data}) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [selectedValue, setSelectedValue] = useState('');
-
-  const {input} = titleinput;
 
   const options = [
     {id: 0, label: 'None', value: 'None'},
@@ -32,7 +30,7 @@ const DropdownExample = ({titleinput, data}) => {
   return (
     <View style={styles.container}>
       <TouchableOpacity style={styles.ButtonStyles} onPress={toggleDropdown}>
-        <Text style={styles.TextStyles}>{selectedValue || input}</Text>
+        <Text style={styles.TextStyles}>{selectedValue || titleInput}</Text>
         <MaterialIcons
           name="keyboard-arrow-down"
           color={'#333'}

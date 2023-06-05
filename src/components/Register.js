@@ -90,8 +90,14 @@ const Register = () => {
           placeholderTextColor={placeHolderTextColor}
         />
 
-        <DropdownExample titleinput={'Hello'} data={ProfessionData} />
-        <DropdownExample titleinput={'Hi'} data={IncomeData} />
+        <DropdownExample
+          titleInput={'Select Your Profession'}
+          data={ProfessionData}
+        />
+        <DropdownExample
+          titleInput={'Monthly HouseHold Income'}
+          data={IncomeData}
+        />
 
         {/* Buttons */}
         <Pressable
