@@ -16,7 +16,7 @@ const CustomTextInput = feildName => {
 };
 
 const AddFollowers = () => {
-  const [value, SetValue] = useState([2]);
+  const [value, SetValue] = useState(2);
   return (
     <View style={styles.container}>
       <Text style={styles.headingStyles}>
@@ -24,9 +24,9 @@ const AddFollowers = () => {
         <Text style={{fontSize: 16}}>(Members of Food Co-op)</Text>
       </Text>
       <ScrollView style={styles.card}>
-        {value.map(() => (
+        {value.map(number => (
           <View style={{flex: 1}}>
-            <Text>Follower 1</Text>
+            <Text>Follower {number}</Text>
             {CustomTextInput('Name')}
             {CustomTextInput('Email')}
             {CustomTextInput('Mobile')}
@@ -53,7 +53,7 @@ const AddFollowers = () => {
         color={'#ED7421'}
         style={styles.addButtonStyles}
         onPress={() => {
-          SetValue(SetValue + 1);
+          SetValue(value + 1);
         }}
       />
       {console.log(value)}
