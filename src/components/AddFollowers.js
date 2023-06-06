@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import React, {useState} from 'react';
 import {View, Text, StyleSheet, TextInput, Pressable} from 'react-native';
 import {placeHolderTextColor} from '../theme/colors';
@@ -16,7 +17,7 @@ const CustomTextInput = feildName => {
 };
 
 const AddFollowers = () => {
-  const [value, SetValue] = useState(2);
+  const [value, SetValue] = useState([1, 2]);
   return (
     <View style={styles.container}>
       <Text style={styles.headingStyles}>
@@ -26,22 +27,29 @@ const AddFollowers = () => {
       <ScrollView style={styles.card}>
         {value.map(number => (
           <View style={{flex: 1}}>
-            <Text>Follower {number}</Text>
+            <View style={styles.FollowerContentStyles}>
+              <Text style={styles.FollowerContentTextStyles}>
+                Follower {number}
+              </Text>
+              {number > 2 ? (
+                <Entypo
+                  name="cross"
+                  size={25}
+                  color={'#ED7421'}
+                  onPress={() => {
+                    SetValue([...value, value - 1]);
+                  }}
+                />
+              ) : (
+                ''
+              )}
+            </View>
             {CustomTextInput('Name')}
             {CustomTextInput('Email')}
             {CustomTextInput('Mobile')}
             {CustomTextInput('City')}
           </View>
         ))}
-        {/* <View style={{flex: 1}}>
-          <Text>Follower 1</Text>
-          {CustomTextInput('Name')}
-          {CustomTextInput('Email')}
-          {CustomTextInput('Mobile')}
-          {CustomTextInput('City')}
-        </View> */}
-
-        <Entypo name="cross" size={25} color={'#ED7421'} />
 
         <Pressable style={styles.buttonStyles}>
           <Text style={styles.buttonTextStyles}>ADD</Text>
@@ -53,7 +61,7 @@ const AddFollowers = () => {
         color={'#ED7421'}
         style={styles.addButtonStyles}
         onPress={() => {
-          SetValue(value + 1);
+          SetValue([...value, value.length + 1]);
         }}
       />
       {console.log(value)}
@@ -106,6 +114,16 @@ const styles = StyleSheet.create({
     right: 30,
     backgroundColor: '#FFF',
     borderRadius: 40,
+  },
+  FollowerContentStyles: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    height: 50,
+    alignItems: 'flex-end',
+  },
+  FollowerContentTextStyles: {
+    fontSize: 16,
+    fontWeight: '500',
   },
 });
 
