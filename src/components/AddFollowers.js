@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 import React, {useState} from 'react';
 import {View, Text, StyleSheet, TextInput, Pressable} from 'react-native';
 import {placeHolderTextColor} from '../theme/colors';
@@ -25,23 +24,25 @@ const AddFollowers = () => {
         <Text style={{fontSize: 16}}>(Members of Food Co-op)</Text>
       </Text>
       <ScrollView style={styles.card}>
-        {value.map(number => (
+        {value.map((number, index) => (
           <View style={{flex: 1}}>
             <View style={styles.FollowerContentStyles}>
               <Text style={styles.FollowerContentTextStyles}>
                 Follower {number}
               </Text>
-              {number > 2 ? (
+              {number > 2 && (
                 <Entypo
                   name="cross"
                   size={25}
                   color={'#ED7421'}
                   onPress={() => {
-                    SetValue([...value, value - 1]);
+                    if (index > -1) {
+                      // only splice array when item is found
+                      value.splice(index, 1); // 2nd parameter means remove one item only
+                    }
+                    SetValue([...value]);
                   }}
                 />
-              ) : (
-                ''
               )}
             </View>
             {CustomTextInput('Name')}
