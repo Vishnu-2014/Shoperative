@@ -36,7 +36,7 @@ const OtpVerification = () => {
 
       <Pressable
         style={styles.buttonStyle}
-        onPress={navigation.navigate('DrawerView')}>
+        onPress={() => navigation.navigate('DrawerView')}>
         <Text style={styles.buttonTextStyle}>VERIFY AND PROCEED</Text>
       </Pressable>
     </View>

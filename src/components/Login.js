@@ -16,44 +16,68 @@ const dummypassword = '123123';
 
 const Login = () => {
   const navigation = useNavigation();
-  const [username, SetUsername] = useState('');
+  const [email, SetUsername] = useState('');
   const [password, SetPassword] = useState('');
   const [activity, SetActivity] = useState(false);
-
   const [visible, setVisible] = useState(false);
+  const [err, setErr] = useState('');
+
+  const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
+
   const onDismiss = () => {
     setVisible(false);
   };
 
-  const handleUsernameInput = data => {
+  // Handling Input Functions
+  const handleEmailInput = data => {
     SetUsername(data);
   };
+  const handlePasswordInput = data => {
+    SetPassword(data);
+  };
 
+  //Validations Of Both Inputs
   const Validation = () => {
-    if (username !== dummyusername) {
+    if (email !== dummyusername) {
       setVisible(true);
     } else if (password !== dummypassword) {
       setVisible(true);
     } else {
       if (loginResult.description === 'You are logged in successfully') {
         navigation.navigate('DrawerView');
-        // console.log('Hello');
       }
-      setVisible(true);
     }
-  };
-  const handlePasswordInput = data => {
-    SetPassword(data);
   };
 
-  const mobileNumberValidation = () => {
-    if (username.length < 10) {
-      console.log('Please Enter a valid 10-Digit Mobile Number');
+  const LoginValidation = () => {
+    if (email === '') {
+      // console.log('Empty Username Feild');
+      setVisible(true);
+      setErr('Empty Email Feild');
+    } else if (!emailRegex.test(email)) {
+      // console.log('Please Enter a valid 10-Digit Mobile Number');
+      setVisible(true);
+      setErr('Please Enter a valid Email');
+    } else if (password === '') {
+      // console.log('Empty Password Feild');
+      setVisible(true);
+      setErr('Empty Password Feild');
+    } else if (password.length < 6) {
+      // console.log('Password Must Contain 6 Letters');
+      setVisible(true);
+      setErr('Password Must Contain 6 Letters');
     }
   };
+
   const passwordValidation = () => {
-    if (username.length < 8) {
-      console.log('Password Must Contain 8 Letters');
+    if (password === '') {
+      console.log('Empty Password Feild');
+      setVisible(true);
+      setErr('Empty Password Feild');
+    } else if (password.length < 6) {
+      console.log('Password Must Contain 6 Letters');
+      setVisible(true);
+      setErr('Password Must Contain 6 Letters');
     }
   };
 
@@ -67,7 +91,7 @@ const Login = () => {
         visible={visible}
         onDismiss={onDismiss}
         action={{label: 'Close'}}>
-        {loginResult.message}
+        {err}
       </Snackbar>
     );
   };
@@ -92,11 +116,10 @@ const Login = () => {
         <Foundation style={styles.iconStylesmobile} name="mobile" size={25} />
         <TextInput
           style={styles.inputFeildStyles}
-          placeholder="Mobile Number"
-          keyboardType="number-pad"
+          placeholder="Email"
+          keyboardType="email-address"
           placeholderTextColor={placeHolderTextColor}
-          onChangeText={handleUsernameInput}
-          maxLength={10}
+          onChangeText={handleEmailInput}
         />
       </View>
       <View style={styles.FeildViewStyles}>
@@ -120,10 +143,11 @@ const Login = () => {
         style={styles.buttonStyles}
         onPress={() => {
           //get username and password and pass this method instead of hardcoded values
-          dispatch(login(username, password));
-          Validation();
-          mobileNumberValidation();
-          activityIndicator();
+          dispatch(login(email, password));
+          LoginValidation();
+          // passwordValidation();
+          // Validation();
+          // activityIndicator();
         }}>
         <Text style={styles.buttonTextStyles}>LOG IN</Text>
       </Pressable>
@@ -137,9 +161,9 @@ const Login = () => {
         </Text>
       </Text>
 
-      {loginResult.loginStarted && (
+      {/* {loginResult.loginStarted && (
         <ActivityStatus message={'Login inprogress'} />
-      )}
+      )} */}
 
       {snackBar()}
     </View>

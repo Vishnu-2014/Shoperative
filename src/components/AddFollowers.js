@@ -1,9 +1,11 @@
+/* eslint-disable prettier/prettier */
 import React, {useState} from 'react';
 import {View, Text, StyleSheet, TextInput, Pressable} from 'react-native';
 import {placeHolderTextColor} from '../theme/colors';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import Entypo from 'react-native-vector-icons/Entypo';
 import {ScrollView} from 'react-native-gesture-handler';
+import {useNavigation} from '@react-navigation/native';
 
 const CustomTextInput = feildName => {
   return (
@@ -16,6 +18,7 @@ const CustomTextInput = feildName => {
 };
 
 const AddFollowers = () => {
+  const navigation = useNavigation();
   const [value, SetValue] = useState([1, 2]);
   return (
     <View style={styles.container}>
@@ -52,7 +55,9 @@ const AddFollowers = () => {
           </View>
         ))}
 
-        <Pressable style={styles.buttonStyles}>
+        <Pressable
+          style={styles.buttonStyles}
+          onPress={() => navigation.navigate('OtpVerification')}>
           <Text style={styles.buttonTextStyles}>ADD</Text>
         </Pressable>
       </ScrollView>
