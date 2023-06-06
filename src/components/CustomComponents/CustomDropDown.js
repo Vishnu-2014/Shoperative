@@ -7,17 +7,6 @@ const DropdownExample = ({titleInput, data}) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [selectedValue, setSelectedValue] = useState('');
 
-  const options = [
-    {id: 0, label: 'None', value: 'None'},
-    {id: 1, label: 'Option 1', value: 'option1'},
-    {id: 2, label: 'Option 2', value: 'option2'},
-    {id: 3, label: 'Option 3', value: 'option3'},
-    {id: 4, label: 'Option 4', value: 'option4'},
-    {id: 5, label: 'Option 5', value: 'option5'},
-    {id: 6, label: 'Option 6', value: 'option6'},
-    {id: 7, label: 'Option 7', value: 'option7'},
-  ];
-
   const toggleDropdown = () => {
     setIsDropdownOpen(!isDropdownOpen);
   };

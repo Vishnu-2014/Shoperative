@@ -44,6 +44,21 @@ const IncomeData = [
 const PowerUserRegister = () => {
   const navigation = useNavigation();
   const [resourcePath, SetResourcePath] = useState();
+  const [state, setState] = useState({
+    Name: '',
+    MobileNumber: '',
+    Email: '',
+    Area: '',
+    City: '',
+    State: '',
+    Password: '',
+    ConfirmPassword: '',
+    Profession: '',
+    Income: '',
+    FacebookLink: '',
+    Address: '',
+    IdProof: null,
+  });
   return (
     <View style={styles.container}>
       <Text style={styles.logoStyles}>Power User</Text>

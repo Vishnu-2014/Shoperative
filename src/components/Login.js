@@ -15,6 +15,10 @@ const dummyusername = '9000365957';
 const dummypassword = '123123';
 
 const Login = () => {
+  //below two lines will bring the data from API
+  const dispatch = useDispatch();
+  const loginResult = useSelector(state => state.login);
+
   const navigation = useNavigation();
   const [email, SetUsername] = useState('');
   const [password, SetPassword] = useState('');
@@ -66,24 +70,11 @@ const Login = () => {
       // console.log('Password Must Contain 6 Letters');
       setVisible(true);
       setErr('Password Must Contain 6 Letters');
+    } else {
+      setVisible(true);
+      setErr('Login Successfull');
     }
   };
-
-  const passwordValidation = () => {
-    if (password === '') {
-      console.log('Empty Password Feild');
-      setVisible(true);
-      setErr('Empty Password Feild');
-    } else if (password.length < 6) {
-      console.log('Password Must Contain 6 Letters');
-      setVisible(true);
-      setErr('Password Must Contain 6 Letters');
-    }
-  };
-
-  const dispatch = useDispatch();
-  //check below two lines will bring th data from api
-  const loginResult = useSelector(state => state.login);
 
   const snackBar = () => {
     return (

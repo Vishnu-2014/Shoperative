@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {
   View,
   Text,
@@ -9,6 +9,7 @@ import {
 } from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import {placeHolderTextColor} from '../theme/colors';
+import {Snackbar} from 'react-native-paper';
 
 import DropdownExample from './CustomComponents/CustomDropDown';
 
@@ -39,16 +40,113 @@ const IncomeData = [
 
 const Register = () => {
   const navigation = useNavigation();
+  const [name, setName] = useState('');
+  const [mobileNumber, setMobileNumber] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, SetPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
+  const [city, setCity] = useState('');
+  const [profession, setProfession] = useState('');
+  const [income, setIncome] = useState('');
+  const [err, setErr] = useState('');
+  const [visible, setVisible] = useState(false);
+
+  const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
+
+  const onDismiss = () => {
+    setVisible(false);
+  };
+
+  const snackBar = () => {
+    return (
+      <Snackbar
+        visible={visible}
+        onDismiss={onDismiss}
+        action={{label: 'Close'}}>
+        {err}
+      </Snackbar>
+    );
+  };
+
+  // Handling Functions Of Feilds
+  const handleNameFeild = data => {
+    setName(data);
+  };
+  const handleMobileNumberFeild = data => {
+    setMobileNumber(data);
+  };
+  const handleEmailFeild = data => {
+    setEmail(data);
+  };
+  const handlePasswordFeild = data => {
+    SetPassword(data);
+  };
+  const handleConfirmPasswordFeild = data => {
+    setConfirmPassword(data);
+  };
+  const handleCityFeild = data => {
+    setCity(data);
+  };
+
+  // Register Validation
+  const RegisterValidation = () => {
+    if (name === '') {
+      console.log('Name Is Empty');
+      setVisible(true);
+      setErr('Name Is Empty');
+    } else if (mobileNumber === '') {
+      console.log('Mobile Number Empty');
+      setVisible(true);
+      setErr('Mobile Number Empty');
+    } else if (mobileNumber.length < 10) {
+      console.log('Enter a 10-Digit Mobile Number');
+      setVisible(true);
+      setErr('Enter a 10-Digit Mobile Number');
+    } else if (mobileNumber[0] < 6) {
+      console.log('Enter a Valid Number');
+      setVisible(true);
+      setErr('Enter a Valid Number');
+    } else if (email === '') {
+      console.log('Email is Empty');
+      setVisible(true);
+      setErr('Email is Empty');
+    } else if (!emailRegex.test(email)) {
+      console.log('Enter a Valid Email');
+      setVisible(true);
+      setErr('Enter a Valid Email');
+    } else if (password === '') {
+      console.log('Password Is Empty');
+      setVisible(true);
+      setErr('Password Is Empty');
+    } else if (confirmPassword === '') {
+      console.log('ConfirmPassword Is Empty');
+      setVisible(true);
+      setErr('ConfirmPassword Is Empty');
+    } else if (password !== confirmPassword) {
+      console.log('Confirm Password Not Matched');
+      setVisible(true);
+      setErr('Confirm Password Not Matched');
+    } else if (city === '') {
+      console.log('City Is Empty');
+      setVisible(true);
+      setErr('City Is Empty');
+    } else {
+      setVisible(true);
+      setErr('Sign Up Successfull');
+    }
+  };
+
   return (
-    <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
+    <View style={styles.container}>
       <Text style={styles.logoStyles}>Hi!</Text>
       <Text style={styles.headingStyles}>Register a New Account</Text>
-      <View style={styles.card}>
+      <ScrollView style={styles.card} showsVerticalScrollIndicator={false}>
         {/* name */}
         <TextInput
           style={styles.feildStles}
           placeholder={'Name'}
           placeholderTextColor={placeHolderTextColor}
+          onChangeText={handleNameFeild}
         />
 
         {/* mobile number */}
@@ -57,6 +155,8 @@ const Register = () => {
           placeholder={'Mobile Number'}
           placeholderTextColor={placeHolderTextColor}
           keyboardType="number-pad"
+          maxLength={10}
+          onChangeText={handleMobileNumberFeild}
         />
 
         {/* email */}
@@ -65,6 +165,7 @@ const Register = () => {
           placeholder={'Email'}
           placeholderTextColor={placeHolderTextColor}
           keyboardType="email-address"
+          onChangeText={handleEmailFeild}
         />
 
         {/* password */}
@@ -73,6 +174,7 @@ const Register = () => {
           placeholder={'Password'}
           placeholderTextColor={placeHolderTextColor}
           secureTextEntry={true}
+          onChangeText={handlePasswordFeild}
         />
 
         {/* confirm password */}
@@ -81,6 +183,7 @@ const Register = () => {
           placeholder={'Confirm Passwod'}
           placeholderTextColor={placeHolderTextColor}
           secureTextEntry={true}
+          onChangeText={handleConfirmPasswordFeild}
         />
 
         {/* City */}
@@ -88,6 +191,7 @@ const Register = () => {
           style={styles.feildStles}
           placeholder={'City'}
           placeholderTextColor={placeHolderTextColor}
+          onChangeText={handleCityFeild}
         />
 
         <DropdownExample
@@ -102,18 +206,24 @@ const Register = () => {
         {/* Buttons */}
         <Pressable
           style={styles.signUpButton}
-          onPress={() => navigation.navigate('OtpVerification')}>
+          onPress={() => {
+            // navigation.navigate('OtpVerification');
+            RegisterValidation();
+          }}>
           <Text style={styles.signUpButtonText}>SIGN UP</Text>
         </Pressable>
         <Pressable
           style={styles.powerUserButton}
-          onPress={() => navigation.navigate('PowerUserRegister')}>
+          onPress={() => {
+            navigation.navigate('PowerUserRegister');
+          }}>
           <Text style={styles.powerUserButtonText}>
             REGISTER AS A POWER USER
           </Text>
         </Pressable>
-      </View>
-    </ScrollView>
+      </ScrollView>
+      {snackBar()}
+    </View>
   );
 };
 
