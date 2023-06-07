@@ -13,6 +13,7 @@ import {useNavigation} from '@react-navigation/native';
 import {placeHolderTextColor} from '../theme/colors';
 import {launchImageLibrary} from 'react-native-image-picker';
 import * as ImagePicker from 'react-native-image-picker';
+import {Snackbar} from 'react-native-paper';
 
 import DropdownExample from './CustomComponents/CustomDropDown';
 
@@ -43,22 +44,127 @@ const IncomeData = [
 
 const PowerUserRegister = () => {
   const navigation = useNavigation();
-  const [resourcePath, SetResourcePath] = useState();
-  const [state, setState] = useState({
-    Name: '',
-    MobileNumber: '',
-    Email: '',
-    Area: '',
-    City: '',
-    State: '',
-    Password: '',
-    ConfirmPassword: '',
-    Profession: '',
-    Income: '',
-    FacebookLink: '',
-    Address: '',
-    IdProof: null,
-  });
+  const [resourcePath, SetResourcePath] = useState(null);
+  const [filename, setFilename] = useState(null);
+
+  const [name, setName] = useState('');
+  const [mobileNumber, setMobileNumber] = useState('');
+  const [email, setEmail] = useState('');
+  const [area, setArea] = useState('');
+  const [city, setCity] = useState('');
+  const [state, setState] = useState('');
+  const [password, SetPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
+  const [profession, setProfession] = useState('');
+  const [income, setIncome] = useState('');
+  const [facebookLink, setFacebookLink] = useState('');
+  const [address, setAddress] = useState('');
+  const [idProof, setIdProof] = useState(false);
+  const [err, setErr] = useState('');
+  const [visible, setVisible] = useState(false);
+
+  const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
+
+  const onDismiss = () => {
+    setVisible(false);
+  };
+
+  const snackBar = () => {
+    return (
+      <Snackbar
+        visible={visible}
+        onDismiss={onDismiss}
+        action={{label: 'Close'}}>
+        {err}
+      </Snackbar>
+    );
+  };
+
+  // Handling Functions Of Feilds
+  const handleNameFeild = data => {
+    setName(data);
+  };
+  const handleMobileNumberFeild = data => {
+    setMobileNumber(data);
+  };
+  const handleEmailFeild = data => {
+    setEmail(data);
+  };
+  const handleAreaFeild = data => {
+    setArea(data);
+  };
+  const handleCityFeild = data => {
+    setCity(data);
+  };
+  const handleStateFeild = data => {
+    setState(data);
+  };
+  const handlePasswordFeild = data => {
+    SetPassword(data);
+  };
+  const handleConfirmPasswordFeild = data => {
+    setConfirmPassword(data);
+  };
+  const handleFacebookLinkFeild = data => {
+    setFacebookLink(data);
+  };
+  const handleAddressFeild = data => {
+    setAddress(data);
+  };
+
+  const PowerUserRegisterValidation = () => {
+    if (name === '') {
+      setVisible(true);
+      setErr('Please Enter Name');
+    } else if (mobileNumber === '') {
+      setVisible(true);
+      setErr('Please Enter Mobile Number');
+    } else if (mobileNumber.length < 10) {
+      setVisible(true);
+      setErr('Enter a 10-Digit Mobile Number');
+    } else if (mobileNumber[0] < 6) {
+      setVisible(true);
+      setErr('Enter a Valid Number');
+    } else if (email === '') {
+      setVisible(true);
+      setErr('Please Enter Email');
+    } else if (!emailRegex.test(email)) {
+      setVisible(true);
+      setErr('Enter a Valid Email');
+    } else if (area === '') {
+      setVisible(true);
+      setErr('Please Enter Area');
+    } else if (city === '') {
+      setVisible(true);
+      setErr('Please Enter City');
+    } else if (state === '') {
+      setVisible(true);
+      setErr('Please Enter State');
+    } else if (password === '') {
+      setVisible(true);
+      setErr('Please Enter Password');
+    } else if (confirmPassword === '') {
+      setVisible(true);
+      setErr('Please Enter ConfirmPassword');
+    } else if (password !== confirmPassword) {
+      setVisible(true);
+      setErr('Confirm Password Not Matched');
+    } else if (facebookLink === '') {
+      setVisible(true);
+      setErr('Please Enter FaceBookLink');
+    } else if (address === '') {
+      setVisible(true);
+      setErr('Please Enter Address');
+    } else if (resourcePath === null) {
+      setVisible(true);
+      setErr('Select idProof');
+    } else {
+      console.log(resourcePath);
+      setVisible(true);
+      setErr('Power User Register Successfull');
+    }
+  };
+
   return (
     <View style={styles.container}>
       <Text style={styles.logoStyles}>Power User</Text>
@@ -69,6 +175,7 @@ const PowerUserRegister = () => {
           style={styles.feildStles}
           placeholder={'Name'}
           placeholderTextColor={placeHolderTextColor}
+          onChangeText={handleNameFeild}
         />
 
         {/* mobile number */}
@@ -76,6 +183,9 @@ const PowerUserRegister = () => {
           style={styles.feildStles}
           placeholder={'Mobile Number'}
           placeholderTextColor={placeHolderTextColor}
+          keyboardType="number-pad"
+          onChangeText={handleMobileNumberFeild}
+          maxLength={10}
         />
 
         {/* Email */}
@@ -83,7 +193,7 @@ const PowerUserRegister = () => {
           style={styles.feildStles}
           placeholder={'Email'}
           placeholderTextColor={placeHolderTextColor}
-          keyboardType="number-pad"
+          onChangeText={handleEmailFeild}
         />
 
         {/* Area */}
@@ -91,6 +201,7 @@ const PowerUserRegister = () => {
           style={styles.feildStles}
           placeholder={'Area'}
           placeholderTextColor={placeHolderTextColor}
+          onChangeText={handleAreaFeild}
         />
 
         <View
@@ -108,6 +219,7 @@ const PowerUserRegister = () => {
             style={[styles.feildStles, {width: '48%', marginTop: 0}]}
             placeholder={'City'}
             placeholderTextColor={placeHolderTextColor}
+            onChangeText={handleCityFeild}
           />
 
           {/* state */}
@@ -115,6 +227,7 @@ const PowerUserRegister = () => {
             style={[styles.feildStles, {width: '48%', marginTop: 0}]}
             placeholder={'state'}
             placeholderTextColor={placeHolderTextColor}
+            onChangeText={handleStateFeild}
           />
         </View>
 
@@ -134,6 +247,7 @@ const PowerUserRegister = () => {
             placeholder={'Password'}
             placeholderTextColor={placeHolderTextColor}
             secureTextEntry={true}
+            onChangeText={handlePasswordFeild}
           />
 
           {/* state */}
@@ -142,6 +256,7 @@ const PowerUserRegister = () => {
             placeholder={'Confirm Password'}
             placeholderTextColor={placeHolderTextColor}
             secureTextEntry={true}
+            onChangeText={handleConfirmPasswordFeild}
           />
         </View>
 
@@ -158,6 +273,7 @@ const PowerUserRegister = () => {
           style={styles.feildStles}
           placeholder={'Facebook Link'}
           placeholderTextColor={placeHolderTextColor}
+          onChangeText={handleFacebookLinkFeild}
         />
 
         <TextInput
@@ -165,6 +281,7 @@ const PowerUserRegister = () => {
           placeholder={'Address'}
           placeholderTextColor={placeHolderTextColor}
           multiline={true}
+          onChangeText={handleAddressFeild}
         />
 
         <Pressable
@@ -178,19 +295,26 @@ const PowerUserRegister = () => {
                 maxWidth: 200,
               },
               response => {
-                console.log(response.assets[0].uri);
+                SetResourcePath(response.assets[0].uri);
+                setIdProof(true);
               },
             )
           }>
-          <Text style={styles.powerUserButtonText}>+ Choose Id Proof</Text>
+          <Text style={styles.powerUserButtonText}>
+            {idProof === true ? resourcePath : '+ Choose Id Proof'}
+          </Text>
         </Pressable>
 
         <Pressable
           style={styles.AddButton}
-          onPress={() => navigation.navigate('AddFollowers')}>
+          onPress={() => {
+            // navigation.navigate('AddFollowers');
+            PowerUserRegisterValidation();
+          }}>
           <Text style={styles.AddButtonText}>ADD</Text>
         </Pressable>
       </ScrollView>
+      {snackBar()}
     </View>
   );
 };
@@ -218,6 +342,7 @@ const styles = StyleSheet.create({
     marginTop: 10,
     width: '90%',
     alignSelf: 'center',
+    marginBottom: 50,
   },
   feildStles: {
     backgroundColor: '#ffffff',

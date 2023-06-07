@@ -57,7 +57,7 @@ const Login = () => {
     if (email === '') {
       // console.log('Empty Username Feild');
       setVisible(true);
-      setErr('Empty Email Feild');
+      setErr('Please Enter Email');
     } else if (!emailRegex.test(email)) {
       // console.log('Please Enter a valid 10-Digit Mobile Number');
       setVisible(true);
@@ -65,7 +65,7 @@ const Login = () => {
     } else if (password === '') {
       // console.log('Empty Password Feild');
       setVisible(true);
-      setErr('Empty Password Feild');
+      setErr('Please Enter Password');
     } else if (password.length < 6) {
       // console.log('Password Must Contain 6 Letters');
       setVisible(true);

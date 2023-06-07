@@ -91,45 +91,35 @@ const Register = () => {
   // Register Validation
   const RegisterValidation = () => {
     if (name === '') {
-      console.log('Name Is Empty');
       setVisible(true);
-      setErr('Name Is Empty');
+      setErr('Please Enter Name');
     } else if (mobileNumber === '') {
-      console.log('Mobile Number Empty');
       setVisible(true);
-      setErr('Mobile Number Empty');
+      setErr('Please Enter Mobile Number');
     } else if (mobileNumber.length < 10) {
-      console.log('Enter a 10-Digit Mobile Number');
       setVisible(true);
       setErr('Enter a 10-Digit Mobile Number');
     } else if (mobileNumber[0] < 6) {
-      console.log('Enter a Valid Number');
       setVisible(true);
       setErr('Enter a Valid Number');
     } else if (email === '') {
-      console.log('Email is Empty');
       setVisible(true);
-      setErr('Email is Empty');
+      setErr('Please Enter Email');
     } else if (!emailRegex.test(email)) {
-      console.log('Enter a Valid Email');
       setVisible(true);
       setErr('Enter a Valid Email');
     } else if (password === '') {
-      console.log('Password Is Empty');
       setVisible(true);
-      setErr('Password Is Empty');
+      setErr('Please Enter Password');
     } else if (confirmPassword === '') {
-      console.log('ConfirmPassword Is Empty');
       setVisible(true);
-      setErr('ConfirmPassword Is Empty');
+      setErr('Please Enter ConfirmPassword');
     } else if (password !== confirmPassword) {
-      console.log('Confirm Password Not Matched');
       setVisible(true);
       setErr('Confirm Password Not Matched');
     } else if (city === '') {
-      console.log('City Is Empty');
       setVisible(true);
-      setErr('City Is Empty');
+      setErr('Please Enter City');
     } else {
       setVisible(true);
       setErr('Sign Up Successfull');
