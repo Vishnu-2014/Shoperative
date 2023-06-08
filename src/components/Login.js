@@ -10,8 +10,9 @@ import {useDispatch, useSelector} from 'react-redux';
 import {login} from '../store/actions/loginActions';
 import {useNavigation} from '@react-navigation/native';
 import {Snackbar} from 'react-native-paper';
+import DeviceInfo from 'react-native-device-info';
 
-const dummyusername = '9000365957';
+const dummyusername = '8688941771';
 const dummypassword = '123123';
 
 const Login = () => {
@@ -25,6 +26,7 @@ const Login = () => {
   const [activity, SetActivity] = useState(false);
   const [visible, setVisible] = useState(false);
   const [err, setErr] = useState('');
+  const [deviceToken, setDeviceToken] = useState();
 
   const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
 
@@ -44,11 +46,16 @@ const Login = () => {
   const Validation = () => {
     if (email !== dummyusername) {
       setVisible(true);
+      console.log('Wrong Email');
     } else if (password !== dummypassword) {
       setVisible(true);
+      console.log('Wrong Password');
     } else {
-      if (loginResult.description === 'You are logged in successfully') {
-        navigation.navigate('DrawerView');
+      if (loginResult.result === '') {
+        // navigation.navigate('DrawerView');
+        console.log('Login Success');
+      } else {
+        console.log('Error');
       }
     }
   };
@@ -99,6 +106,12 @@ const Login = () => {
     }, 500);
   };
 
+  const deviceInfo = () => {
+    DeviceInfo.getFirstInstallTime().then(firstInstallTime => {
+      setDeviceToken(firstInstallTime);
+    });
+  };
+
   //
   return (
     <View style={styles.container}>
@@ -135,10 +148,9 @@ const Login = () => {
         onPress={() => {
           //get username and password and pass this method instead of hardcoded values
           dispatch(login(email, password));
-          LoginValidation();
-          // passwordValidation();
-          // Validation();
-          // activityIndicator();
+          // LoginValidation();
+          Validation();
+          console.log(loginResult);
         }}>
         <Text style={styles.buttonTextStyles}>LOG IN</Text>
       </Pressable>

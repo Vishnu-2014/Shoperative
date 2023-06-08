@@ -1,4 +1,5 @@
 import axios from 'axios';
+import {baseURL} from '../../utils/Constants';
 export const LOGIN_STARTED = 'login:LOGIN_STARTED';
 export const LOGIN_SUCCESS = 'login:LOGIN_SUCCESS';
 export const LOGIN_FAILURE = 'login:LOGIN_FAILURE';
@@ -10,12 +11,17 @@ export const login = (username, password) => {
     try {
       const result = await axios({
         method: 'post',
-        url: 'https://trp3.com/api/trp_user/login',
-        data: {userdata: username, password: password},
+        url: baseURL + '/login',
+        // url: 'https://trp3.com/api/trp_user/login',
+        data: {
+          loginusername: username,
+          loginpassword: password,
+          devicetoken: '1231212121212',
+        },
         headers: {'Content-Type': 'application/json; charset=utf-8'},
       });
-
-      if (result.status === 200) {
+      console.log(result.data);
+      if (result.status === '200') {
         dispatch({type: LOGIN_SUCCESS, payload: result.data});
       } else {
         dispatch({type: LOGIN_FAILURE});
