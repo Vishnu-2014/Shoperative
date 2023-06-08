@@ -70,7 +70,6 @@ const AddFollowers = () => {
           SetValue([...value, value.length + 1]);
         }}
       />
-      {console.log(value)}
     </View>
   );
 };

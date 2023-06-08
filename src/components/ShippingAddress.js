@@ -21,6 +21,14 @@ const ShippingAddress = () => {
   //check below two lines will bring th data from api
   const loginResult = useSelector(state => state.login);
   const navigation = useNavigation();
+
+  const PaymentModeData = [
+    {id: 0, label: 'Online', value: 'Online'},
+    {id: 1, label: 'UPI', value: 'UPI'},
+    {id: 2, label: 'Wallet', value: 'Wallet'},
+    {id: 3, label: 'Cards', value: 'Cards'},
+  ];
+
   const CustomFeilds = (title, placeholderText) => {
     return (
       <View style={styles.feildsContainerStyles}>
@@ -85,7 +93,10 @@ const ShippingAddress = () => {
             marginTop: 15,
           }}>
           <Text style={styles.feildHeadingStyles}>Payment Mode</Text>
-          <DropdownExample />
+          <DropdownExample
+            data={PaymentModeData}
+            titleInput={'Payment Method'}
+          />
         </View>
 
         <Text style={styles.paymentDetailsHeadingTextStyles}>

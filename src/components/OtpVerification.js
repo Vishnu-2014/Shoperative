@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {
   View,
   Text,
@@ -12,6 +12,18 @@ import {useNavigation} from '@react-navigation/native';
 
 const OtpVerification = () => {
   const navigation = useNavigation();
+  const [otpInput, setOtpInput] = useState('');
+
+  const handleotp = data => {
+    setOtpInput(otpInput + data);
+  };
+
+  const OtpVAlidation = () => {
+    if (otpInput === '') {
+      console.log('Enter Otp');
+    }
+  };
+
   return (
     <View style={styles.container}>
       <Image style={styles.OtpLockImageStyles} source={OtpLock} />
@@ -24,10 +36,26 @@ const OtpVerification = () => {
       </Text>
 
       <View style={styles.inputFeildsViewStyle}>
-        <TextInput style={styles.inputFeildStyle} />
-        <TextInput style={styles.inputFeildStyle} />
-        <TextInput style={styles.inputFeildStyle} />
-        <TextInput style={styles.inputFeildStyle} />
+        <TextInput
+          style={styles.inputFeildStyle}
+          onChangeText={handleotp}
+          maxLength={1}
+        />
+        <TextInput
+          style={styles.inputFeildStyle}
+          onChangeText={handleotp}
+          maxLength={1}
+        />
+        <TextInput
+          style={styles.inputFeildStyle}
+          onChangeText={handleotp}
+          maxLength={1}
+        />
+        <TextInput
+          style={styles.inputFeildStyle}
+          onChangeText={handleotp}
+          maxLength={1}
+        />
       </View>
 
       <Text style={styles.resendTextStyles}>
@@ -36,7 +64,11 @@ const OtpVerification = () => {
 
       <Pressable
         style={styles.buttonStyle}
-        onPress={() => navigation.navigate('DrawerView')}>
+        onPress={() => {
+          // navigation.navigate('DrawerView')
+          console.log(otpInput);
+          OtpVAlidation();
+        }}>
         <Text style={styles.buttonTextStyle}>VERIFY AND PROCEED</Text>
       </Pressable>
     </View>
