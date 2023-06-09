@@ -18,11 +18,11 @@ const dummypassword = '123123';
 const Login = () => {
   //below two lines will bring the data from API
   const dispatch = useDispatch();
-  const loginResult = useSelector(state => state.login);
+  const {user_details: loginResult} = useSelector(state => state.login);
 
   const navigation = useNavigation();
-  const [email, SetUsername] = useState('');
-  const [password, SetPassword] = useState('');
+  const [email, SetUsername] = useState('8688941771');
+  const [password, SetPassword] = useState('123123');
   const [activity, SetActivity] = useState(false);
   const [visible, setVisible] = useState(false);
   const [err, setErr] = useState('');
@@ -43,22 +43,6 @@ const Login = () => {
   };
 
   //Validations Of Both Inputs
-  const Validation = () => {
-    if (email !== dummyusername) {
-      setVisible(true);
-      console.log('Wrong Email');
-    } else if (password !== dummypassword) {
-      setVisible(true);
-      console.log('Wrong Password');
-    } else {
-      if (loginResult.result === '') {
-        // navigation.navigate('DrawerView');
-        console.log('Login Success');
-      } else {
-        console.log('Error');
-      }
-    }
-  };
 
   const LoginValidation = () => {
     if (email === '') {
@@ -149,7 +133,7 @@ const Login = () => {
           //get username and password and pass this method instead of hardcoded values
           dispatch(login(email, password));
           // LoginValidation();
-          Validation();
+
           console.log(loginResult);
         }}>
         <Text style={styles.buttonTextStyles}>LOG IN</Text>

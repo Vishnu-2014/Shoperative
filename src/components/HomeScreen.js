@@ -40,6 +40,10 @@ const HomeScreen = ({navigation}) => {
       title: 'ShippingAddress',
       target: 'ShippingAddress',
     },
+    {
+      title: 'OtpVerification',
+      target: 'OtpVerification',
+    },
   ];
 
   return (

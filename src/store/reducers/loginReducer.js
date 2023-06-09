@@ -1,17 +1,10 @@
 import * as login from '../actions/loginActions';
 const initialState = {
-  blood_group: '',
-  code: '',
-  user_id: 0,
-  name: '',
-  email: '',
-  mobile: '',
-  user_code: '',
-  gender: '',
-  upi_code: '',
-  message: '',
   description: '',
-  result: '',
+  user_details: {},
+  code: '',
+  token: '',
+  message: '',
   loginStarted: false,
   loginSuccess: false,
   loginFailure: false,
@@ -24,33 +17,14 @@ const loginReducer = (state = initialState, action) => {
         loginStarted: true,
       };
     case login.LOGIN_SUCCESS:
-      const {
-        blood_group,
-        code,
-        description,
-        email,
-        gender,
-        message,
-        mobile,
-        name,
-        upi_code,
-        user_code,
-        user_id,
-      } = action.payload;
+      const {user_details, code, description, message, token} = action.payload;
       return {
         ...state,
-        user_id: user_id,
-        name: name,
-        email: email,
-        mobile: mobile,
-        user_code: user_code,
-        gender: gender,
-        message: message,
-        description: description,
-        blood_group: blood_group,
-        code: code,
-        upi_code: upi_code,
-        result: action.payload,
+        user_details,
+        message,
+        description,
+        token,
+        code,
         loginStarted: false,
         loginSuccess: true,
       };
@@ -59,6 +33,12 @@ const loginReducer = (state = initialState, action) => {
         ...state,
         loginStarted: false,
         loginFailure: true,
+      };
+    case login.UPDATE_USER_DETAILS:
+      const {key, value} = action.payload;
+      return {
+        ...state,
+        user_details: {...state.user_details, [key]: value},
       };
     default:
       return state;

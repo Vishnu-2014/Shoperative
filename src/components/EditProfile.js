@@ -1,18 +1,23 @@
 import React from 'react';
 import {View, Text, StyleSheet, TextInput, Pressable} from 'react-native';
 import {HeaderComponent} from './CustomComponents/HeaderComponent';
-import {useSelector} from 'react-redux';
+import {useSelector, useDispatch} from 'react-redux';
 import {placeHolderTextColor} from '../theme/colors';
+import {updateUserDetails} from '../store/actions/loginActions';
 
 const EditProfile = () => {
-  const loginResult = useSelector(state => state.login);
-
-  const CustomFeilds = (textFeild, placeholderFeild) => {
+  const {user_details: loginResult} = useSelector(state => state.login);
+  const dispatch = useDispatch();
+  const CustomFeilds = (textFeild, placeholderFeild, key) => {
     return (
       <View style={styles.elementsContainerStyles}>
         <Text style={styles.textStyles}>{textFeild}</Text>
         <TextInput
           placeholder={placeholderFeild}
+          value={placeholderFeild}
+          onChangeText={t => {
+            dispatch(updateUserDetails(key, t));
+          }}
           placeholderTextColor={placeHolderTextColor}
           style={styles.inputFeildsStyles}
         />
@@ -23,9 +28,9 @@ const EditProfile = () => {
     <View style={styles.container}>
       <HeaderComponent title={'Edit Profile'} />
 
-      {CustomFeilds('Name*', loginResult.name)}
-      {CustomFeilds('Mobile Number*', loginResult.mobile)}
-      {CustomFeilds('Email Id*', loginResult.email)}
+      {CustomFeilds('Name*', loginResult.user_name, 'user_name')}
+      {CustomFeilds('Mobile Number*', loginResult.mobile, 'mobile')}
+      {CustomFeilds('Email Id*', loginResult.email, 'email')}
 
       <View
         style={{

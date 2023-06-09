@@ -15,7 +15,7 @@ import profileImage from '../../images/userimag.jpg';
 import {useDispatch, useSelector} from 'react-redux';
 
 const Account = ({navigation}) => {
-  const loginResult = useSelector(state => state.login);
+  const {user_details: loginResult} = useSelector(state => state.login);
   const CustomFeilds = ({iconName, title, onPressButton}) => {
     return (
       <Pressable

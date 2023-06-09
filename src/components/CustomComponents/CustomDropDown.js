@@ -3,16 +3,20 @@ import {View, StyleSheet} from 'react-native';
 import {Text, TouchableOpacity, FlatList} from 'react-native';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 
-const DropdownExample = ({titleInput, data}) => {
+const DropdownExample = ({
+  titleInput,
+  data,
+  setDropdownValue,
+  selectedValue,
+}) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const [selectedValue, setSelectedValue] = useState('');
 
   const toggleDropdown = () => {
     setIsDropdownOpen(!isDropdownOpen);
   };
 
   const selectOption = optionValue => {
-    setSelectedValue(optionValue);
+    setDropdownValue(optionValue);
     setIsDropdownOpen(false);
   };
 

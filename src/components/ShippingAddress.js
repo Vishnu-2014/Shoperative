@@ -19,7 +19,7 @@ import Logo from '../images/logo.png';
 const ShippingAddress = () => {
   const dispatch = useDispatch();
   //check below two lines will bring th data from api
-  const loginResult = useSelector(state => state.login);
+  const {user_details: loginResult} = useSelector(state => state.login);
   const navigation = useNavigation();
 
   const PaymentModeData = [

@@ -10,8 +10,10 @@ import {
 import {useNavigation} from '@react-navigation/native';
 import {placeHolderTextColor} from '../theme/colors';
 import {Snackbar} from 'react-native-paper';
+import {useDispatch, useSelector} from 'react-redux';
 
 import DropdownExample from './CustomComponents/CustomDropDown';
+import {register} from '../store/actions/registerActions';
 
 const ProfessionData = [
   {
@@ -39,13 +41,15 @@ const IncomeData = [
 ];
 
 const Register = () => {
+  const dispatch = useDispatch();
+  const registerResult = useSelector(state => state.register);
+
   const navigation = useNavigation();
   const [name, setName] = useState('');
   const [mobileNumber, setMobileNumber] = useState('');
   const [email, setEmail] = useState('');
   const [password, SetPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
-  const [city, setCity] = useState('');
   const [profession, setProfession] = useState('');
   const [income, setIncome] = useState('');
   const [err, setErr] = useState('');
@@ -84,9 +88,6 @@ const Register = () => {
   const handleConfirmPasswordFeild = data => {
     setConfirmPassword(data);
   };
-  const handleCityFeild = data => {
-    setCity(data);
-  };
 
   // Register Validation
   const RegisterValidation = () => {
@@ -117,9 +118,6 @@ const Register = () => {
     } else if (password !== confirmPassword) {
       setVisible(true);
       setErr('Confirm Password Not Matched');
-    } else if (city === '') {
-      setVisible(true);
-      setErr('Please Enter City');
     } else {
       setVisible(true);
       setErr('Sign Up Successfull');
@@ -176,29 +174,37 @@ const Register = () => {
           onChangeText={handleConfirmPasswordFeild}
         />
 
-        {/* City */}
-        <TextInput
-          style={styles.feildStles}
-          placeholder={'City'}
-          placeholderTextColor={placeHolderTextColor}
-          onChangeText={handleCityFeild}
-        />
-
         <DropdownExample
           titleInput={'-- Select Your Profession --'}
           data={ProfessionData}
+          selectedValue={profession}
+          setDropdownValue={setProfession}
         />
         <DropdownExample
           titleInput={'-- Monthly HouseHold Income --'}
           data={IncomeData}
+          selectedValue={income}
+          setDropdownValue={setIncome}
         />
 
         {/* Buttons */}
         <Pressable
           style={styles.signUpButton}
           onPress={() => {
+            dispatch(
+              register(
+                name,
+                mobileNumber,
+                email,
+                password,
+                confirmPassword,
+                profession,
+                income,
+              ),
+            );
             // navigation.navigate('OtpVerification');
             RegisterValidation();
+            console.log(registerResult);
           }}>
           <Text style={styles.signUpButtonText}>SIGN UP</Text>
         </Pressable>
