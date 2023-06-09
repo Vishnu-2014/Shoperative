@@ -43,7 +43,7 @@ const registerReducer = (state = initialState, action) => {
     case register.REGISTER_FAILURE:
       return {
         ...state,
-        registerStarted: false,
+        registerSuccess: false,
         registerFailure: true,
       };
     default:

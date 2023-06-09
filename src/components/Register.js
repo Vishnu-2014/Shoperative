@@ -204,7 +204,6 @@ const Register = () => {
             );
             // navigation.navigate('OtpVerification');
             RegisterValidation();
-            console.log(registerResult);
           }}>
           <Text style={styles.signUpButtonText}>SIGN UP</Text>
         </Pressable>

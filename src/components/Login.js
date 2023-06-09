@@ -12,17 +12,15 @@ import {useNavigation} from '@react-navigation/native';
 import {Snackbar} from 'react-native-paper';
 import DeviceInfo from 'react-native-device-info';
 
-const dummyusername = '8688941771';
-const dummypassword = '123123';
-
 const Login = () => {
   //below two lines will bring the data from API
   const dispatch = useDispatch();
-  const {user_details: loginResult} = useSelector(state => state.login);
+  const loginResult = useSelector(state => state.login);
 
   const navigation = useNavigation();
-  const [email, SetUsername] = useState('8688941771');
-  const [password, SetPassword] = useState('123123');
+  // const [email, SetUsername] = useState('8688941771');
+  const [mobileNumber, setMobileNumber] = useState('');
+  const [password, SetPassword] = useState('');
   const [activity, SetActivity] = useState(false);
   const [visible, setVisible] = useState(false);
   const [err, setErr] = useState('');
@@ -35,8 +33,11 @@ const Login = () => {
   };
 
   // Handling Input Functions
-  const handleEmailInput = data => {
-    SetUsername(data);
+  // const handleEmailInput = data => {
+  //   SetUsername(data);
+  // };
+  const handleMobileNumberInput = data => {
+    setMobileNumber(data);
   };
   const handlePasswordInput = data => {
     SetPassword(data);
@@ -45,25 +46,24 @@ const Login = () => {
   //Validations Of Both Inputs
 
   const LoginValidation = () => {
-    if (email === '') {
-      // console.log('Empty Username Feild');
+    if (mobileNumber === '') {
       setVisible(true);
-      setErr('Please Enter Email');
-    } else if (!emailRegex.test(email)) {
-      // console.log('Please Enter a valid 10-Digit Mobile Number');
+      setErr('Please Enter Mobile Number');
+    } else if (mobileNumber.length < 10) {
       setVisible(true);
-      setErr('Please Enter a valid Email');
+      setErr('Enter a 10-Digit Mobile Number');
+    } else if (mobileNumber[0] < 6) {
+      setVisible(true);
+      setErr('Enter a Valid Mobile Number');
     } else if (password === '') {
-      // console.log('Empty Password Feild');
       setVisible(true);
       setErr('Please Enter Password');
     } else if (password.length < 6) {
-      // console.log('Password Must Contain 6 Letters');
       setVisible(true);
       setErr('Password Must Contain 6 Letters');
     } else {
       setVisible(true);
-      setErr('Login Successfull');
+      setErr(loginResult.description);
     }
   };
 
@@ -107,7 +107,7 @@ const Login = () => {
           placeholder="Email"
           keyboardType="email-address"
           placeholderTextColor={placeHolderTextColor}
-          onChangeText={handleEmailInput}
+          onChangeText={handleMobileNumberInput}
         />
       </View>
       <View style={styles.FeildViewStyles}>
@@ -131,10 +131,16 @@ const Login = () => {
         style={styles.buttonStyles}
         onPress={() => {
           //get username and password and pass this method instead of hardcoded values
-          dispatch(login(email, password));
-          // LoginValidation();
-
+          dispatch(login(mobileNumber, password, deviceToken));
+          deviceInfo();
+          LoginValidation();
           console.log(loginResult);
+          if (loginResult.message === 'success') {
+            navigation.navigate('DrawerView');
+          } else {
+            setVisible(true);
+            setErr('Login Failed');
+          }
         }}>
         <Text style={styles.buttonTextStyles}>LOG IN</Text>
       </Pressable>

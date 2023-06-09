@@ -5,21 +5,19 @@ export const LOGIN_SUCCESS = 'login:LOGIN_SUCCESS';
 export const LOGIN_FAILURE = 'login:LOGIN_FAILURE';
 export const UPDATE_USER_DETAILS = 'userDataUpdate:UPDATE_USER_DETAILS';
 
-export const login = (username, password) => {
+export const login = (username, password, deviceToken) => {
   return async (dispatch, getState) => {
     dispatch({type: LOGIN_STARTED});
     const url = `${baseURL}/login`;
-    console.log('the url', url);
     //const body =; //{userdata: username, password: password};
     try {
       const result = await axios({
         method: 'post',
         url,
-        // url: 'https://trp3.com/api/trp_user/login',
         data: {
           loginusername: username,
           loginpassword: password,
-          devicetoken: '1231212121212',
+          devicetoken: deviceToken,
         },
         headers: {'Content-Type': 'application/json; charset=utf-8'},
       });
