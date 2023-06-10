@@ -4,15 +4,20 @@ import {placeHolderTextColor} from '../theme/colors';
 import Foundation from 'react-native-vector-icons/Foundation';
 import {Pressable} from 'react-native';
 import {Snackbar} from 'react-native-paper';
-import {NavigationBar} from './CustomComponents/NavigationBar';
 import {useNavigation} from '@react-navigation/native';
+import {useDispatch, useSelector} from 'react-redux';
+import {forgetPassword} from '../store/actions/loginActions';
 
 const ForgetPassword = () => {
-  const navigation = useNavigation;
+  const navigation = useNavigation();
+  const dispatch = useDispatch();
+  const forgetPasswordResult = useSelector(state => state.forgetPassword);
 
-  const [mobileNumber, setMobileNumber] = useState('');
+  const [email, setEmail] = useState('');
   const [err, setErr] = useState('');
   const [visible, setVisible] = useState(false);
+
+  const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
 
   const onDismiss = () => {
     setVisible(false);
@@ -29,24 +34,20 @@ const ForgetPassword = () => {
     );
   };
 
-  const handleMobileNumberInput = data => {
-    setMobileNumber(data);
+  const handleEmailInput = data => {
+    setEmail(data);
   };
 
   const ForgetPasswordValidation = () => {
-    if (mobileNumber === '') {
-      console.log('Enter Mobile Number');
+    if (email === '') {
       setVisible(true);
       setErr('Enter Mobile Number');
-    } else if (mobileNumber.length < 10) {
+    } else if (!emailRegex.test(email)) {
       setVisible(true);
-      setErr('Enter a 10-Digit Mobile Number');
-    } else if (mobileNumber[0] < 6) {
-      setVisible(true);
-      setErr('Enter a Valid Mobile Number');
+      setErr('Enter a Valid Email');
     } else {
       setVisible(true);
-      setErr('Send OTP Success');
+      setErr('All Validations Are Clear');
     }
   };
 
@@ -60,22 +61,22 @@ const ForgetPassword = () => {
           placeholder="Mobile Number"
           placeholderTextColor={placeHolderTextColor}
           keyboardType="number-pad"
-          maxLength={10}
-          onChangeText={handleMobileNumberInput}
+          onChangeText={handleEmailInput}
         />
       </View>
-
       <Pressable
         style={styles.buttonStyles}
         onPress={() => {
           ForgetPasswordValidation();
+          dispatch(forgetPassword(email));
+          setErr(forgetPasswordResult.description);
         }}>
         <Text style={styles.buttonTextStyles}>SEND OTP</Text>
       </Pressable>
-
       <Text style={styles.bottomTextStyles}>
         Don't Have An Account? <Text style={{color: '#ED7421'}}>Register</Text>
       </Text>
+      <Text />
       {snackBar()}
     </View>
   );

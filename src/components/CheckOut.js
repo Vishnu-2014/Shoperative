@@ -145,7 +145,7 @@ const CheckOut = () => {
         <Table borderStyle={{borderWidth: 1, borderColor: '#7070703D'}}>
           <Row
             data={headers}
-            style={{backgroundColor: '#ED742133', height: 40}}
+            style={{backgroundColor: '#FDF2EB', height: 40}}
             flexArr={[1.75, 1.5, 1, 1, 1.25]}
             textStyle={{
               textAlign: 'center',

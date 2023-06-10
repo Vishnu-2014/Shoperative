@@ -108,6 +108,7 @@ const Login = () => {
           keyboardType="email-address"
           placeholderTextColor={placeHolderTextColor}
           onChangeText={handleMobileNumberInput}
+          maxLength={10}
         />
       </View>
       <View style={styles.FeildViewStyles}>

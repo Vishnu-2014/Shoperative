@@ -12,7 +12,7 @@ import {
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import profileImage from '../../images/userimag.jpg';
-import {useDispatch, useSelector} from 'react-redux';
+import {useSelector} from 'react-redux';
 
 const Account = ({navigation}) => {
   const {user_details: loginResult} = useSelector(state => state.login);
@@ -50,9 +50,7 @@ const Account = ({navigation}) => {
       <ScrollView
         contentContainerStyle={{alignItems: 'center'}}
         style={styles.cardContainer}>
-        <Text style={styles.profileNameTextStyles}>
-          {loginResult.user_name}
-        </Text>
+        <Text style={styles.profileNameTextStyles}>{loginResult.mobile}</Text>
         <Text style={styles.numberTextStyles}>+91-{loginResult.mobile}</Text>
 
         <CustomFeilds iconName={'user'} title={'My Profile'} />
