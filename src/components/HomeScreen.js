@@ -43,8 +43,8 @@ const HomeScreen = ({navigation}) => {
       target: 'OrderDetails',
     },
     {
-      title: 'ShippingAddress',
-      target: 'ShippingAddress',
+      title: 'DropdownExample',
+      target: 'DropdownExample',
     },
     {
       title: 'OtpVerification',

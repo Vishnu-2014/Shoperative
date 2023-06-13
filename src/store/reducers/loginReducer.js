@@ -1,10 +1,10 @@
 import * as login from '../actions/loginActions';
 const initialState = {
-  description: '',
-  user_details: {},
   code: '',
   token: '',
   message: '',
+  description: '',
+  user_details: {},
   loginStarted: false,
   loginSuccess: false,
   loginFailure: false,

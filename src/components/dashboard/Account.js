@@ -50,7 +50,9 @@ const Account = ({navigation}) => {
       <ScrollView
         contentContainerStyle={{alignItems: 'center'}}
         style={styles.cardContainer}>
-        <Text style={styles.profileNameTextStyles}>{loginResult.mobile}</Text>
+        <Text style={styles.profileNameTextStyles}>
+          {loginResult.user_name}
+        </Text>
         <Text style={styles.numberTextStyles}>+91-{loginResult.mobile}</Text>
 
         <CustomFeilds iconName={'user'} title={'My Profile'} />

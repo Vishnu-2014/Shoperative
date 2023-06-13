@@ -19,7 +19,7 @@ const Login = () => {
 
   const navigation = useNavigation();
   // const [email, SetUsername] = useState('8688941771');
-  const [mobileNumber, setMobileNumber] = useState('');
+  const [username, setUsername] = useState('');
   const [password, SetPassword] = useState('');
   const [activity, SetActivity] = useState(false);
   const [visible, setVisible] = useState(false);
@@ -37,7 +37,7 @@ const Login = () => {
   //   SetUsername(data);
   // };
   const handleMobileNumberInput = data => {
-    setMobileNumber(data);
+    setUsername(data);
   };
   const handlePasswordInput = data => {
     SetPassword(data);
@@ -46,13 +46,13 @@ const Login = () => {
   //Validations Of Both Inputs
 
   const LoginValidation = () => {
-    if (mobileNumber === '') {
+    if (username === '') {
       setVisible(true);
       setErr('Please Enter Mobile Number');
-    } else if (mobileNumber.length < 10) {
+    } else if (username.length < 10) {
       setVisible(true);
       setErr('Enter a 10-Digit Mobile Number');
-    } else if (mobileNumber[0] < 6) {
+    } else if (username[0] < 6) {
       setVisible(true);
       setErr('Enter a Valid Mobile Number');
     } else if (password === '') {
@@ -104,11 +104,10 @@ const Login = () => {
         <Foundation style={styles.iconStylesmobile} name="mobile" size={25} />
         <TextInput
           style={styles.inputFeildStyles}
-          placeholder="Email"
+          placeholder="UserName"
           keyboardType="email-address"
           placeholderTextColor={placeHolderTextColor}
           onChangeText={handleMobileNumberInput}
-          maxLength={10}
         />
       </View>
       <View style={styles.FeildViewStyles}>
@@ -132,7 +131,7 @@ const Login = () => {
         style={styles.buttonStyles}
         onPress={() => {
           //get username and password and pass this method instead of hardcoded values
-          dispatch(login(mobileNumber, password, deviceToken));
+          dispatch(login(username, password, deviceToken));
           deviceInfo();
           LoginValidation();
           console.log(loginResult);

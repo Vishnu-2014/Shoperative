@@ -1,7 +1,8 @@
 import React, {useState} from 'react';
-import {View, StyleSheet} from 'react-native';
-import {Text, TouchableOpacity, FlatList} from 'react-native';
+import {View, StyleSheet, Text, TouchableOpacity, FlatList} from 'react-native';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+import {useDispatch} from 'react-redux';
+import {professionList} from '../../store/actions/professionListActions';
 
 const DropdownExample = ({
   titleInput,
@@ -10,6 +11,7 @@ const DropdownExample = ({
   selectedValue,
 }) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const dispatch = useDispatch();
 
   const toggleDropdown = () => {
     setIsDropdownOpen(!isDropdownOpen);
@@ -22,7 +24,12 @@ const DropdownExample = ({
 
   return (
     <View style={styles.container}>
-      <TouchableOpacity style={styles.ButtonStyles} onPress={toggleDropdown}>
+      <TouchableOpacity
+        style={styles.ButtonStyles}
+        onPress={() => {
+          dispatch(professionList());
+          toggleDropdown;
+        }}>
         <Text style={styles.TextStyles}>{selectedValue || titleInput}</Text>
         <MaterialIcons
           name="keyboard-arrow-down"
