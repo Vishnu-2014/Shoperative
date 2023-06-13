@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 import {combineReducers} from 'redux';
 import loginReducer from './loginReducer';
 import registerReducer from './registerReducer';
@@ -10,6 +9,6 @@ export const rootReducer = combineReducers({
   login: loginReducer,
   register: registerReducer,
   // forgetPassword: forgetpasswordReducer,
-  // profile: profileReducer,
+  profile: profileReducer,
   // professionList: professionListReducer,
 });

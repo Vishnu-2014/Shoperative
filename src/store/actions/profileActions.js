@@ -3,11 +3,11 @@ import {baseURL} from '../../utils/Constants';
 export const PROFILE_STARTED = 'profile:PROFILE_STARTED';
 export const PROFILE_SUCCESS = 'profile:PROFILE_SUCCESS';
 export const PROFILE_FAILURE = 'profile:PROFILE_FAILURE';
-import {useSelector} from 'react-redux';
 
 export const profile = Token => {
   return async (dispatch, getState) => {
-    const loginResult = useSelector(state => state.login);
+    //don't use  useSelector in Actions
+    const loginResult = getState().login;
     dispatch({type: PROFILE_STARTED});
     const url = `${baseURL}/profile`;
     try {
@@ -16,7 +16,7 @@ export const profile = Token => {
         url,
         headers: {
           'Content-Type': 'application/json; charset=utf-8',
-          Authorization: `Bearer ${Token}`,
+          Authorization: `Bearer ${loginResult.token}`,
         },
       });
       if (result.status === 200) {

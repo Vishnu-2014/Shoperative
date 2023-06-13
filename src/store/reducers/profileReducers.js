@@ -1,4 +1,4 @@
-import {profile} from '../actions/profileActions';
+import * as profile from '../actions/profileActions';
 const initialState = {
   code: '',
   message: '',
