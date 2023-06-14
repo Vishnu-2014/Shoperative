@@ -15,34 +15,73 @@ import {useDispatch, useSelector} from 'react-redux';
 import DropdownExample from './CustomComponents/CustomDropDown';
 import {register} from '../store/actions/registerActions';
 
-const ProfessionData = [
-  {
-    id: 0,
-    label: '-- Select Your Profession --',
-    value: '-- Select Your Profession --',
-  },
-  {id: 1, label: 'Employee', value: 'Employee'},
-  {id: 2, label: 'entrepreneur', value: 'entrepreneur'},
-  {id: 3, label: 'HouseWife', value: 'HouseWife'},
-  {id: 4, label: 'Professional(Doctor)', value: 'Professional(Doctor)'},
-  {id: 5, label: 'Professional(Others)', value: 'Professional(Others)'},
-  {id: 6, label: 'Self Employed', value: 'Self Employed'},
-];
-const IncomeData = [
-  {
-    id: 0,
-    label: '-- Monthly HouseHold Income --',
-    value: '-- Monthly HouseHold Income --',
-  },
-  {id: 1, label: 'Below 10000', value: 'Below 10000'},
-  {id: 2, label: '10000 - 20000', value: '10000 - 20000'},
-  {id: 3, label: '20000 - 50000', value: '20000 - 50000'},
-  {id: 3, label: 'Above 50000', value: 'Above 50000'},
-];
-
 const Register = () => {
   const dispatch = useDispatch();
-  const registerResult = useSelector(state => state.register);
+  const professionListResult = useSelector(state => state.professionList);
+  console.log(professionListResult.income_list[1]);
+
+  // const ProfessionData = [
+  //   {
+  //     id: 1,
+  //     label: professionListResult.profession_result[0].profession,
+  //     value: 'employee',
+  //   },
+  //   {
+  //     id: 2,
+  //     label: professionListResult.profession_result[1].profession,
+  //     value: 'entrherprenuer',
+  //   },
+  //   {
+  //     id: 3,
+  //     label: professionListResult.profession_result[2].profession,
+  //     value: 'housewife',
+  //   },
+  //   {
+  //     id: 4,
+  //     label: professionListResult.profession_result[3].profession,
+  //     value: 'Professional(doctor)',
+  //   },
+  //   {
+  //     id: 5,
+  //     label: professionListResult.profession_result[4].profession,
+  //     value: 'Professional(Other)',
+  //   },
+  // ];
+  // const IncomeData = [
+  //   {
+  //     id: 1,
+  //     label: professionListResult.income_list[0],
+  //     value: 'Below 10000',
+  //   },
+  //   {id: 2, label: professionListResult.income_list[1], value: 'Below 10000'},
+  //   {id: 3, label: professionListResult.income_list[2], value: '10000 - 20000'},
+  //   {id: 4, label: professionListResult.income_list[3], value: '20000 - 50000'},
+  //   {id: 5, label: professionListResult.income_list[4], value: 'Above 50000'},
+  // ];
+  // const IncomeData = [professionListResult.income_result];
+
+  const ProfessionData = [
+    {
+      id: 1,
+      label: 'employee',
+      value: 'Below 10000',
+    },
+    {id: 2, label: 'entraprenuer', value: 'Below 10000'},
+    {id: 3, label: 'HouseWife', value: '10000 - 20000'},
+    {id: 4, label: 'professional(Doctor)', value: '20000 - 50000'},
+    {id: 5, label: 'proffesional(others)', value: 'Above 50000'},
+  ];
+
+  const IncomeData = [
+    {
+      id: 1,
+      label: 'Below 10000',
+      value: 'Below 10000',
+    },
+    {id: 2, label: '10000 - 20000', value: '10000 - 20000'},
+    {id: 3, label: '20000 - 50000', value: '20000 - 50000'},
+    {id: 4, label: 'Above 50000', value: 'Above 50000'},
+  ];
 
   const navigation = useNavigation();
   const [name, setName] = useState('');

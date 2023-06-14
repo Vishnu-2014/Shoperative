@@ -1,28 +1,14 @@
 import React, {useEffect} from 'react';
 import {View, Image, StyleSheet} from 'react-native';
 import ShoperativeLogo from '../images/logo.png';
-import {useNavigation} from '@react-navigation/native';
-import {useSelector} from 'react-redux';
+import {useDispatch} from 'react-redux';
+import {professionList} from '../store/actions/professionListActions';
 
 const Splash = () => {
-  // const navigation = useNavigation();
-  // const loginResult = useSelector(state => state.login);
-  // useEffect(() => {
-  //   setTimeout(() => {
-  //     navigation.navigate('HomeScreen');
-  //     // handleGetToken();
-  //   }, 2000);
-  // });
-
-  // const handleGetToken = () => {
-  //   const dataToken = loginResult.token;
-  //   if (!dataToken) {
-  //     navigation.navigate('Login');
-  //   } else {
-  //     navigation.navigate('HomeScreen');
-  //   }
-  // };
-
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(professionList());
+  }, []);
   return (
     <View style={styles.container}>
       <Image source={ShoperativeLogo} style={styles.imageStyles} />

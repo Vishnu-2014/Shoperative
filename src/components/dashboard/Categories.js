@@ -1,17 +1,28 @@
 /* eslint-disable prettier/prettier */
 /* eslint-disable react/no-unstable-nested-components */
 import React from 'react';
-import {View, Text, StyleSheet, ScrollView, Image} from 'react-native';
+import {
+  View,
+  Text,
+  StyleSheet,
+  ScrollView,
+  Image,
+  Pressable,
+} from 'react-native';
 import {HeaderComponent} from '../CustomComponents/HeaderComponent';
 import cosmetics from '../../images/cosmetics.png';
+import {useNavigation} from '@react-navigation/native';
 
 const Categories = () => {
+  const navigation = useNavigation();
   const Product = (imageSource, productName) => {
     return (
       <View style={styles.productContainerStyles}>
-        <View style={styles.imageContainerStyles}>
+        <Pressable
+          style={styles.imageContainerStyles}
+          onPress={() => navigation.navigate('Cosmetics')}>
           <Image style={styles.imageStyles} source={imageSource} />
-        </View>
+        </Pressable>
         <Text style={styles.productNameStyles}>{productName}</Text>
       </View>
     );
@@ -19,11 +30,7 @@ const Categories = () => {
   return (
     <>
       <HeaderComponent title={'All Categories'} />
-      <ScrollView
-        contentContainerStyle={{
-          alignItems: 'center',
-        }}
-        style={styles.container}>
+      <View style={styles.container}>
         <View style={styles.rowDirectionView}>
           {Product(cosmetics, 'Cosmetics')}
           {Product(cosmetics, 'Cosmetics')}
@@ -54,7 +61,7 @@ const Categories = () => {
           {Product(cosmetics, 'Cosmetics')}
           {Product(cosmetics, 'Cosmetics')}
         </View>
-      </ScrollView>
+      </View>
     </>
   );
 };

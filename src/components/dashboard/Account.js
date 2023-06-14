@@ -15,7 +15,7 @@ import profileImage from '../../images/userimag.jpg';
 import {useSelector} from 'react-redux';
 
 const Account = ({navigation}) => {
-  const {user_details: loginResult} = useSelector(state => state.login);
+  const {user_details: profileResult} = useSelector(state => state.profile);
   const CustomFeilds = ({iconName, title, onPressButton}) => {
     return (
       <Pressable
@@ -51,9 +51,9 @@ const Account = ({navigation}) => {
         contentContainerStyle={{alignItems: 'center'}}
         style={styles.cardContainer}>
         <Text style={styles.profileNameTextStyles}>
-          {loginResult.user_name}
+          {profileResult.username}
         </Text>
-        <Text style={styles.numberTextStyles}>+91-{loginResult.mobile}</Text>
+        <Text style={styles.numberTextStyles}>+91-{profileResult.mobile}</Text>
 
         <CustomFeilds iconName={'user'} title={'My Profile'} />
         <CustomFeilds

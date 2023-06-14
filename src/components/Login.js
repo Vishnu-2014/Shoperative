@@ -1,5 +1,5 @@
 /* eslint-disable prettier/prettier */
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {View, Text, StyleSheet, TextInput} from 'react-native';
 import {placeHolderTextColor} from '../theme/colors';
 import Foundation from 'react-native-vector-icons/Foundation';
@@ -13,48 +13,53 @@ import {Snackbar} from 'react-native-paper';
 import DeviceInfo from 'react-native-device-info';
 
 const Login = () => {
+  const deviceInfo = () => {
+    DeviceInfo.getFirstInstallTime().then(firstInstallTime => {
+      setDeviceToken(firstInstallTime);
+    });
+  };
+
+  useEffect(() => {
+    deviceInfo();
+  });
+
   //below two lines will bring the data from API
   const dispatch = useDispatch();
   const loginResult = useSelector(state => state.login);
 
   const navigation = useNavigation();
-  // const [email, SetUsername] = useState('8688941771');
-  const [username, setUsername] = useState('');
-  const [password, SetPassword] = useState('');
-  const [activity, SetActivity] = useState(false);
+  const [username, setUsername] = useState('vishnu@gmail.com');
+  const [password, SetPassword] = useState('456456');
   const [visible, setVisible] = useState(false);
   const [err, setErr] = useState('');
   const [deviceToken, setDeviceToken] = useState();
-
-  const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
 
   const onDismiss = () => {
     setVisible(false);
   };
 
-  // Handling Input Functions
-  // const handleEmailInput = data => {
-  //   SetUsername(data);
-  // };
-  const handleMobileNumberInput = data => {
-    setUsername(data);
-  };
-  const handlePasswordInput = data => {
-    SetPassword(data);
+  const isValidUsername = value => {
+    // Email validation
+    const emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    if (emailRegex.test(value)) {
+      return true;
+    }
+    // Mobile number validation
+    const mobileRegex = /^[0-9]{10}$/;
+    if (mobileRegex.test(value)) {
+      return true;
+    }
+    return false;
   };
 
   //Validations Of Both Inputs
-
   const LoginValidation = () => {
     if (username === '') {
       setVisible(true);
-      setErr('Please Enter Mobile Number');
-    } else if (username.length < 10) {
+      setErr('Please Enter UserName');
+    } else if (!isValidUsername(username)) {
       setVisible(true);
-      setErr('Enter a 10-Digit Mobile Number');
-    } else if (username[0] < 6) {
-      setVisible(true);
-      setErr('Enter a Valid Mobile Number');
+      setErr('Invali Username');
     } else if (password === '') {
       setVisible(true);
       setErr('Please Enter Password');
@@ -62,8 +67,14 @@ const Login = () => {
       setVisible(true);
       setErr('Password Must Contain 6 Letters');
     } else {
-      setVisible(true);
-      setErr(loginResult.description);
+      dispatch(login(username, password, deviceToken));
+      console.log(loginResult);
+      if (loginResult.message === 'success') {
+        navigation.navigate('DrawerView');
+      } else {
+        setVisible(true);
+        setErr(loginResult.description);
+      }
     }
   };
 
@@ -78,25 +89,6 @@ const Login = () => {
     );
   };
 
-  const activityIndicator = () => {
-    SetActivity(true);
-    setTimeout(() => {
-      SetActivity(false);
-      if (loginResult.description === 'You are logged in successfully') {
-        // navigation.navigate('Register');
-        // Alert.alert('Hello');
-        setVisible(false);
-      }
-    }, 500);
-  };
-
-  const deviceInfo = () => {
-    DeviceInfo.getFirstInstallTime().then(firstInstallTime => {
-      setDeviceToken(firstInstallTime);
-    });
-  };
-
-  //
   return (
     <View style={styles.container}>
       <Text style={styles.headingStyles}>Login</Text>
@@ -107,7 +99,8 @@ const Login = () => {
           placeholder="UserName"
           keyboardType="email-address"
           placeholderTextColor={placeHolderTextColor}
-          onChangeText={handleMobileNumberInput}
+          onChangeText={data => setUsername(data)}
+          value={username}
         />
       </View>
       <View style={styles.FeildViewStyles}>
@@ -117,7 +110,8 @@ const Login = () => {
           placeholder="Password"
           placeholderTextColor={placeHolderTextColor}
           secureTextEntry={true}
-          onChangeText={handlePasswordInput}
+          onChangeText={data => SetPassword(data)}
+          value={password}
         />
       </View>
 
@@ -131,16 +125,8 @@ const Login = () => {
         style={styles.buttonStyles}
         onPress={() => {
           //get username and password and pass this method instead of hardcoded values
-          dispatch(login(username, password, deviceToken));
           deviceInfo();
           LoginValidation();
-          console.log(loginResult);
-          if (loginResult.message === 'success') {
-            navigation.navigate('DrawerView');
-          } else {
-            setVisible(true);
-            setErr('Login Failed');
-          }
         }}>
         <Text style={styles.buttonTextStyles}>LOG IN</Text>
       </Pressable>
@@ -149,15 +135,16 @@ const Login = () => {
         Don't Have An Account ?{' '}
         <Text
           style={{color: '#ED7421'}}
-          onPress={() => navigation.navigate('Register')}>
+          onPress={() => {
+            navigation.navigate('Register');
+          }}>
           Register
         </Text>
       </Text>
 
-      {/* {loginResult.loginStarted && (
+      {loginResult.loginStarted && (
         <ActivityStatus message={'Login inprogress'} />
-      )} */}
-
+      )}
       {snackBar()}
     </View>
   );

@@ -1,14 +1,10 @@
 import * as React from 'react';
-import {StyleSheet, View, Button, ScrollView, Text} from 'react-native';
-import {useDispatch, useSelector} from 'react-redux';
-import {EditProfile} from './EditProfile';
+import {StyleSheet, View, Button, ScrollView} from 'react-native';
+import {useDispatch} from 'react-redux';
 import {profile} from '../store/actions/profileActions';
 
 //We can remove once all the screens developed
 const HomeScreen = ({navigation}) => {
-  const dispatch = useDispatch();
-  const loginResult = useSelector(state => state.login);
-  const [Token, setToken] = React.useState('');
   const targetsButtons = [
     {
       title: 'AddFollowers',
@@ -47,8 +43,8 @@ const HomeScreen = ({navigation}) => {
       target: 'DropdownExample',
     },
     {
-      title: 'OtpVerification',
-      target: 'OtpVerification',
+      title: 'ForgetPassword',
+      target: 'ForgetPassword',
     },
   ];
 
@@ -66,14 +62,6 @@ const HomeScreen = ({navigation}) => {
           </View>
         );
       })}
-      <Button
-        title="EditProfile"
-        onPress={() => {
-          setToken(loginResult.token);
-          dispatch(profile(Token));
-          navigation.navigate('EditProfile');
-        }}
-      />
     </ScrollView>
   );
 };

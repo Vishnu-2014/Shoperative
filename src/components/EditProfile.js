@@ -6,8 +6,9 @@ import {placeHolderTextColor} from '../theme/colors';
 import {updateUserDetails} from '../store/actions/loginActions';
 
 const EditProfile = () => {
-  const profileResult = useSelector(state => state.profile);
-  const {user_details: loginResult} = useSelector(state => state.login);
+  // const profileResult = getState
+  // const {user_details: loginResult} = useSelector(state => state.login);
+  const {user_details: profileResult} = useSelector(state => state.profile);
   const CustomFeilds = (textFeild, placeholderFeild, key) => {
     return (
       <View style={styles.elementsContainerStyles}>
@@ -28,9 +29,9 @@ const EditProfile = () => {
     <View style={styles.container}>
       <HeaderComponent title={'Edit Profile'} />
 
-      {CustomFeilds('Name*', loginResult.user_name)}
-      {CustomFeilds('Mobile Number*', loginResult.mobile, 'mobile')}
-      {CustomFeilds('Email Id*', loginResult.email, 'email')}
+      {CustomFeilds('Name*', profileResult.username)}
+      {CustomFeilds('Mobile Number*', profileResult.mobile, 'mobile')}
+      {CustomFeilds('Email Id*', profileResult.email, 'email')}
 
       <View
         style={{

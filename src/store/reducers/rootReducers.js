@@ -8,7 +8,7 @@ import professionListReducer from './professionListReducer';
 export const rootReducer = combineReducers({
   login: loginReducer,
   register: registerReducer,
-  // forgetPassword: forgetpasswordReducer,
+  forgetPassword: forgetpasswordReducer,
   profile: profileReducer,
-  // professionList: professionListReducer,
+  professionList: professionListReducer,
 });

@@ -27,7 +27,7 @@ export const login = (username, password, deviceToken) => {
         },
       });
       console.log(result.data);
-      if (result.status === 200) {
+      if (result.status === 200 || 204) {
         dispatch({type: LOGIN_SUCCESS, payload: result.data});
       } else {
         dispatch({type: LOGIN_FAILURE});

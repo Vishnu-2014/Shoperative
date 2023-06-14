@@ -4,7 +4,7 @@ export const PROFILE_STARTED = 'profile:PROFILE_STARTED';
 export const PROFILE_SUCCESS = 'profile:PROFILE_SUCCESS';
 export const PROFILE_FAILURE = 'profile:PROFILE_FAILURE';
 
-export const profile = Token => {
+export const profile = () => {
   return async (dispatch, getState) => {
     //don't use  useSelector in Actions
     const loginResult = getState().login;

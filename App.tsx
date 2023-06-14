@@ -3,6 +3,7 @@ import React, {useState, useEffect} from 'react';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import {createStackNavigator} from '@react-navigation/stack';
 import {Register} from './src/components/Register';
 import DropdownExample from './src/components/CustomComponents/CustomDropDown';
 import {PowerUserRegister} from './src/components/PowerUserRegister';
@@ -21,7 +22,6 @@ import {MyWishlist} from './src/components/ProfileComponents/MyWishlist';
 import {MyWallet} from './src/components/ProfileComponents/MyWallet';
 import {Help} from './src/components/ProfileComponents/Help';
 import {ChangePassword} from './src/components/ProfileComponents/ChangePassword';
-import {AllCategories} from './src/components/AllCategories';
 import {SearchBar} from './src/components/SearchPage';
 import {ShoppingCart} from './src/components/ShoppingCart';
 import {SearchFollowers} from './src/components/SearchFollowers';
@@ -37,177 +37,178 @@ import {HeaderComponent} from './src/components/CustomComponents/HeaderComponent
 import {PaymentSuccess} from './src/components/PaymentSuccess';
 import {PaymentFailure} from './src/components/PaymentFailure';
 import {Splash} from './src/components/Splash';
+import Cosmetics from './src/components/dashboard/Categories/Cosmetics';
 
 import {Provider} from 'react-redux';
 import storeConfig from './src/store/configureStore';
 
-const RootStack = createNativeStackNavigator();
+const RootStack = createStackNavigator();
 const screens = [
   {
     name: 'Register',
-    component: Register,
+    components: Register,
     headerBackTitle: 'Home',
   },
-  {
-    name: 'DropdownExample',
-    component: DropdownExample,
-    headerBackTitle: 'Home',
-  },
+  // {
+  //   name: 'DropdownExample',
+  //   components: DropdownExample,
+  //   headerBackTitle: 'Home',
+  // },
   {
     name: 'HeaderComponent',
-    component: HeaderComponent,
+    components: HeaderComponent,
     headerBackTitle: 'HeaderComponent',
   },
   {
     name: 'PowerUserRegister',
-    component: PowerUserRegister,
+    components: PowerUserRegister,
     headerBackTitle: 'PowerUserRegister',
   },
   {
     name: 'AddFollowers',
-    component: AddFollowers,
+    components: AddFollowers,
     headerBackTitle: 'Home',
   },
-  {
-    name: 'Login',
-    component: Login,
-    headerBackTitle: 'Home',
-  },
+  // {
+  //   name: 'Login',
+  //   component: Login,
+  //   headerBackTitle: 'Home',
+  // },
   {
     name: 'SignUp',
-    component: Signup,
+    components: Signup,
     headerBackTitle: 'Home',
   },
   {
     name: 'ForgetPassword',
-    component: ForgetPassword,
+    components: ForgetPassword,
     headerBackTitle: 'Home',
   },
   {
     name: 'OtpVerification',
-    component: OtpVerification,
+    components: OtpVerification,
     headerBackTitle: 'Home',
   },
   {
     name: 'DrawerView',
-    component: DrawerView,
+    components: DrawerView,
     headerBackTitle: 'Home',
     headerShown: false,
   },
   {
     name: 'ProductDetails',
-    component: ProductDetails,
+    components: ProductDetails,
     headerBackTitle: 'ProductDetails',
   },
   {
     name: 'Account',
-    component: Account,
+    components: Account,
   },
   {
     name: 'EditProfile',
-    component: EditProfile,
+    components: EditProfile,
     headerBackTitle: 'EditProfile',
   },
   {
     name: 'MyOrders',
-    component: MyOrders,
+    components: MyOrders,
     headerBackTitle: 'MyOrders',
   },
   {
     name: 'MyWishlist',
-    component: MyWishlist,
+    components: MyWishlist,
     headerBackTitle: 'MyWishlist',
   },
   {
     name: 'MyWallet',
-    component: MyWallet,
+    components: MyWallet,
     headerBackTitle: 'MyWallet',
   },
   {
     name: 'Help',
-    component: Help,
+    components: Help,
     headerBackTitle: 'Help',
   },
   {
     name: 'ChangePassword',
-    component: ChangePassword,
+    components: ChangePassword,
     headerBackTitle: 'ChangePassword',
   },
   {
-    name: 'AllCategories',
-    component: AllCategories,
-    headerBackTitle: 'AllCategories',
-  },
-  {
     name: 'SearchBar',
-    component: SearchBar,
+    components: SearchBar,
     headerBackTitle: 'SearchBar',
   },
   {
     name: 'ShoppingCart',
-    component: ShoppingCart,
+    components: ShoppingCart,
     headerBackTitle: 'ShoppingCart',
   },
   {
     name: 'SearchFollowers',
-    component: SearchFollowers,
+    components: SearchFollowers,
     headerBackTitle: 'SearchFollowers',
   },
   {
     name: 'ShippingAddress',
-    component: ShippingAddress,
+    components: ShippingAddress,
     headerBackTitle: 'ShippingAddress',
   },
   {
     name: 'CheckOut',
-    component: CheckOut,
+    components: CheckOut,
     headerBackTitle: 'CheckOut',
   },
   {
     name: 'OrderDetails',
-    component: OrderDetails,
+    components: OrderDetails,
     headerBackTitle: 'OrderDetails',
   },
   {
     name: 'RadioButtons',
-    component: RadioButtons,
+    components: RadioButtons,
     headerBackTitle: 'RadioButtons',
   },
   {
     name: 'ReturnProduct',
-    component: ReturnProduct,
+    components: ReturnProduct,
     headerBackTitle: 'ReturnProduct',
   },
   {
     name: 'ReturnProduct2',
-    component: ReturnProduct2,
+    components: ReturnProduct2,
     headerBackTitle: 'ReturnProduct2',
   },
   {
     name: 'ReturnProduct3',
-    component: ReturnProduct3,
+    components: ReturnProduct3,
     headerBackTitle: 'ReturnProduct3',
   },
   {
     name: 'ManagePayments',
-    component: ManagePayments,
+    components: ManagePayments,
     headerBackTitle: 'ManagePayments',
   },
   {
     name: 'PaymentSuccess',
-    component: PaymentSuccess,
+    components: PaymentSuccess,
     headerBackTitle: 'PaymentSuccess',
   },
   {
     name: 'PaymentFailure',
-    component: PaymentFailure,
+    components: PaymentFailure,
     headerBackTitle: 'PaymentFailure',
   },
   {
     name: 'Splash',
-    component: Splash,
+    components: Splash,
     headerBackTitle: 'Splash',
   },
+  // {
+  //   name: 'Cosmetics',
+  //   components: Cosmetics,
+  //   headerBackTitle: 'Cosmetics',
+  // },
 ];
 const App = () => {
   const [splash, SetSplash] = useState(true);
@@ -225,17 +226,22 @@ const App = () => {
           <Splash />
         ) : (
           <NavigationContainer>
-            <RootStack.Navigator initialRouteName="HomeScreen">
+            <RootStack.Navigator initialRouteName="Login">
               <RootStack.Screen
-                name="HomeScreen"
-                component={HomeScreen}
+                name="Login"
+                component={Login}
+                options={{headerShown: false}}
+              />
+              <RootStack.Screen
+                name="Cosmetics"
+                component={Cosmetics}
                 options={{headerShown: false}}
               />
               {screens.map((item, index) => (
                 <RootStack.Screen
                   key={index}
                   name={item.name}
-                  component={item.component}
+                  component={item.components}
                   options={{
                     headerBackTitle: item.headerBackTitle ?? item.name,
                     title: item.headerBackTitle,

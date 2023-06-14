@@ -17,10 +17,8 @@ export const professionList = () => {
         //   'Content-Type': 'application/json; charset=utf-8',
         // },
       });
-      console.log(result.data);
       if (result.status === 200) {
         dispatch({type: PROFESSION_LIST_SUCCESS, payload: result.data});
-        console.log('proffession Success');
       } else {
         dispatch({type: PROFESSION_LIST_FAILURE});
         console.log('proffession Failure');

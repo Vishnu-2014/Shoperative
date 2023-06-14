@@ -1,9 +1,9 @@
-import {professionList} from '../actions/professionListActions';
+import * as professionList from '../actions/professionListActions';
 const initialState = {
   code: '',
   message: '',
   description: '',
-  profession_list: [],
+  profession_result: [],
   income_list: [],
   professionListStarted: false,
   professionListSuccess: false,
@@ -17,14 +17,14 @@ const professionListReducer = (state = initialState, action) => {
         professionListStarted: true,
       };
     case professionList.PROFESSION_LIST_SUCCESS:
-      const {profession_list, code, description, message, income_list} =
+      const {profession_result, code, description, message, income_list} =
         action.payload;
       return {
         ...state,
         code,
         message,
         description,
-        profession_list,
+        profession_result,
         income_list,
         professionListStarted: false,
         professionListSuccess: true,
