@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import axios from 'axios';
 import {baseURL} from '../../utils/Constants';
 export const LOGIN_STARTED = 'login:LOGIN_STARTED';
@@ -7,6 +8,7 @@ export const UPDATE_USER_DETAILS = 'userDataUpdate:UPDATE_USER_DETAILS';
 export const FORGET_PASSWORD_STARTED = 'forgetpassword:FORGET_PASSWORD_STARTED';
 export const FORGET_PASSWORD_SUCCESS = 'forgetpassword:FORGET_PASSWORD_SUCCESS';
 export const FORGET_PASSWORD_FAILURE = 'forgetpassword:FORGET_PASSWORD_FAILURE';
+export const CHANGE_USER_PASSWORD = 'changeUserPassword: CHANGE_USER_PASSWORD';
 
 export const login = (username, password, deviceToken) => {
   return async (dispatch, getState) => {
@@ -25,8 +27,8 @@ export const login = (username, password, deviceToken) => {
         headers: {
           'Content-Type': 'application/json; charset=utf-8',
         },
-        timeout: 30,
-        timeoutErrorMessage: 'Network timedOut',
+        // timeout: 30,
+        // timeoutErrorMessage: 'Network timedOut',
       });
       console.log(result.data);
       if (result.status === 200 || 204) {
@@ -49,6 +51,7 @@ export const updateUserDetails = (key, value) => {
     }
   };
 };
+
 export const forgetPassword = email => {
   return async (dispatch, getState) => {
     dispatch({type: FORGET_PASSWORD_STARTED});

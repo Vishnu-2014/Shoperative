@@ -203,6 +203,11 @@ const screens = [
     components: Splash,
     headerBackTitle: 'Splash',
   },
+  {
+    name: 'Cosmetics',
+    components: Cosmetics,
+    headerBackTitle: 'Cosmetics',
+  },
 ];
 const App = () => {
   const [splash, SetSplash] = useState(true);

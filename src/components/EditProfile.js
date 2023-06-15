@@ -6,8 +6,6 @@ import {placeHolderTextColor} from '../theme/colors';
 import {updateUserDetails} from '../store/actions/loginActions';
 
 const EditProfile = () => {
-  // const profileResult = getState
-  // const {user_details: loginResult} = useSelector(state => state.login);
   const {user_details: profileResult} = useSelector(state => state.profile);
   const CustomFeilds = (textFeild, placeholderFeild, key) => {
     return (

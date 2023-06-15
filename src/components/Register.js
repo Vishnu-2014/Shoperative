@@ -18,7 +18,7 @@ import {register} from '../store/actions/registerActions';
 const Register = () => {
   const dispatch = useDispatch();
   const professionListResult = useSelector(state => state.professionList);
-  console.log(professionListResult.income_list[1]);
+  // console.log(professionListResult.income_list[1]);
 
   // const ProfessionData = [
   //   {
@@ -158,8 +158,7 @@ const Register = () => {
       setVisible(true);
       setErr('Confirm Password Not Matched');
     } else {
-      setVisible(true);
-      setErr('Sign Up Successfull');
+      navigation.navigate('Login');
     }
   };
 

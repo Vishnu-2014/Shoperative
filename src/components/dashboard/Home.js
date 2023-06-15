@@ -1,5 +1,12 @@
-import React from 'react';
-import {View, Text, StyleSheet, ScrollView, Image} from 'react-native';
+import React, {useEffect} from 'react';
+import {
+  View,
+  Text,
+  StyleSheet,
+  ScrollView,
+  Image,
+  BackHandler,
+} from 'react-native';
 import {SearchView} from '../CustomComponents/SearchView';
 import {MapLocationComponent} from '../CustomComponents/MapLocationComponent';
 import {ImageCurousel} from '../CustomComponents/ImageCurousel';
@@ -15,6 +22,18 @@ import BeautyImage from '../../images/DashBoardImages/beauty-hygiene.png';
 import {NavigationBar} from '../CustomComponents/NavigationBar';
 
 const Home = () => {
+  useEffect(() => {
+    const handleBackButton = () => {
+      BackHandler.exitApp(); // This will close the app
+      return true; // Return true to prevent default back button behavior
+    };
+
+    BackHandler.addEventListener('hardwareBackPress', handleBackButton);
+
+    return () => {
+      BackHandler.removeEventListener('hardwareBackPress', handleBackButton);
+    };
+  }, []);
   const categories = (imageSource, productTitle) => {
     return (
       <View style={ss.CategoriesProductContainer}>

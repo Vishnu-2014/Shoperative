@@ -7,7 +7,7 @@ import AntDesign from 'react-native-vector-icons/AntDesign';
 import {Snackbar} from 'react-native-paper';
 
 const ChangePassword = () => {
-  const [presentPassword, setPresentPassword] = useState('');
+  const [currentPassword, setCurrentPassword] = useState('');
   const [newPassword, setNewPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [err, setErr] = useState('');
@@ -28,8 +28,8 @@ const ChangePassword = () => {
     );
   };
 
-  const handlePresentPassword = data => {
-    setPresentPassword(data);
+  const handleCurrentPassword = data => {
+    setCurrentPassword(data);
   };
   const handleNewPassword = data => {
     setNewPassword(data);
@@ -39,13 +39,13 @@ const ChangePassword = () => {
   };
 
   const ForgetPasswordValidations = () => {
-    if (presentPassword === '') {
+    if (currentPassword === '') {
       setVisible(true);
-      setErr('Please Enter Present Password');
+      setErr('Please Enter Current Password');
     } else if (newPassword === '') {
       setVisible(true);
       setErr('Please Enter New Password');
-    } else if (newPassword === presentPassword) {
+    } else if (newPassword === currentPassword) {
       setVisible(true);
       setErr('Do Not Use Previous Password');
     } else if (confirmPassword === '') {
@@ -76,7 +76,7 @@ const ChangePassword = () => {
   return (
     <View style={styles.container}>
       <HeaderComponent title={'Change Password'} />
-      {CustomFeilds('Present Password', handlePresentPassword)}
+      {CustomFeilds('Current Password', handleCurrentPassword)}
       {CustomFeilds('New Password', handleNewPassword)}
       {CustomFeilds('Confirm Password', handleConfirmPassword)}
 

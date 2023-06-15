@@ -40,15 +40,11 @@ const Login = () => {
   useEffect(() => {
     if (loginResult.message === 'success') {
       navigation.navigate('DrawerView');
-    } else if (loginResult?.errorMessage || loginResult.description) {
+    } else if (loginResult.message === 'fail') {
+      setErr(loginResult.description);
       setVisible(true);
-      setErr(
-        loginResult?.errorMessage
-          ? loginResult?.errorMessage
-          : loginResult.description,
-      );
     }
-  }, [loginResult, navigation]);
+  });
 
   const isValidUsername = value => {
     // Email validation
@@ -71,7 +67,7 @@ const Login = () => {
       setErr('Please Enter UserName');
     } else if (!isValidUsername(username)) {
       setVisible(true);
-      setErr('Invali Username');
+      setErr('Invalid Username');
     } else if (password === '') {
       setVisible(true);
       setErr('Please Enter Password');
@@ -132,6 +128,12 @@ const Login = () => {
           //get username and password and pass this method instead of hardcoded values
           deviceInfo();
           LoginValidation();
+          // if (loginResult.message === 'success') {
+          //   navigation.navigate('DrawerView');
+          // } else if (loginResult.message === 'fail') {
+          //   setErr(loginResult.description);
+          //   setVisible(true);
+          // }
         }}>
         <Text style={styles.buttonTextStyles}>LOG IN</Text>
       </Pressable>

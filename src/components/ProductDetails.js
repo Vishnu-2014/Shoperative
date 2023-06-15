@@ -11,7 +11,7 @@ const ProductDetails = () => {
   const navigation = useNavigation();
   return (
     <View style={styles.container}>
-      <FontAwesome name="heart" style={styles.iconStyles} size={20} />
+      {/* <FontAwesome name="heart" style={styles.iconStyles} size={20} /> */}
       <View style={styles.imageContainerStyles}>
         <Image source={IndianGrocerySupplier} style={styles.imageStyles} />
       </View>
