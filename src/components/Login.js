@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 import React, {useEffect, useState} from 'react';
 import {View, Text, StyleSheet, TextInput} from 'react-native';
 import {placeHolderTextColor} from '../theme/colors';
@@ -38,6 +37,19 @@ const Login = () => {
     setVisible(false);
   };
 
+  useEffect(() => {
+    if (loginResult.message === 'success') {
+      navigation.navigate('DrawerView');
+    } else if (loginResult?.errorMessage || loginResult.description) {
+      setVisible(true);
+      setErr(
+        loginResult?.errorMessage
+          ? loginResult?.errorMessage
+          : loginResult.description,
+      );
+    }
+  }, [loginResult, navigation]);
+
   const isValidUsername = value => {
     // Email validation
     const emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
@@ -68,13 +80,6 @@ const Login = () => {
       setErr('Password Must Contain 6 Letters');
     } else {
       dispatch(login(username, password, deviceToken));
-      console.log(loginResult);
-      if (loginResult.message === 'success') {
-        navigation.navigate('DrawerView');
-      } else {
-        setVisible(true);
-        setErr(loginResult.description);
-      }
     }
   };
 

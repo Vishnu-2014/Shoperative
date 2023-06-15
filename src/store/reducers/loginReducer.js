@@ -8,6 +8,7 @@ const initialState = {
   loginStarted: false,
   loginSuccess: false,
   loginFailure: false,
+  errorMessage: '',
 };
 const loginReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -29,10 +30,12 @@ const loginReducer = (state = initialState, action) => {
         loginSuccess: true,
       };
     case login.LOGIN_FAILURE:
+      const {error} = action.error;
       return {
         ...state,
         loginStarted: false,
         loginFailure: true,
+        errorMessage: error,
       };
     case login.UPDATE_USER_DETAILS:
       const {key, value} = action.payload;

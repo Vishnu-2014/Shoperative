@@ -37,8 +37,7 @@ import {HeaderComponent} from './src/components/CustomComponents/HeaderComponent
 import {PaymentSuccess} from './src/components/PaymentSuccess';
 import {PaymentFailure} from './src/components/PaymentFailure';
 import {Splash} from './src/components/Splash';
-import Cosmetics from './src/components/dashboard/Categories/Cosmetics';
-
+import {Cosmetics} from './src/components/dashboard/Categories/Cosmetics.js';
 import {Provider} from 'react-redux';
 import storeConfig from './src/store/configureStore';
 
@@ -204,11 +203,6 @@ const screens = [
     components: Splash,
     headerBackTitle: 'Splash',
   },
-  // {
-  //   name: 'Cosmetics',
-  //   components: Cosmetics,
-  //   headerBackTitle: 'Cosmetics',
-  // },
 ];
 const App = () => {
   const [splash, SetSplash] = useState(true);
@@ -230,11 +224,6 @@ const App = () => {
               <RootStack.Screen
                 name="Login"
                 component={Login}
-                options={{headerShown: false}}
-              />
-              <RootStack.Screen
-                name="Cosmetics"
-                component={Cosmetics}
                 options={{headerShown: false}}
               />
               {screens.map((item, index) => (

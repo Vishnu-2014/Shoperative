@@ -25,6 +25,8 @@ export const login = (username, password, deviceToken) => {
         headers: {
           'Content-Type': 'application/json; charset=utf-8',
         },
+        timeout: 30,
+        timeoutErrorMessage: 'Network timedOut',
       });
       console.log(result.data);
       if (result.status === 200 || 204) {
@@ -33,7 +35,7 @@ export const login = (username, password, deviceToken) => {
         dispatch({type: LOGIN_FAILURE});
       }
     } catch (e) {
-      console.log('the error', e);
+      dispatch({type: LOGIN_FAILURE, error: e.message});
     }
   };
 };
