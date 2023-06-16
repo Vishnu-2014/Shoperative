@@ -64,12 +64,12 @@ const Register = () => {
     {
       id: 1,
       label: 'employee',
-      value: 'Below 10000',
+      value: 'employee',
     },
-    {id: 2, label: 'entraprenuer', value: 'Below 10000'},
-    {id: 3, label: 'HouseWife', value: '10000 - 20000'},
-    {id: 4, label: 'professional(Doctor)', value: '20000 - 50000'},
-    {id: 5, label: 'proffesional(others)', value: 'Above 50000'},
+    {id: 2, label: 'entraprenuer', value: 'entraprenuer'},
+    {id: 3, label: 'HouseWife', value: 'HouseWife'},
+    {id: 4, label: 'professional(Doctor)', value: 'Professional(Doctor)'},
+    {id: 5, label: 'proffesional(others)', value: 'Professional(Others)'},
   ];
 
   const IncomeData = [
